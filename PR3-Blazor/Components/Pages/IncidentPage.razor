@@ -1,0 +1,388 @@
+﻿@page "/incidentPage"
+
+@using System.Text.Json
+@using System.Text.Json.Serialization
+@using Newtonsoft.Json
+@using PR3_Blazor.Components.Models
+@using PR3_Blazor.Components.Services
+@using Blazored.Modal;
+@using Blazored.Modal.Services
+@using NetcodeHub.Packages.Components.Modal
+
+@inject IncidentService IncidentService
+@inject UtilisateurService UtilisateurService
+@inject PosteService PosteService
+@inject SalleService SalleService
+@inject EtablissementService EtablissementService
+
+
+@rendermode InteractiveServer
+
+<h3>Liste des Incidents </h3>
+
+@if (incidentList != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Description</th>
+                <th>Responsable</th>
+                <th>Type</th>
+                <th></th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var incident in incidentList)
+            {
+                <tr>
+                    <td width="20">@incident.Id</td>
+                    <td width ="20">@incident.Description</td>
+                    <td width="20">@incident.Responsable?.Nom</td>
+                    <td width ="20">@(incident.PosteId.HasValue ? "Poste" : incident.SalleId.HasValue ? "Salle" : "Etablissement")</td>
+                    <td width="20">
+                        @if (incident.PosteId.HasValue)
+                        {
+                            @incident.poste?.Numero
+                        }
+                        else if (incident.SalleId.HasValue)
+                        {
+                            @incident.salle?.Numero
+                        }
+                        else if (incident.EtablissementId.HasValue)
+                        {
+                            @incident.etablissement?.Nom
+                        }
+                    </td>
+                    <td>
+                        <button class="btn btn-primary" @onclick="() => OpenUpdateModal(incident.Id)">Editer</button>
+                        <button class="btn btn-danger" @onclick="() => DeleteIncident(incident.Id)">Supprimer</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button class="btn btn-info" @onclick="OpenModal">Ajouter un incident</button>
+
+}
+else
+{
+    <p>Chargement des salles ...</p>
+}
+
+
+<Modal BootstrapClass="border-success"
+       CustomStyle="width:400px"
+       @bind-Open="IsOpen">
+    <ContentContent>
+
+        <form @onsubmit="AddIncident">
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label for="numero">Description :</label>
+                <input type="text" id="numero" @bind="incident.Description" required>
+            </div>
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label for="type">Responsable :</label>
+                <select id="responsable" @bind="incident.UtilisateurId" required>
+                    <option value="">-- Sélectionner un type --</option>
+                    @if (utilisateurList != null)
+                    {
+                        @foreach (var utilisateur in utilisateurList)   
+                        {
+                            <option value="@utilisateur.Id"> @(utilisateur.Nom + " " + utilisateur.Prenom)</option>
+                        }
+                    }
+                </select>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label for="type">Type :</label>
+                <select id="type" @onchange="OnTypeChange" required>
+                    <option value="">-- Sélectionner un type --</option>
+                    <option value="Poste">Poste</option>
+                    <option value="Salle">Salle</option>
+                    <option value="Etablissement">Etablissement</option>
+                </select>
+            </div>
+            @if (selectedType == "Poste")
+            {
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label for="poste">Poste :</label>
+                    <select id="poste" @bind="incident.PosteId" required>
+                        <option value="">-- Sélectionner un poste --</option>
+                        @foreach (var poste in posteList)
+                        {
+                            <option value="@poste.Id">@poste.Numero</option>
+                        }
+                    </select>
+                </div>
+            }
+            else if (selectedType == "Salle")
+            {
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label for="salle">Salle :</label>
+                    <select id="salle" @bind="incident.SalleId" required>
+                        <option value="">-- Sélectionner une salle --</option>
+                        @foreach (var salle in salleList)
+                        {
+                            <option value="@salle.Id">@salle.Numero</option>
+                        }
+                    </select>
+                </div>
+            }
+            else if (selectedType == "Etablissement")
+            {
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label for="etablissement">Etablissement :</label>
+                    <select id="etablissement" @bind="incident.EtablissementId" required>
+                        <option value="">-- Sélectionner un établissement --</option>
+                        @foreach (var etablissement in etablissementList)
+                        {
+                            <option value="@etablissement.Id">@etablissement.Nom</option>
+                        }
+                    </select>
+                </div>
+            }
+            <div class="d-flex justify-content-center align-content-center">
+                <button type="submit" class="btn btn-success btn-sm" value="ok" style="margin-right:5px">Enregistrer</button>
+                <button type="button" class="btn btn-danger btn-sm" @onclick="CloseModal">Annuler</button>
+            </div>
+        </form>
+    </ContentContent>
+</Modal>
+
+<Modal BootstrapClass="border-success"
+       CustomStyle="width:400px"
+       @bind-Open="IsUpdateOpen">
+    <ContentContent>
+
+        <form @onsubmit="UpdateIncident">
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label for="numero">Description :</label>
+                <input type="text" id="numero" @bind="incident.Description" required>
+            </div>
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label for="type">Responsable :</label>
+                <select id="responsable" @bind="incident.UtilisateurId" required>
+                    <option value="">-- Sélectionner un type --</option>
+                    @if (utilisateurList != null)
+                    {
+                        @foreach (var utilisateur in utilisateurList)
+                        {
+                            <option value="@utilisateur.Id"> @(utilisateur.Nom +" "+ utilisateur.Prenom)</option>
+                        }
+                    }
+                </select>
+            </div>
+
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label for="type">Type :</label>
+                <select id="type" @onchange="OnTypeChange" required>
+                    <option value="">-- Sélectionner un type --</option>
+                    <option value="Poste">Poste</option>
+                    <option value="Salle">Salle</option>
+                    <option value="Etablissement">Etablissement</option>
+                </select>
+            </div>
+            @if (selectedType == "Poste")
+            {
+                <div class="form-group" style="margin-bottom: 15px;" required>
+                    <label for="poste">Poste :</label>
+                    <select id="poste" @bind="incident.PosteId" required>
+                        <option value="">-- Sélectionner un poste --</option>
+                        @foreach (var poste in posteList)
+                        {
+                            <option value="@poste.Id">@poste.Numero</option>
+                        }
+                    </select>
+                </div>
+            }
+            else if (selectedType == "Salle")
+            {
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label for="salle">Salle :</label>
+                    <select id="salle" @bind="incident.SalleId" required>
+                        <option value="">-- Sélectionner une salle --</option>
+                        @foreach (var salle in salleList)
+                        {
+                            <option value="@salle.Id">@salle.Numero</option>
+                        }
+                    </select>
+                </div>
+            }
+            else if (selectedType == "Etablissement")
+            {
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label for="etablissement">Etablissement :</label>
+                    <select id="etablissement" @bind="incident.EtablissementId" required>
+                        <option value="">-- Sélectionner un établissement --</option>
+                        @foreach (var etablissement in etablissementList)
+                        {
+                            <option value="@etablissement.Id">@etablissement.Nom</option>
+                        }
+                    </select>
+                </div>
+            }
+            <div class="d-flex justify-content-center align-content-center">
+                <button type="submit" class="btn btn-success btn-sm" value="ok" style="margin-right:5px">Enregistrer</button>
+                <button type="button" class="btn btn-danger btn-sm" @onclick="CloseUpdateModal">Annuler</button>
+            </div>
+        </form>
+    </ContentContent>
+</Modal>
+
+@code {
+    List<Incident>? incidentList;
+    List<Utilisateur>? utilisateurList;
+    List<Poste>? posteList;
+    List<Salle>? salleList;
+    List<Etablissement>? etablissementList ;
+    Incident incident = new Incident();
+
+    private bool _initialized;
+    private bool _isFirstRender = true;
+
+    private string selectedType;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && _isFirstRender)
+        {
+            _isFirstRender = false;
+            await FetchIncidentList();
+            StateHasChanged(); // Notify Blazor that the state has changed so it can re-render the component
+        }
+    }
+
+    private async Task FetchIncidentList()
+    {
+        incidentList = await IncidentService.GetAllIncident();
+        utilisateurList = await UtilisateurService.GetAllUtilisateur();
+        posteList = await PosteService.GetAllPoste();
+        salleList = await SalleService.GetAllSalle();
+        etablissementList = await EtablissementService.GetAllEtablissement();
+
+        foreach (var incident in incidentList)
+        {
+            incident.Responsable = await UtilisateurService.GetUtilisateurById(incident.UtilisateurId);
+            if (incident.PosteId.HasValue)
+            {
+                incident.poste = await PosteService.GetPosteById(incident.PosteId.Value);
+            }
+            else if (incident.SalleId.HasValue)
+            {
+                incident.salle = await SalleService.GetSalleById(incident.SalleId.Value);
+            }
+            else if (incident.EtablissementId.HasValue)
+            {
+                incident.etablissement = await EtablissementService.GetEtablissementById(incident.EtablissementId.Value);
+            }
+        }
+        _initialized = true;
+    }
+
+    private async Task onUpdateIncident()
+    {
+        foreach (var incident in incidentList)
+        {
+            incident.Responsable = await UtilisateurService.GetUtilisateurById(incident.UtilisateurId);
+            if (incident.PosteId.HasValue)
+            {
+                incident.poste = await PosteService.GetPosteById(incident.PosteId.Value);
+            }
+            else if (incident.SalleId.HasValue)
+            {
+                incident.salle = await SalleService.GetSalleById(incident.SalleId.Value);
+            }
+            else if (incident.EtablissementId.HasValue)
+            {
+                incident.etablissement = await EtablissementService.GetEtablissementById(incident.EtablissementId.Value);
+            }
+        }
+    }
+
+    private async Task AddIncident()
+    {
+
+        await IncidentService.AddIncident(incident);
+        incidentList = await IncidentService.GetAllIncident();
+        await onUpdateIncident();
+        incident = new Incident();
+        CloseModal();
+    }
+
+    private async Task UpdateIncident()
+    {
+        switch (selectedType)
+        {
+            case "Poste":
+                incident.SalleId = null;
+                incident.EtablissementId = null;
+                break;
+            case "Salle":
+                incident.PosteId = null;
+                incident.EtablissementId = null;
+                break;
+            case "Etablissement":
+                incident.PosteId = null;
+                incident.SalleId = null;
+                break;
+
+        }
+        await IncidentService.UpdateIncident(incident);
+        incidentList = await IncidentService.GetAllIncident();
+        await onUpdateIncident();
+        incident = new Incident();
+        CloseUpdateModal();
+    }
+
+    private async Task DeleteIncident(int incidentId)
+    {
+        await IncidentService.DeleteIncident(incidentId);
+
+        incidentList = await IncidentService.GetAllIncident();
+        await onUpdateIncident();
+    }
+
+    public bool IsOpen { get; set; }
+    public bool IsUpdateOpen { get; set; }
+
+    void OpenModal() => IsOpen = true;
+    void CloseModal() => IsOpen = false;
+
+    async Task OpenUpdateModal(int incidentId)
+    {
+        incident = await IncidentService.GetIncidentById(incidentId);
+        IsUpdateOpen = true;
+    }
+    void CloseUpdateModal()
+    {
+        IsUpdateOpen = false;
+        incident = new Incident();
+
+    }
+    private async Task OnTypeChange(ChangeEventArgs e)
+    {
+        selectedType = e.Value.ToString();
+        switch (selectedType)
+        {
+            case "Poste":
+                posteList = await PosteService.GetAllPoste();
+                break;
+            case "Salle":
+                salleList = await SalleService.GetAllSalle();
+                break;
+            case "Etablissement":
+                etablissementList = await EtablissementService.GetAllEtablissement();
+                break;
+            default:
+                posteList.Clear();
+                salleList.Clear();
+                etablissementList.Clear();
+                break;
+        }
+    }
+}

@@ -1,0 +1,91 @@
+﻿@page "/login"
+
+@using Microsoft.AspNetCore.Components.Authorization
+@using PR3_Blazor.Components.Models.ViewModels
+@using PR3_Blazor.Components.Models;
+@using PR3_Blazor.Components.Services;
+@using Microsoft.AspNetCore.Authentication;
+@using Microsoft.AspNetCore.Authentication.Cookies;
+@using System.Security.Claims;
+@layout PR3_Blazor.Components.Layout.EmptyLayout
+@inject UtilisateurService utilisateurService
+@inject NavigationManager navigationManager
+@inject IJSRuntime JS
+
+
+<div class="row">
+    <div>
+        <EditForm Model="@Model" OnValidSubmit="Authenticate" FormName="LoginForm">
+            <DataAnnotationsValidator/>
+            <div>
+                <h3>LOGIN</h3>
+            </div>
+            <div>
+                <label>Nom d'utilisateur</label>
+                <InputText @bind-Value="Model.Username" class="form-control" placeholder="Username"/>
+                <ValidationMessage For="() => Model.Username"/>
+            </div>
+            <div>
+                <label>Mot de passe</label>
+                <InputText @bind-Value="Model.Password" class="form-control" type="password" placeholder="Password" />
+                <ValidationMessage For="() => Model.Password" />
+            </div>
+            <div>
+                <span class="text-danger">@errorMessage</span>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Connexion</button>
+            </div>
+        </EditForm>
+    </div>
+</div>
+
+@code{
+    [CascadingParameter]
+    public HttpContext? httpContext{ get; set;}
+
+    [SupplyParameterFromForm]
+    public LoginViewModel Model { get; set; } = new();
+
+
+    private string? errorMessage;
+    private async Task Authenticate()
+    {
+
+        var loginRequest = new LoginRequest
+            {
+                Login = Model.Username,
+                MotDePasse = Model.Password
+            };
+
+        var result = await utilisateurService.LoginAsync(loginRequest);
+
+
+        if (!result.isSuccess)
+        {
+            errorMessage = "Login failed. Please check your credentials.";
+            return;
+
+        }
+
+        var token = result.token;
+        var utilisateur = result.utilisateur;
+        
+
+        var claims = new List<Claim>
+        {
+            new Claim(ClaimTypes.Name, Model.Username),
+            new Claim(ClaimTypes.Role, utilisateur.Role),
+            new Claim("token", token)
+        };
+
+        var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+        var principal = new ClaimsPrincipal(identity);
+        await httpContext.SignInAsync(principal);
+
+       
+        navigationManager.NavigateTo("/");
+
+    }
+
+}

@@ -1,0 +1,67 @@
+﻿@page "/"
+
+
+<PageTitle>Home</PageTitle>
+
+<h3>Bienvenue sur PR3-Blazor</h3>
+<p>Vous serez redirigé ici après connexion.</p>
+
+
+
+
+@*   @page "/"
+@using PR3_Blazor.Components.Models
+@using PR3_Blazor.Components.Services
+
+@inject AuthService AuthService
+@inject IJSRuntime JS
+
+@rendermode InteractiveServer
+<PageTitle>Home</PageTitle>
+
+<AuthorizeView>
+    <NotAuthorized>
+        <span>  <a href="/login">Cliquez ici</a> pour vous connecter </span>
+    </NotAuthorized>
+    <Authorized>
+        <span> Connecté comme <b>@context.User.Identity.Name</b> <a href="/login">Cliquez ici</a> pour vous déconnecter</span>
+    </Authorized>
+</AuthorizeView>
+
+
+@code{
+
+
+
+    /*private bool _initialized = false;
+    private string _token;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        _token = await AuthService.GetToken();
+
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        // Perform the token storage only on the first render
+        if (firstRender && !_initialized)
+        {
+            _initialized = true;
+
+            if (!string.IsNullOrEmpty(_token))
+            {
+                await StoreTokenAsync(_token);
+            }
+        }
+    }
+
+    private async Task StoreTokenAsync(string token)
+    {
+        await JS.InvokeVoidAsync("localStorage.setItem", "authToken", token);
+    }
+    */
+}
+*@

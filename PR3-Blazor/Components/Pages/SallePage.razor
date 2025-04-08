@@ -1,0 +1,221 @@
+﻿@page "/sallePage"
+
+
+
+@using System.Text.Json
+@using System.Text.Json.Serialization
+@using Newtonsoft.Json
+@using PR3_Blazor.Components.Models
+@using PR3_Blazor.Components.Services
+@using Blazored.Modal;
+@using Blazored.Modal.Services
+@using NetcodeHub.Packages.Components.Modal
+
+@inject SalleService SalleService
+@inject EtablissementService EtablissementService
+
+@rendermode InteractiveServer
+
+
+<h3>Liste des Salles </h3>
+
+@if (salleList != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Numéro</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var salle in salleList)
+            {
+                <tr>
+                    <td width="20">@salle.Id</td>
+                    <td width="20">@salle.Numero</td>
+                    <td>
+                        <button class="btn btn-primary" @onclick="() => OpenUpdateModal(salle.Id)">Editer</button>
+                        <button class="btn btn-danger" @onclick="() => DeleteSalle(salle.Id)">Supprimer</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button class="btn btn-info" @onclick="OpenModal">Ajouter une Salle</button>
+
+}
+else
+{
+    <p>Chargement des salles ...</p>
+}
+
+
+
+
+
+
+
+<Modal BootstrapClass="border-success"
+       CustomStyle="width:400px"
+       @bind-Open="IsOpen">
+    <ContentContent>
+
+        <form @onsubmit="AddSalle">
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label for="numero">Numéro :</label>
+                        <input type="text" id="numero" @bind="salle.Numero" required>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label for="etablissement">Etablissement :</label>
+                <select id="etablissement" name="etablissement" @bind="salle.EtablissementId" required>
+                            <option value="" disabled selected>Choisissez un établissement</option>
+                    @if (etablissementList != null)
+                    {
+                        @foreach (var etablissement in etablissementList)
+                        {
+                            <option value="@etablissement.Id"> @etablissement.Nom </option>
+                        }
+                    }
+                    </select>
+                    </div>
+            <div class="d-flex justify-content-center align-content-center">
+                <button type="submit" class="btn btn-success btn-sm" value="ok" style="margin-right:5px">Enregistrer</button>
+                <button type="button" class="btn btn-danger btn-sm" @onclick="CloseModal">Annuler</button>
+            </div>
+        </form>
+    </ContentContent>
+</Modal>
+
+
+<Modal BootstrapClass="border-success"
+       CustomStyle="width:400px"
+       @bind-Open="IsUpdateOpen">
+       <ContentContent>
+
+        <form @onsubmit="UpdateSalle">
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label for="numero">Numéro :</label>
+                <input type="text" id="numero" @bind="salle.Numero" required>
+            </div>
+            <div class="form-group" style="margin-bottom: 15px;">
+                    <label for="etablissement">Etablissement :</label>
+                <select id="etablissement" name="etablissement" @bind="salle.EtablissementId" required>
+                        <option value="" disabled selected>Choisissez un établissement</option>
+                    @if (etablissementList != null)
+                    {
+                        @foreach (var etablissement in etablissementList)
+                        {
+                            <option value="@etablissement.Id"> @etablissement.Nom </option>
+                        }
+                    }
+                    </select>
+            </div>
+            <div class="d-flex justify-content-center align-content-center">
+                <button type="submit" class="btn btn-success btn-sm" value="ok" style="margin-right:5px">Enregistrer</button>
+                <button type="button" class="btn btn-danger btn-sm" @onclick="CloseUpdateModal">Annuler</button>
+            </div>
+        </form>
+       </ContentContent>
+</Modal>
+
+@code {
+
+    /**
+ <Confirmation @ref="confirmation"
+              Instruction="@Instruction"
+              Action="Action"
+              BoostrapClass="border-danger"
+              CustomStyle="width:300px" />
+
+
+
+
+     Confirmation? confirmation;
+    public string? Instruction { get; set; } = "Confirm for User deletion";
+    void ShowConfirmation() => confirmation.Show();
+    void Action()
+    {
+        //SalleService.DeleteSalle()
+    }
+    
+    **/
+
+
+
+    //private readonly HttpClient _httpClient;
+    List<Salle>? salleList;
+    List<Etablissement>? etablissementList;
+
+    Salle salle = new Salle();
+
+    private bool _initialized;
+    private bool _isFirstRender = true;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && _isFirstRender)
+        {
+            _isFirstRender = false;
+            await FetchSalleList();
+            StateHasChanged(); // Notify Blazor that the state has changed so it can re-render the component
+        }
+    }
+
+    private async Task FetchSalleList()
+    {
+        salleList = await SalleService.GetAllSalle();
+        etablissementList = await EtablissementService.GetAllEtablissement();
+        _initialized = true;
+    }
+    /*protected override async Task OnInitializedAsync()
+    {
+        salleList = await SalleService.GetAllSalle();
+        etablissementList = await EtablissementService.GetAllEtablissement();
+    }*/
+
+
+    private async Task AddSalle()
+    {
+        await SalleService.AddSalle(salle);
+        salleList = await SalleService.GetAllSalle();
+        salle = new Salle();
+        CloseModal();
+
+    }
+
+    private async Task UpdateSalle()
+    {
+        await SalleService.UpdateSalle(salle);
+        salleList = await SalleService.GetAllSalle();
+        salle = new Salle();
+        CloseUpdateModal();
+    }
+
+    private async Task DeleteSalle(int salleId)
+    {
+        await SalleService.DeleteSalle(salleId);
+        salleList = await SalleService.GetAllSalle();
+
+    }
+
+    public bool IsOpen { get; set; }
+    public bool IsUpdateOpen { get; set; }
+
+    void OpenModal() => IsOpen = true;
+    void CloseModal() => IsOpen = false;
+
+    async Task OpenUpdateModal(int salleId)
+    {
+        salle = await SalleService.GetSalleById(salleId);
+        IsUpdateOpen = true;
+    }
+    void CloseUpdateModal()
+    {
+        IsUpdateOpen = false;
+        salle = new Salle();
+
+    }
+}

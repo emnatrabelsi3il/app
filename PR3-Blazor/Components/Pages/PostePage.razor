@@ -1,0 +1,160 @@
+﻿@page "/postePage"
+
+@using System.Text.Json
+@using System.Text.Json.Serialization
+@using Newtonsoft.Json
+@using PR3_Blazor.Components.Models
+@using PR3_Blazor.Components.Services
+@using Blazored.Modal;
+@using Blazored.Modal.Services
+@using NetcodeHub.Packages.Components.Modal
+
+@inject PosteService PosteService
+@inject SalleService SalleService
+
+@rendermode InteractiveServer
+
+<h3>Liste des Postes </h3>
+
+@if (posteList != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Numéro</th>
+                <th>MacAdress</th>
+                <th>Connecté</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var poste in posteList)
+            {
+                <tr>
+                    <td width="20">@poste.Id</td>
+                    <td width="20">@poste.Numero</td>
+                    <td width="20">@poste.MacAdress</td>
+                    <td width="20" >
+                    @if (poste.IsConnected == true)
+                    {
+                            <span style="display: inline-block; justify-content: center; align-items: center; width: 10px; height: 10px; border-radius: 50%; background-color: green;"></span>
+                        }
+                        else
+                        {
+                            <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background-color: red;"></span>
+                        }
+                    </td>
+                    <td>
+                        <button class="btn btn-primary" @onclick="() => OpenUpdateModal(poste.Id)">Editer</button>
+                        <button class="btn btn-danger" @onclick="() => DeletePoste(poste.Id)">Supprimer</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <br />
+    <br />
+
+
+    <p>Pour l'ajout de postes, utiliser l'application Desktop</p>
+
+    <Modal BootstrapClass="border-success"
+       CustomStyle="width:400px"
+       @bind-Open="IsOpen">
+        <ContentContent>
+            <form @onsubmit="UpdatePoste">
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label for="numero">Numéro :</label>
+                    <input type="text" id="numero" @bind="poste.Numero" required>
+                </div>
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label for="numero">Adresse MAC :</label>
+                    <input type="text" id="numero" @bind="poste.MacAdress" disabled>
+                </div>
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label for="etablissement">Salle :</label>
+                    <select id="etablissement" name="etablissement" @bind="poste.SalleId" required>
+                        <option value="" disabled selected>Choisissez une salle</option>
+                        @if (salleList != null)
+                        {
+                            @foreach (var salle in salleList)
+                            {
+                                <option value="@salle.Id"> @salle.Numero </option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="d-flex justify-content-center align-content-center">
+                    <button type="submit" class="btn btn-success btn-sm" value="ok" style="margin-right:5px">Enregistrer</button>
+                    <button type="button" class="btn btn-danger btn-sm" @onclick="CloseUpdateModal">Annuler</button>
+                </div>
+
+            </form>
+        </ContentContent>
+    </Modal>
+}
+else
+{
+    <p>Chargement des postes ...</p>
+}
+
+
+
+
+@code{
+    List<Poste>? posteList;
+    List<Salle>? salleList;
+    Poste poste = new Poste();
+
+
+    private bool _initialized;
+    private bool _isFirstRender = true;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && _isFirstRender)
+        {
+            _isFirstRender = false;
+            await FetchPosteList();
+            StateHasChanged(); // Notify Blazor that the state has changed so it can re-render the component
+        }
+    }
+
+    private async Task FetchPosteList()
+    {
+        posteList = await PosteService.GetAllPoste();
+        salleList = await SalleService.GetAllSalle();
+        _initialized = true;
+    }
+
+
+    private async Task UpdatePoste()
+    {
+        await PosteService.UpdatePoste(poste);
+        posteList = await PosteService.GetAllPoste();
+        CloseUpdateModal();
+        //CloseUpdateModal();
+    }
+
+    private async Task DeletePoste(int salleId)
+    {
+        await PosteService.DeletePoste(salleId);
+        posteList = await PosteService.GetAllPoste();
+    }
+
+    public bool IsOpen { get; set; }
+
+
+    async Task OpenUpdateModal(int posteId)
+    {
+        poste = await PosteService.GetPosteById(posteId);
+        IsOpen = true;
+    }
+    void CloseUpdateModal()
+    {
+        IsOpen = false;
+        poste = new Poste();
+
+    }
+}

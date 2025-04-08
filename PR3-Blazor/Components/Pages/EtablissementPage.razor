@@ -1,0 +1,156 @@
+﻿@page "/etablissementPage"
+
+@using System.Text.Json
+@using System.Text.Json.Serialization
+@using Newtonsoft.Json
+@using PR3_Blazor.Components.Models
+@using PR3_Blazor.Components.Services
+@using Blazored.Modal;
+@using Blazored.Modal.Services
+@using NetcodeHub.Packages.Components.Modal
+
+@inject EtablissementService EtablissementService
+
+@rendermode InteractiveServer
+
+<h3>Liste des Etablissements </h3>
+
+@if (etablissementList != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var etablissement in etablissementList)
+            {
+                <tr>
+                    <td width="20">@etablissement.Id</td>
+                    <td width="20">@etablissement.Nom</td>
+                    <td>
+                        <button class="btn btn-primary" @onclick="() => OpenUpdateModal(etablissement.Id)">Editer</button>
+                        <button class="btn btn-danger" @onclick="() => DeleteEtablissement(etablissement.Id)">Supprimer</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button class="btn btn-info" @onclick="OpenModal">Ajouter un etablissement</button>
+
+}
+else
+{
+    <p>Chargement des salles ...</p>
+}
+
+<Modal BootstrapClass="border-success"
+       CustomStyle="width:400px"
+       @bind-Open="IsOpen">
+    <ContentContent>
+
+        <form @onsubmit="AddEtablissement">
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label for="numero">Nom :</label>
+                <input type="text" id="numero" @bind="etablissement.Nom" required>
+            </div>
+            <div class="d-flex justify-content-center align-content-center">
+                <button type="submit" class="btn btn-success btn-sm" value="ok" style="margin-right:5px">Enregistrer</button>
+                <button type="button" class="btn btn-danger btn-sm" @onclick="CloseModal">Annuler</button>
+            </div>
+        </form>
+    </ContentContent>
+</Modal>
+
+<Modal BootstrapClass="border-success"
+       CustomStyle="width:400px"
+       @bind-Open="IsUpdateOpen">
+    <ContentContent>
+
+        <form @onsubmit="UpdateEtablissement">
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label for="numero">Nom :</label>
+                <input type="text" id="numero" @bind="etablissement.Nom" required>
+            </div>
+            <div class="d-flex justify-content-center align-content-center">
+                <button type="submit" class="btn btn-success btn-sm" value="ok" style="margin-right:5px">Enregistrer</button>
+                <button type="button" class="btn btn-danger btn-sm" @onclick="CloseModal">Annuler</button>
+            </div>
+        </form>
+    </ContentContent>
+</Modal>
+
+
+@code {
+    List<Etablissement>? etablissementList;
+    Etablissement etablissement = new Etablissement();
+
+
+    private bool _initialized;
+    private bool _isFirstRender = true;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && _isFirstRender)
+        {
+            _isFirstRender = false;
+            await FetchEtablissmementList();
+            StateHasChanged(); // Notify Blazor that the state has changed so it can re-render the component
+        }
+    }
+
+    private async Task FetchEtablissmementList()
+    {
+        etablissementList = await EtablissementService.GetAllEtablissement();
+        _initialized = true;
+    }
+
+
+
+    private async Task AddEtablissement()
+    {
+        await EtablissementService.AddEtablissement(etablissement);
+        etablissementList = await EtablissementService.GetAllEtablissement();
+        etablissement = new Etablissement();
+        CloseModal();
+
+    }
+
+    private async Task UpdateEtablissement()
+    {
+        await EtablissementService.UpdateEtablissement(etablissement);
+        etablissementList = await EtablissementService.GetAllEtablissement();
+        etablissement = new Etablissement();
+        CloseUpdateModal();
+    }
+
+    private async Task DeleteEtablissement(int etablissementId)
+    {
+        await EtablissementService.DeleteEtablissement(etablissementId);
+        etablissementList = await EtablissementService.GetAllEtablissement();
+
+    }
+
+    public bool IsOpen { get; set; }
+    public bool IsUpdateOpen { get; set; }
+
+    void OpenModal() => IsOpen = true;
+    void CloseModal() => IsOpen = false;
+
+    async Task OpenUpdateModal(int etablissementId)
+    {
+        etablissement = await EtablissementService.GetEtablissementById(etablissementId);
+        IsUpdateOpen = true;
+    }
+    void CloseUpdateModal()
+    {
+        IsUpdateOpen = false;
+        etablissement = new Etablissement();
+
+    }
+}

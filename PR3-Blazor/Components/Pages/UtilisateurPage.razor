@@ -1,0 +1,195 @@
+﻿@page "/utilisateurPage"
+
+@using System.Text.Json
+@using System.Text.Json.Serialization
+@using Newtonsoft.Json
+@using PR3_Blazor.Components.Models
+@using PR3_Blazor.Components.Services
+@using Blazored.Modal;
+@using Blazored.Modal.Services
+@using NetcodeHub.Packages.Components.Modal
+
+@inject UtilisateurService UtilisateurService
+
+@rendermode InteractiveServer
+
+
+<h3>Liste des utilisateurs</h3>
+
+@if (userList != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Login</th>
+                <th>Mot de passe</th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var utilisateur in userList)
+            {
+                <tr>
+                    <td width="20">@utilisateur.Id</td>
+                    <td width="20">@utilisateur.Nom</td>
+                    <td width="20">@utilisateur.Prenom</td>
+                    <td width="20">@utilisateur.Login</td>
+                    <td>@utilisateur.MotDePasse</td>
+                    <td>
+                        <button class="btn btn-primary" @onclick="() => OpenUpdateModal(utilisateur.Id)">Editer</button>
+                        <button class="btn btn-danger" @onclick="() => DeleteUtilisateur(utilisateur.Id)">Supprimer</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button class="btn btn-info" @onclick="OpenModal">Ajouter un utilisateur</button>
+
+}
+else
+{
+    <p>Chargement des utilisateurs</p>
+}
+
+
+
+<Modal BootstrapClass="border-success"
+       CustomStyle="width:400px"
+       @bind-Open="IsOpen">
+    <ContentContent>
+
+        <form @onsubmit="AddUtilisateur">
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label for="numero">Nom :</label>
+                <input type="text" id="Nom" @bind="utilisateur.Nom" required>
+            </div>
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label for="numero">Prénom :</label>
+                <input type="text" id="Prenom" @bind="utilisateur.Prenom" required>
+            </div>
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label for="numero">Login :</label>
+                <input type="text" id="Login" @bind="utilisateur.Login" required>
+            </div>
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label for="numero">Mot de passe :</label>
+                <input type="password" id="MotDePasse" @bind="utilisateur.MotDePasse" required>
+            </div>
+            <div class="d-flex justify-content-center align-content-center">
+                <button type="submit" class="btn btn-success btn-sm" value="ok" style="margin-right:5px">Enregistrer</button>
+                <button type="button" class="btn btn-danger btn-sm" @onclick="CloseModal">Annuler</button>
+            </div>
+        </form>
+    </ContentContent>
+</Modal>
+
+
+<Modal BootstrapClass="border-success"
+       CustomStyle="width:400px"
+       @bind-Open="IsUpdateOpen">
+    <ContentContent>
+
+        <form @onsubmit="UpdateUtilisateur">
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label for="numero">Nom :</label>
+                <input type="text" id="Nom" @bind="utilisateur.Nom" required>
+            </div>
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label for="numero">Prénom :</label>
+                <input type="text" id="Prenom" @bind="utilisateur.Prenom" required>
+            </div>
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label for="numero">Login :</label>
+                <input type="text" id="Login" @bind="utilisateur.Login" required>
+            </div>
+            <div class="form-group" style="margin-bottom: 15px;">
+                <label for="numero">Mot de passe :</label>
+                <input type="password" id="MotDePasse" @bind="utilisateur.MotDePasse" required>
+            </div>
+            <div class="d-flex justify-content-center align-content-center">
+                <button type="submit" class="btn btn-success btn-sm" value="ok" style="margin-right:5px">Enregistrer</button>
+                <button type="button" class="btn btn-danger btn-sm" @onclick="CloseUpdateModal">Annuler</button>
+            </div>
+        </form>
+    </ContentContent>
+</Modal>
+
+
+
+
+@code {
+    List<Utilisateur>? userList;
+    Utilisateur utilisateur = new Utilisateur();
+
+    private bool _initialized;
+    private bool _isFirstRender = true;
+
+    public bool IsOpen { get; set; }
+    public bool IsUpdateOpen { get; set; }
+
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && _isFirstRender)
+        {
+            _isFirstRender = false;
+            await FetchUserList();
+            StateHasChanged(); // Notify Blazor that the state has changed so it can re-render the component
+        }
+    }
+
+    private async Task FetchUserList()
+    {
+        userList = await UtilisateurService.GetAllUtilisateur();
+        _initialized = true;
+    }
+
+
+
+    private async Task AddUtilisateur()
+    {
+        await UtilisateurService.AddUtilisateur(utilisateur);
+        userList = await UtilisateurService.GetAllUtilisateur();
+        utilisateur = new Utilisateur();
+        CloseModal();
+
+    }
+
+    private async Task UpdateUtilisateur()
+    {
+        await UtilisateurService.UpdateUtilisateur(utilisateur);
+        userList = await UtilisateurService.GetAllUtilisateur();
+        utilisateur = new Utilisateur();
+        CloseUpdateModal();
+    }
+
+    private async Task DeleteUtilisateur(int utlisateurId)
+    {
+        await UtilisateurService.DeleteUtilisateur(utlisateurId);
+        userList = await UtilisateurService.GetAllUtilisateur();
+
+    }
+
+    void OpenModal() => IsOpen = true;
+    void CloseModal() => IsOpen = false;
+
+
+    async Task OpenUpdateModal(int utlisateurId)
+    {
+        utilisateur = await UtilisateurService.GetUtilisateurById(utlisateurId);
+        IsUpdateOpen = true;
+    }
+    void CloseUpdateModal()
+    {
+        IsUpdateOpen = false;
+        utilisateur = new Utilisateur();
+
+    }
+
+}

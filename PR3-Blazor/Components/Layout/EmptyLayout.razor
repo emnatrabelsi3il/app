@@ -1,0 +1,35 @@
+﻿@inherits LayoutComponentBase
+@using Microsoft.AspNetCore.Components.Authorization
+
+<div class="page">
+
+    <!-- ❌ Pas de sidebar ici -->
+
+    <main>
+        <!-- ✅ Barre supérieure comme dans MainLayout -->
+        <div class="top-row px-4">
+            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+
+            <AuthorizeView>
+                <NotAuthorized>
+                    <a class="ms-3" href="/login">Login</a>
+                </NotAuthorized>
+                <Authorized>
+                    <a class="ms-3" href="/logout">Logout</a>
+                </Authorized>
+            </AuthorizeView>
+        </div>
+
+        <!-- ✅ Contenu de la page -->
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
+
+<!-- ✅ Bloc d'erreur Blazor comme dans MainLayout -->
+<div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+</div>

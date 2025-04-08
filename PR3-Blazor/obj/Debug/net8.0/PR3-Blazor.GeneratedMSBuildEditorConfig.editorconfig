@@ -1,0 +1,89 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = PR3-Blazor
+build_property.RootNamespace = PR3-Blazor
+build_property.ProjectDir = D:\Bureau\projet\projet\PR3-Blazor\PR3-Blazor\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\Bureau\projet\projet\PR3-Blazor\PR3-Blazor
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[D:/Bureau/projet/projet/PR3-Blazor/PR3-Blazor/Components/App.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Bureau/projet/projet/PR3-Blazor/PR3-Blazor/Components/Layout/EmptyLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcRW1wdHlMYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Bureau/projet/projet/PR3-Blazor/PR3-Blazor/Components/Pages/Account/AccessDenied.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBY2NvdW50XEFjY2Vzc0RlbmllZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Bureau/projet/projet/PR3-Blazor/PR3-Blazor/Components/Pages/Account/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBY2NvdW50XExvZ2luLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Bureau/projet/projet/PR3-Blazor/PR3-Blazor/Components/Pages/Account/Logout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBY2NvdW50XExvZ291dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Bureau/projet/projet/PR3-Blazor/PR3-Blazor/Components/Pages/EditSalle.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFZGl0U2FsbGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Bureau/projet/projet/PR3-Blazor/PR3-Blazor/Components/Pages/Error.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Bureau/projet/projet/PR3-Blazor/PR3-Blazor/Components/Pages/EtablissementPage.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFdGFibGlzc2VtZW50UGFnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Bureau/projet/projet/PR3-Blazor/PR3-Blazor/Components/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Bureau/projet/projet/PR3-Blazor/PR3-Blazor/Components/Pages/IncidentPage.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xJbmNpZGVudFBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Bureau/projet/projet/PR3-Blazor/PR3-Blazor/Components/Pages/PostePage.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xQb3N0ZVBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Bureau/projet/projet/PR3-Blazor/PR3-Blazor/Components/Pages/SallePage.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xTYWxsZVBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Bureau/projet/projet/PR3-Blazor/PR3-Blazor/Components/Pages/UtilisateurPage.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVdGlsaXNhdGV1clBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Bureau/projet/projet/PR3-Blazor/PR3-Blazor/Components/Routes.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Bureau/projet/projet/PR3-Blazor/PR3-Blazor/Components/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Bureau/projet/projet/PR3-Blazor/PR3-Blazor/Components/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-vjtyfysc80
+
+[D:/Bureau/projet/projet/PR3-Blazor/PR3-Blazor/Components/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-9vebfs990v

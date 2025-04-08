@@ -1,0 +1,58 @@
+﻿<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">PR3-Blazor</a>
+    </div>
+</div>
+
+<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+
+<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+        <AuthorizeView Roles ="admin,user">
+            <Authorized>
+
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="SallePage">
+                        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Salle
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="PostePage">
+                        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Poste
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="EtablissementPage">
+                        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Etablissement
+                    </NavLink>
+                </div>
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="IncidentPage">
+                        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Incident
+                    </NavLink>
+                </div>
+
+            </Authorized>
+        </AuthorizeView>
+        <AuthorizeView Roles="admin">
+           <Authorized>
+
+                <div class="nav-item px-3">
+                    <NavLink class="nav-link" href="UtilisateurPage">
+                        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Utilisateur
+                    </NavLink>
+                </div>
+
+           </Authorized>
+        </AuthorizeView>
+
+    </nav>
+
+
+</div>
+
