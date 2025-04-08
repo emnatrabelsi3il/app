@@ -1,0 +1,82 @@
+﻿using Newtonsoft.Json;
+using PR3_WPF.Models;
+using PR3_WPF.Services;
+using PR3_WPF.Views;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net.Http.Headers;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace PR3_WPF.Views
+{
+    /// <summary>
+    /// Logique d'interaction pour UtilisateurPage.xaml
+    /// </summary>
+    public partial class UtilisateurPage : Page
+    {
+        private const string apiUtilisateur = "http://localhost:5011/api/Utilisateurs";
+        public ObservableCollection<Utilisateur> utilisateur { get; set; }
+        private AuthService _authService;
+        public UtilisateurPage()
+        {
+            InitializeComponent();
+            utilisateur = new ObservableCollection<Utilisateur>();
+
+            utilisateurListView.ItemsSource = utilisateur;
+
+            LoadDataFromApi();
+        }
+
+        private async void LoadDataFromApi()
+        {
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    _authService = new AuthService(client);
+                    string jwtToken = _authService.ReadToken();
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
+
+
+                    HttpResponseMessage response = await client.GetAsync(apiUtilisateur);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string data = await response.Content.ReadAsStringAsync();
+
+                        // Deserialize the JSON data
+                        var utilisateurList = JsonConvert.DeserializeObject<ObservableCollection<Utilisateur>>(data);
+                        utilisateur.Clear();
+                        foreach (var salutilisateur in utilisateurList)
+                        {
+                            utilisateur.Add(salutilisateur);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Error: {response.StatusCode}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
+        }
+
+    }
+}
+

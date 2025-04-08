@@ -1,0 +1,34 @@
+﻿<Page x:Class="PR3_WPF.Views.UtilisateurPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PR3_WPF.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="UtilisateurPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <TextBlock Text="List des Utilisateurs" HorizontalAlignment="Center"></TextBlock>
+        </Grid>
+
+        <Grid Margin="0,0,0,0" Grid.Row="1">
+            <ListView Name="utilisateurListView">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}" Width="120"/>
+                        <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding Nom}" Width="120"/>
+                        <GridViewColumn Header="Prenom" DisplayMemberBinding="{Binding Prenom}" Width="120"/>
+
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+    </Grid>
+</Page>
