@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "NdshXcmz3T2BGRYV9hQmxd8v5snbYoOuorYUgJlkUHk=",
+  "Source": "PR3-SecureAPI",
+  "BasePath": "_content/PR3-SecureAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
