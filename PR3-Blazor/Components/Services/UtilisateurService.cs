@@ -47,7 +47,13 @@ namespace PR3_Blazor.Components.Services
         }
         public async Task<List<Utilisateur>> GetAllUtilisateur()
         {
-            string token =  _authService.GetTokenFromSessionAsync();
+            string? token = await _authService.GetTokenAsync();
+
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new UnauthorizedAccessException("Token introuvable.");
+            }
+
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             HttpResponseMessage response = await _httpClient.GetAsync("http://localhost:5011/api/Utilisateurs");
@@ -59,7 +65,13 @@ namespace PR3_Blazor.Components.Services
 
         public async Task<Utilisateur> GetUtilisateurById(int utilisateurId)
         {
-            string token =  _authService.GetTokenFromSessionAsync();
+            string? token = await _authService.GetTokenAsync();
+
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new UnauthorizedAccessException("Token introuvable.");
+            }
+
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             HttpResponseMessage response = await _httpClient.GetAsync($"http://localhost:5011/api/Utilisateurs/{utilisateurId}");
@@ -72,7 +84,13 @@ namespace PR3_Blazor.Components.Services
 
         public async Task<Utilisateur> GetUtilisateurByLogin(string login)
         {
-            string token =_authService.GetTokenFromSessionAsync();
+            string? token = await _authService.GetTokenAsync();
+
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new UnauthorizedAccessException("Token introuvable.");
+            }
+
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             HttpResponseMessage response = await _httpClient.GetAsync($"http://localhost:5011/api/Utilisateurs/login/{login}");
@@ -84,7 +102,13 @@ namespace PR3_Blazor.Components.Services
         public async Task AddUtilisateur(Utilisateur utilisateur) 
         {
             utilisateur.Role = "user";
-            string token =  _authService.GetTokenFromSessionAsync();
+            string? token = await _authService.GetTokenAsync();
+
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new UnauthorizedAccessException("Token introuvable.");
+            }
+
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
 
@@ -96,7 +120,13 @@ namespace PR3_Blazor.Components.Services
 
         public async Task UpdateUtilisateur(Utilisateur utilisateur)
         {
-            string token =  _authService.GetTokenFromSessionAsync();
+            string? token = await _authService.GetTokenAsync();
+
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new UnauthorizedAccessException("Token introuvable.");
+            }
+
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             var UtilisateurFormated = JsonConvert.SerializeObject(utilisateur);
@@ -108,7 +138,13 @@ namespace PR3_Blazor.Components.Services
 
         public async Task DeleteUtilisateur(int utilisateurId)
         {
-            string token =  _authService.GetTokenFromSessionAsync();
+            string? token = await _authService.GetTokenAsync();
+
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new UnauthorizedAccessException("Token introuvable.");
+            }
+
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             var response = await _httpClient.DeleteAsync($"http://localhost:5011/api/Utilisateurs/{utilisateurId}");

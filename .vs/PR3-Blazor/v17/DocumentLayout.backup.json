@@ -3,6 +3,46 @@
   "WorkspaceRootPath": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|d:\\bureau\\projet\\projet\\pr3-blazor\\pr3-blazor\\components\\pages\\sallepage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|solutionrelative:pr3-blazor\\components\\pages\\sallepage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|d:\\bureau\\projet\\projet\\pr3-blazor\\pr3-blazor\\wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|solutionrelative:pr3-blazor\\wwwroot\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|d:\\bureau\\projet\\projet\\pr3-blazor\\pr3-blazor\\components\\services\\salleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|solutionrelative:pr3-blazor\\components\\services\\salleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|d:\\bureau\\projet\\projet\\pr3-blazor\\pr3-blazor\\components\\services\\posteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|solutionrelative:pr3-blazor\\components\\services\\posteservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|d:\\bureau\\projet\\projet\\pr3-blazor\\pr3-blazor\\components\\services\\incidentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|solutionrelative:pr3-blazor\\components\\services\\incidentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|d:\\bureau\\projet\\projet\\pr3-blazor\\pr3-blazor\\components\\services\\etablissementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|solutionrelative:pr3-blazor\\components\\services\\etablissementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|d:\\bureau\\projet\\projet\\pr3-blazor\\pr3-blazor\\components\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|solutionrelative:pr3-blazor\\components\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|d:\\bureau\\projet\\projet\\pr3-blazor\\pr3-blazor\\components\\services\\utilisateurservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|solutionrelative:pr3-blazor\\components\\services\\utilisateurservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|d:\\bureau\\projet\\projet\\pr3-blazor\\pr3-blazor\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|solutionrelative:pr3-blazor\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|d:\\bureau\\projet\\projet\\pr3-blazor\\pr3-blazor\\components\\pages\\utilisateurpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|solutionrelative:pr3-blazor\\components\\pages\\utilisateurpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|d:\\bureau\\projet\\projet\\pr3-blazor\\pr3-blazor\\components\\pages\\account\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|solutionrelative:pr3-blazor\\components\\pages\\account\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -31,24 +71,12 @@
       "RelativeMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|solutionrelative:pr3-blazor\\components\\pages\\editsalle.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|d:\\bureau\\projet\\projet\\pr3-blazor\\pr3-blazor\\components\\pages\\utilisateurpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|solutionrelative:pr3-blazor\\components\\pages\\utilisateurpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|d:\\bureau\\projet\\projet\\pr3-blazor\\pr3-blazor\\components\\pages\\sallepage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|solutionrelative:pr3-blazor\\components\\pages\\sallepage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|d:\\bureau\\projet\\projet\\pr3-blazor\\pr3-blazor\\components\\pages\\postepage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|solutionrelative:pr3-blazor\\components\\pages\\postepage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|d:\\bureau\\projet\\projet\\pr3-blazor\\pr3-blazor\\components\\pages\\incidentpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|solutionrelative:pr3-blazor\\components\\pages\\incidentpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|d:\\bureau\\projet\\projet\\pr3-blazor\\pr3-blazor\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|solutionrelative:pr3-blazor\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DBFF745B-8B99-4023-BE13-B428E3CC51B9}|PR3-Blazor\\PR3-Blazor.csproj|d:\\bureau\\projet\\projet\\pr3-blazor\\pr3-blazor\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -78,60 +106,109 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "_Imports.razor",
-              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\_Imports.razor",
-              "RelativeDocumentMoniker": "PR3-Blazor\\Components\\_Imports.razor",
-              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\_Imports.razor",
-              "RelativeToolTip": "PR3-Blazor\\Components\\_Imports.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-08T20:50:35.752Z",
+              "DocumentIndex": 1,
+              "Title": "app.css",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\wwwroot\\app.css",
+              "RelativeDocumentMoniker": "PR3-Blazor\\wwwroot\\app.css",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\wwwroot\\app.css",
+              "RelativeToolTip": "PR3-Blazor\\wwwroot\\app.css",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAqwHQAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-04-14T15:50:46.473Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "UtilisateurPage.razor",
-              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\UtilisateurPage.razor",
-              "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Pages\\UtilisateurPage.razor",
-              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\UtilisateurPage.razor",
-              "RelativeToolTip": "PR3-Blazor\\Components\\Pages\\UtilisateurPage.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-08T20:47:08.341Z"
+              "DocumentIndex": 4,
+              "Title": "IncidentService.cs",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Services\\IncidentService.cs",
+              "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Services\\IncidentService.cs",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Services\\IncidentService.cs",
+              "RelativeToolTip": "PR3-Blazor\\Components\\Services\\IncidentService.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAowGQAAABtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T17:03:18.512Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
+              "Title": "PosteService.cs",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Services\\PosteService.cs",
+              "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Services\\PosteService.cs",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Services\\PosteService.cs",
+              "RelativeToolTip": "PR3-Blazor\\Components\\Services\\PosteService.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAkwGMAAABtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T17:03:12.783Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SalleService.cs",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Services\\SalleService.cs",
+              "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Services\\SalleService.cs",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Services\\SalleService.cs",
+              "RelativeToolTip": "PR3-Blazor\\Components\\Services\\SalleService.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAkwGAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T17:02:53.581Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "SallePage.razor",
               "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\SallePage.razor",
               "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Pages\\SallePage.razor",
               "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\SallePage.razor",
               "RelativeToolTip": "PR3-Blazor\\Components\\Pages\\SallePage.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKwAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-08T20:47:02.397Z"
+              "WhenOpened": "2025-04-08T20:47:02.397Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "PostePage.razor",
-              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\PostePage.razor",
-              "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Pages\\PostePage.razor",
-              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\PostePage.razor",
-              "RelativeToolTip": "PR3-Blazor\\Components\\Pages\\PostePage.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-08T20:46:59.585Z"
+              "DocumentIndex": 5,
+              "Title": "EtablissementService.cs",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Services\\EtablissementService.cs",
+              "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Services\\EtablissementService.cs",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Services\\EtablissementService.cs",
+              "RelativeToolTip": "PR3-Blazor\\Components\\Services\\EtablissementService.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAgwGMAAABtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T17:04:30.874Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Services\\AuthService.cs",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Services\\AuthService.cs",
+              "RelativeToolTip": "PR3-Blazor\\Components\\Services\\AuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T17:02:12.747Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UtilisateurService.cs",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Services\\UtilisateurService.cs",
+              "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Services\\UtilisateurService.cs",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Services\\UtilisateurService.cs",
+              "RelativeToolTip": "PR3-Blazor\\Components\\Services\\UtilisateurService.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAkwJMAAABtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-13T17:04:57.412Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "EtablissementPage.razor",
               "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\EtablissementPage.razor",
               "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Pages\\EtablissementPage.razor",
@@ -143,7 +220,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 10,
+              "Title": "Login.razor",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\Account\\Login.razor",
+              "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Pages\\Account\\Login.razor",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\Account\\Login.razor",
+              "RelativeToolTip": "PR3-Blazor\\Components\\Pages\\Account\\Login.razor",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAFYAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-08T19:57:15.824Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "_Imports.razor",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\_Imports.razor",
+              "RelativeDocumentMoniker": "PR3-Blazor\\Components\\_Imports.razor",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\_Imports.razor",
+              "RelativeToolTip": "PR3-Blazor\\Components\\_Imports.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-08T20:50:35.752Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "Home.razor",
               "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\Home.razor",
               "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Pages\\Home.razor",
@@ -151,97 +252,11 @@
               "RelativeToolTip": "PR3-Blazor\\Components\\Pages\\Home.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-08T17:56:32.08Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-08T17:56:32.08Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Login.razor",
-              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\Account\\Login.razor",
-              "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Pages\\Account\\Login.razor",
-              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\Account\\Login.razor",
-              "RelativeToolTip": "PR3-Blazor\\Components\\Pages\\Account\\Login.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFYAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-08T19:57:15.824Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "EmptyLayout.razor",
-              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Layout\\EmptyLayout.razor",
-              "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Layout\\EmptyLayout.razor",
-              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Layout\\EmptyLayout.razor",
-              "RelativeToolTip": "PR3-Blazor\\Components\\Layout\\EmptyLayout.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-08T18:34:18.637Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Error.razor",
-              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\Error.razor",
-              "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Pages\\Error.razor",
-              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\Error.razor",
-              "RelativeToolTip": "PR3-Blazor\\Components\\Pages\\Error.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-08T20:47:13.008Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "IncidentPage.razor",
-              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\IncidentPage.razor",
-              "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Pages\\IncidentPage.razor",
-              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\IncidentPage.razor",
-              "RelativeToolTip": "PR3-Blazor\\Components\\Pages\\IncidentPage.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-08T20:46:57.132Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "PR3-Blazor.csproj",
-              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\PR3-Blazor.csproj",
-              "RelativeDocumentMoniker": "PR3-Blazor\\PR3-Blazor.csproj",
-              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\PR3-Blazor.csproj",
-              "RelativeToolTip": "PR3-Blazor\\PR3-Blazor.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-04-08T19:52:39.473Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "EditSalle.razor",
-              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\EditSalle.razor",
-              "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Pages\\EditSalle.razor",
-              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\EditSalle.razor",
-              "RelativeToolTip": "PR3-Blazor\\Components\\Pages\\EditSalle.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-08T20:09:23.653Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "Logout.razor",
-              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\Account\\Logout.razor",
-              "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Pages\\Account\\Logout.razor",
-              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\Account\\Logout.razor",
-              "RelativeToolTip": "PR3-Blazor\\Components\\Pages\\Account\\Logout.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-08T20:09:36.264Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 8,
               "Title": "Routes.razor",
               "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Routes.razor",
               "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Routes.razor",
@@ -253,7 +268,103 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
+              "Title": "EmptyLayout.razor",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Layout\\EmptyLayout.razor",
+              "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Layout\\EmptyLayout.razor",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Layout\\EmptyLayout.razor",
+              "RelativeToolTip": "PR3-Blazor\\Components\\Layout\\EmptyLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-08T18:34:18.637Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "PostePage.razor",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\PostePage.razor",
+              "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Pages\\PostePage.razor",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\PostePage.razor",
+              "RelativeToolTip": "PR3-Blazor\\Components\\Pages\\PostePage.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-08T20:46:59.585Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UtilisateurPage.razor",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\UtilisateurPage.razor",
+              "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Pages\\UtilisateurPage.razor",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\UtilisateurPage.razor",
+              "RelativeToolTip": "PR3-Blazor\\Components\\Pages\\UtilisateurPage.razor",
+              "ViewState": "AgIAALEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-08T20:47:08.341Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Error.razor",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\Error.razor",
+              "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Pages\\Error.razor",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\Error.razor",
+              "RelativeToolTip": "PR3-Blazor\\Components\\Pages\\Error.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-08T20:47:13.008Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "IncidentPage.razor",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\IncidentPage.razor",
+              "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Pages\\IncidentPage.razor",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\IncidentPage.razor",
+              "RelativeToolTip": "PR3-Blazor\\Components\\Pages\\IncidentPage.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-08T20:46:57.132Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "PR3-Blazor.csproj",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\PR3-Blazor.csproj",
+              "RelativeDocumentMoniker": "PR3-Blazor\\PR3-Blazor.csproj",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\PR3-Blazor.csproj",
+              "RelativeToolTip": "PR3-Blazor\\PR3-Blazor.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-04-08T19:52:39.473Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "EditSalle.razor",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\EditSalle.razor",
+              "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Pages\\EditSalle.razor",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\EditSalle.razor",
+              "RelativeToolTip": "PR3-Blazor\\Components\\Pages\\EditSalle.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-08T20:09:23.653Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Logout.razor",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\Account\\Logout.razor",
+              "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Pages\\Account\\Logout.razor",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\Account\\Logout.razor",
+              "RelativeToolTip": "PR3-Blazor\\Components\\Pages\\Account\\Logout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-08T20:09:36.264Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
               "Title": "MainLayout.razor",
               "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Layout\\MainLayout.razor",
               "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Layout\\MainLayout.razor",
@@ -265,7 +376,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 22,
               "Title": "NavMenu.razor",
               "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Layout\\NavMenu.razor",
               "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Layout\\NavMenu.razor",
@@ -277,7 +388,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 23,
               "Title": "Etablissement.cs",
               "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Models\\Etablissement.cs",
               "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Models\\Etablissement.cs",

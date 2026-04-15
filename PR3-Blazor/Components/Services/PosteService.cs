@@ -18,7 +18,13 @@ namespace PR3_Blazor.Components.Services
 
         public async Task<List<Poste>> GetAllPoste()
         {
-            string token =  _authService.GetTokenFromSessionAsync();
+            string? token = await _authService.GetTokenAsync();
+
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new UnauthorizedAccessException("Token introuvable.");
+            }
+
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             HttpResponseMessage response = await _httpClient.GetAsync("http://localhost:5011/api/Postes");
@@ -30,7 +36,13 @@ namespace PR3_Blazor.Components.Services
 
         public async Task<Poste> GetPosteById(int posteId)
         {
-            string token =  _authService.GetTokenFromSessionAsync();
+            string? token = await _authService.GetTokenAsync();
+
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new UnauthorizedAccessException("Token introuvable.");
+            }
+
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             HttpResponseMessage response = await _httpClient.GetAsync($"http://localhost:5011/api/Postes/{posteId}");
@@ -43,7 +55,13 @@ namespace PR3_Blazor.Components.Services
 
         public async Task AddPoste(Poste poste)
         {
-            string token =  _authService.GetTokenFromSessionAsync();
+            string? token = await _authService.GetTokenAsync();
+
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new UnauthorizedAccessException("Token introuvable.");
+            }
+
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             var posteFormated = JsonConvert.SerializeObject(poste);
@@ -54,7 +72,13 @@ namespace PR3_Blazor.Components.Services
 
         public async Task UpdatePoste(Poste poste)
         {
-            string token =  _authService.GetTokenFromSessionAsync();
+            string? token = await _authService.GetTokenAsync();
+
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new UnauthorizedAccessException("Token introuvable.");
+            }
+
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             var posteFormated = JsonConvert.SerializeObject(poste);
@@ -66,7 +90,13 @@ namespace PR3_Blazor.Components.Services
 
         public async Task DeletePoste(int posteId)
         {
-            string token =  _authService.GetTokenFromSessionAsync();
+            string? token = await _authService.GetTokenAsync();
+
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new UnauthorizedAccessException("Token introuvable.");
+            }
+
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             var response = await _httpClient.DeleteAsync($"http://localhost:5011/api/Postes/{posteId}");

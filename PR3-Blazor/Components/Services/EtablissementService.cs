@@ -18,7 +18,13 @@ namespace PR3_Blazor.Components.Services
 
         public async Task<List<Etablissement>> GetAllEtablissement()
         {
-            string token =  _authService.GetTokenFromSessionAsync();
+            string? token = await _authService.GetTokenAsync();
+
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new UnauthorizedAccessException("Token introuvable.");
+            }
+
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             HttpResponseMessage response = await _httpClient.GetAsync("http://localhost:5011/api/Etablissements");
@@ -30,7 +36,13 @@ namespace PR3_Blazor.Components.Services
 
         public async Task<Etablissement> GetEtablissementById(int etablissementId)
         {
-            string token =  _authService.GetTokenFromSessionAsync();
+            string? token = await _authService.GetTokenAsync();
+
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new UnauthorizedAccessException("Token introuvable.");
+            }
+
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             HttpResponseMessage response = await _httpClient.GetAsync($"http://localhost:5011/api/Etablissements/{etablissementId}");
@@ -43,7 +55,13 @@ namespace PR3_Blazor.Components.Services
 
         public async Task AddEtablissement(Etablissement etablissement)
         {
-            string token =  _authService.GetTokenFromSessionAsync();
+            string? token = await _authService.GetTokenAsync();
+
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new UnauthorizedAccessException("Token introuvable.");
+            }
+
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             var etablissementFormated = JsonConvert.SerializeObject(etablissement);
@@ -54,7 +72,13 @@ namespace PR3_Blazor.Components.Services
 
         public async Task UpdateEtablissement(Etablissement etablissement)
         {
-            string token =  _authService.GetTokenFromSessionAsync();
+            string? token = await _authService.GetTokenAsync();
+
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new UnauthorizedAccessException("Token introuvable.");
+            }
+
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             var etablissementFormated = JsonConvert.SerializeObject(etablissement);
@@ -66,7 +90,13 @@ namespace PR3_Blazor.Components.Services
 
         public async Task DeleteEtablissement(int etablissementId)
         {
-            string token =  _authService.GetTokenFromSessionAsync();
+            string? token = await _authService.GetTokenAsync();
+
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new UnauthorizedAccessException("Token introuvable.");
+            }
+
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             var response = await _httpClient.DeleteAsync($"http://localhost:5011/api/Etablissements/{etablissementId}");

@@ -17,108 +17,159 @@
 @rendermode InteractiveServer
 
 
-<h3>Liste des Salles </h3>
+<div class="page-container">
 
-@if (salleList != null)
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Numéro</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var salle in salleList)
-            {
-                <tr>
-                    <td width="20">@salle.Id</td>
-                    <td width="20">@salle.Numero</td>
-                    <td>
-                        <button class="btn btn-primary" @onclick="() => OpenUpdateModal(salle.Id)">Editer</button>
-                        <button class="btn btn-danger" @onclick="() => DeleteSalle(salle.Id)">Supprimer</button>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    <div class="page-title">Gestion des salles</div>
+    <div class="page-subtitle">Ajoutez, modifiez et consultez les salles</div>
 
-    <button class="btn btn-info" @onclick="OpenModal">Ajouter une Salle</button>
+    @if (!string.IsNullOrEmpty(erreurMessage))
+    {
+        <div class="alert-ui alert-error">@erreurMessage</div>
+    }
 
-}
-else
-{
-    <p>Chargement des salles ...</p>
-}
+    @if (!string.IsNullOrEmpty(succesMessage))
+    {
+        <div class="alert-ui alert-success">@succesMessage</div>
+    }
 
+    <div class="card-ui section-spacing">
+        <button class="btn-ui btn-primary-ui" @onclick="OpenModal">Ajouter une salle</button>
+    </div>
 
+    @if (salleList != null)
+    {
+        <div class="table-wrapper">
+            <table class="table-ui">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Numéro de la salle</th>
+                        <th>Établissement</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var salle in salleList)
+                    {
+                        <tr>
+                            <td>@salle.Id</td>
+                            <td>@salle.Numero</td>
+                            <td>@GetNomEtablissement(salle.EtablissementId)</td>
+                            <td>
+                                <button class="btn-ui btn-primary-ui" @onclick="() => OpenUpdateModal(salle.Id)">
+                                    Editer
+                                </button>
+                                <button class="btn-ui btn-danger-ui" @onclick="() => DeleteSalle(salle.Id)">
+                                    Supprimer
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <p>Chargement des salles...</p>
+    }
 
-
-
-
+</div>
 
 <Modal BootstrapClass="border-success"
        CustomStyle="width:400px"
        @bind-Open="IsOpen">
     <ContentContent>
 
-        <form @onsubmit="AddSalle">
-                    <div class="form-group" style="margin-bottom: 15px;">
-                        <label for="numero">Numéro :</label>
-                        <input type="text" id="numero" @bind="salle.Numero" required>
-                    </div>
-                    <div class="form-group" style="margin-bottom: 15px;">
-                        <label for="etablissement">Etablissement :</label>
-                <select id="etablissement" name="etablissement" @bind="salle.EtablissementId" required>
-                            <option value="" disabled selected>Choisissez un établissement</option>
+        <form @onsubmit="AddSalle" @onsubmit:preventDefault>
+            <div class="form-group">
+                <label for="numero" class="form-label">Numéro de salle :</label>
+                <input type="text"
+                       id="numero"
+                       class="form-control"
+                       @bind="NumeroFiltre"
+                       @bind:event="oninput"
+                       placeholder="Ex : 12"
+                       required />
+            </div>
+
+            <div class="form-group">
+                <label for="etablissement" class="form-label">Établissement :</label>
+                <select id="etablissement"
+                        name="etablissement"
+                        class="form-select"
+                        @bind="salle.EtablissementId"
+                        required>
+                    <option value="0">Choisissez un établissement</option>
                     @if (etablissementList != null)
                     {
                         @foreach (var etablissement in etablissementList)
                         {
-                            <option value="@etablissement.Id"> @etablissement.Nom </option>
+                            <option value="@etablissement.Id">@etablissement.Nom</option>
                         }
                     }
-                    </select>
-                    </div>
+                </select>
+            </div>
+
             <div class="d-flex justify-content-center align-content-center">
-                <button type="submit" class="btn btn-success btn-sm" value="ok" style="margin-right:5px">Enregistrer</button>
-                <button type="button" class="btn btn-danger btn-sm" @onclick="CloseModal">Annuler</button>
+                <button type="submit" class="btn-ui btn-primary-ui" style="margin-right:8px;">
+                    Enregistrer
+                </button>
+                <button type="button" class="btn-ui btn-secondary-ui" @onclick="CloseModal">
+                    Annuler
+                </button>
             </div>
         </form>
+
     </ContentContent>
 </Modal>
-
 
 <Modal BootstrapClass="border-success"
        CustomStyle="width:400px"
        @bind-Open="IsUpdateOpen">
-       <ContentContent>
+    <ContentContent>
 
-        <form @onsubmit="UpdateSalle">
-            <div class="form-group" style="margin-bottom: 15px;">
-                <label for="numero">Numéro :</label>
-                <input type="text" id="numero" @bind="salle.Numero" required>
+        <form @onsubmit="UpdateSalle" @onsubmit:preventDefault>
+            <div class="form-group">
+                <label for="numeroUpdate" class="form-label">Numéro de salle :</label>
+                <input type="text"
+                       id="numeroUpdate"
+                       class="form-control"
+                       @bind="NumeroFiltre"
+                       @bind:event="oninput"
+                       placeholder="Ex : 12"
+                       required />
             </div>
-            <div class="form-group" style="margin-bottom: 15px;">
-                    <label for="etablissement">Etablissement :</label>
-                <select id="etablissement" name="etablissement" @bind="salle.EtablissementId" required>
-                        <option value="" disabled selected>Choisissez un établissement</option>
+
+            <div class="form-group">
+                <label for="etablissementUpdate" class="form-label">Établissement :</label>
+                <select id="etablissementUpdate"
+                        name="etablissementUpdate"
+                        class="form-select"
+                        @bind="salle.EtablissementId"
+                        required>
+                    <option value="0">Choisissez un établissement</option>
                     @if (etablissementList != null)
                     {
                         @foreach (var etablissement in etablissementList)
                         {
-                            <option value="@etablissement.Id"> @etablissement.Nom </option>
+                            <option value="@etablissement.Id">@etablissement.Nom</option>
                         }
                     }
-                    </select>
+                </select>
             </div>
+
             <div class="d-flex justify-content-center align-content-center">
-                <button type="submit" class="btn btn-success btn-sm" value="ok" style="margin-right:5px">Enregistrer</button>
-                <button type="button" class="btn btn-danger btn-sm" @onclick="CloseUpdateModal">Annuler</button>
+                <button type="submit" class="btn-ui btn-primary-ui" style="margin-right:8px;">
+                    Enregistrer
+                </button>
+                <button type="button" class="btn-ui btn-secondary-ui" @onclick="CloseUpdateModal">
+                    Annuler
+                </button>
             </div>
         </form>
-       </ContentContent>
+
+    </ContentContent>
 </Modal>
 
 @code {
@@ -148,12 +199,37 @@ else
     //private readonly HttpClient _httpClient;
     List<Salle>? salleList;
     List<Etablissement>? etablissementList;
-
+    private string? erreurMessage;
+    private string? succesMessage;
     Salle salle = new Salle();
 
     private bool _initialized;
     private bool _isFirstRender = true;
 
+    private bool NumeroSalleValideLocal(string? numero)
+    {
+        if (string.IsNullOrWhiteSpace(numero))
+            return false;
+
+        numero = numero.Trim();
+
+        return numero.All(char.IsDigit);
+    }
+    private void NettoyerNumeroSalle()
+    {
+        if (!string.IsNullOrEmpty(salle.Numero))
+        {
+            salle.Numero = new string(salle.Numero.Where(char.IsDigit).ToArray());
+        }
+    }
+    private string NumeroFiltre
+    {
+        get => salle.Numero;
+        set
+        {
+            salle.Numero = new string(value.Where(char.IsDigit).ToArray());
+        }
+    }
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if (firstRender && _isFirstRender)
@@ -163,12 +239,19 @@ else
             StateHasChanged(); // Notify Blazor that the state has changed so it can re-render the component
         }
     }
-
+    string? erreur;
     private async Task FetchSalleList()
     {
-        salleList = await SalleService.GetAllSalle();
-        etablissementList = await EtablissementService.GetAllEtablissement();
-        _initialized = true;
+        try
+        {
+            salleList = await SalleService.GetAllSalle();
+            etablissementList = await EtablissementService.GetAllEtablissement();
+            _initialized = true;
+        }
+        catch (Exception ex)
+        {
+            erreur = ex.Message;
+        }
     }
     /*protected override async Task OnInitializedAsync()
     {
@@ -178,21 +261,78 @@ else
 
 
     private async Task AddSalle()
+        {
+    erreurMessage = null;
+    succesMessage = null;
+
+    if (!NumeroSalleValideLocal(salle.Numero))
+    {
+        erreurMessage = "Le numéro de salle doit contenir uniquement des chiffres.";
+        return;
+    }
+
+    if (salle.EtablissementId <= 0)
+    {
+        erreurMessage = "Veuillez sélectionner un établissement.";
+        return;
+    }
+
+    try
     {
         await SalleService.AddSalle(salle);
         salleList = await SalleService.GetAllSalle();
+        succesMessage = "Salle ajoutée avec succès.";
         salle = new Salle();
         CloseModal();
+    }
+    catch (Exception ex)
+    {
+        if (ex.Message.Contains("existe déjà"))
+            erreurMessage = "⚠️ Cette salle existe déjà dans cet établissement.";
+        else
+            erreurMessage = "Une erreur est survenue.";
+    }
+        }
 
+        private async Task UpdateSalle()
+        {
+    erreurMessage = null;
+    succesMessage = null;
+
+    if (!NumeroSalleValideLocal(salle.Numero))
+    {
+        erreurMessage = "Le numéro de salle doit contenir uniquement des chiffres.";
+        return;
     }
 
-    private async Task UpdateSalle()
+    if (salle.EtablissementId <= 0)
+    {
+        erreurMessage = "Veuillez sélectionner un établissement.";
+        return;
+    }
+
+    try
     {
         await SalleService.UpdateSalle(salle);
         salleList = await SalleService.GetAllSalle();
+        succesMessage = "Salle modifiée avec succès.";
         salle = new Salle();
         CloseUpdateModal();
     }
+    catch (Exception ex)
+    {
+        if (ex.Message.Contains("existe déjà"))
+            erreurMessage = "⚠️ Cette salle existe déjà dans cet établissement.";
+        else
+            erreurMessage = "Une erreur est survenue.";
+    }
+        }
+
+        private string GetNomEtablissement(int etablissementId)
+        {
+    var etab = etablissementList?.FirstOrDefault(e => e.Id == etablissementId);
+    return etab?.Nom ?? "Non défini";
+        }
 
     private async Task DeleteSalle(int salleId)
     {

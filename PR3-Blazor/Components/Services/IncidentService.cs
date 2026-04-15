@@ -19,10 +19,16 @@ namespace PR3_Blazor.Components.Services
 
     public async Task<List<Incident>> GetAllIncident()
     {
-        string token = _authService.GetTokenFromSessionAsync();
-        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            string? token = await _authService.GetTokenAsync();
 
-        HttpResponseMessage response = await _httpClient.GetAsync("http://localhost:5011/api/Incidents");
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new UnauthorizedAccessException("Token introuvable.");
+            }
+
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            HttpResponseMessage response = await _httpClient.GetAsync("http://localhost:5011/api/Incidents");
         response.EnsureSuccessStatusCode();
 
         string data = await response.Content.ReadAsStringAsync();
@@ -31,10 +37,16 @@ namespace PR3_Blazor.Components.Services
 
     public async Task<Incident> GetIncidentById(int incidentId)
     {
-        string token = _authService.GetTokenFromSessionAsync();
-        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            string? token = await _authService.GetTokenAsync();
 
-        HttpResponseMessage response = await _httpClient.GetAsync($"http://localhost:5011/api/Incidents/{incidentId}");
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new UnauthorizedAccessException("Token introuvable.");
+            }
+
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            HttpResponseMessage response = await _httpClient.GetAsync($"http://localhost:5011/api/Incidents/{incidentId}");
         response.EnsureSuccessStatusCode();
 
         string data = await response.Content.ReadAsStringAsync();
@@ -44,10 +56,16 @@ namespace PR3_Blazor.Components.Services
 
     public async Task AddIncident(Incident incident)
     {
-        string token = _authService.GetTokenFromSessionAsync();
-        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            string? token = await _authService.GetTokenAsync();
 
-        var incidentFormated = JsonConvert.SerializeObject(incident);
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new UnauthorizedAccessException("Token introuvable.");
+            }
+
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            var incidentFormated = JsonConvert.SerializeObject(incident);
         var content = new StringContent(incidentFormated, Encoding.UTF8, "application/json");
         var response = await _httpClient.PostAsync("http://localhost:5011/api/Incidents", content);
         response.EnsureSuccessStatusCode();
@@ -55,10 +73,16 @@ namespace PR3_Blazor.Components.Services
 
     public async Task UpdateIncident(Incident incident)
     {
-        string token = _authService.GetTokenFromSessionAsync();
-        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            string? token = await _authService.GetTokenAsync();
 
-        var incidentFormated = JsonConvert.SerializeObject(incident);
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new UnauthorizedAccessException("Token introuvable.");
+            }
+
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            var incidentFormated = JsonConvert.SerializeObject(incident);
         var content = new StringContent(incidentFormated, Encoding.UTF8, "application/json");
         var response = await _httpClient.PutAsync($"http://localhost:5011/api/Incidents/{incident.Id}", content);
         response.EnsureSuccessStatusCode();
@@ -67,10 +91,16 @@ namespace PR3_Blazor.Components.Services
 
     public async Task DeleteIncident(int incidentId)
     {
-        string token = _authService.GetTokenFromSessionAsync();
-        _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            string? token = await _authService.GetTokenAsync();
 
-        var response = await _httpClient.DeleteAsync($"http://localhost:5011/api/Incidents/{incidentId}");
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new UnauthorizedAccessException("Token introuvable.");
+            }
+
+            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            var response = await _httpClient.DeleteAsync($"http://localhost:5011/api/Incidents/{incidentId}");
         response.EnsureSuccessStatusCode();
 
     }

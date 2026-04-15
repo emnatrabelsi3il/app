@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PR3-Blazor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+51ce09b4f6f05e08a5e579daeeae6553fc04677b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7c0aaa1302b08bb8cf9549e487fd865bf3644943")]
 [assembly: System.Reflection.AssemblyProductAttribute("PR3-Blazor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PR3-Blazor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

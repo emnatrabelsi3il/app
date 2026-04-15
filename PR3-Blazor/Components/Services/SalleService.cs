@@ -20,7 +20,13 @@ namespace PR3_Blazor.Components.Services
         }
         public async Task<List<Salle>> GetAllSalle()
         {
-            string token =  _authService.GetTokenFromSessionAsync();
+            string? token = await _authService.GetTokenAsync();
+
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new UnauthorizedAccessException("Token introuvable.");
+            }
+
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             HttpResponseMessage response = await _httpClient.GetAsync("http://localhost:5011/api/Salles");
@@ -35,7 +41,13 @@ namespace PR3_Blazor.Components.Services
         }**/
 
         public async Task<Salle> GetSalleById(int salleId) {
-            string token =  _authService.GetTokenFromSessionAsync();
+            string? token = await _authService.GetTokenAsync();
+
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new UnauthorizedAccessException("Token introuvable.");
+            }
+
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             HttpResponseMessage response = await _httpClient.GetAsync($"http://localhost:5011/api/Salles/{salleId}");
@@ -48,30 +60,51 @@ namespace PR3_Blazor.Components.Services
 
         public async Task AddSalle(Salle salle)
         {
-            string token =  _authService.GetTokenFromSessionAsync();
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            string? token = await _authService.GetTokenAsync();
 
-            var salleFormated = JsonConvert.SerializeObject(salle);
-            var content = new StringContent(salleFormated, Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync("http://localhost:5011/api/Salles", content);
-            response.EnsureSuccessStatusCode();
+            var request = new HttpRequestMessage(HttpMethod.Post, "http://localhost:5011/api/Salles");
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            var json = JsonConvert.SerializeObject(salle);
+            request.Content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await _httpClient.SendAsync(request);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var errorMessage = await response.Content.ReadAsStringAsync();
+                throw new Exception(errorMessage);
+            }
         }
 
         public async Task UpdateSalle(Salle salle)
         {
-            string token =  _authService.GetTokenFromSessionAsync();
-            _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            string? token = await _authService.GetTokenAsync();
 
-            var salleFormated = JsonConvert.SerializeObject(salle);
-                var content = new StringContent(salleFormated, Encoding.UTF8, "application/json");
-                var response = await _httpClient.PutAsync($"http://localhost:5011/api/Salles/{salle.Id}", content);
-                response.EnsureSuccessStatusCode();
+            var request = new HttpRequestMessage(HttpMethod.Put, $"http://localhost:5011/api/Salles/{salle.Id}");
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
+            var json = JsonConvert.SerializeObject(salle);
+            request.Content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await _httpClient.SendAsync(request);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var errorMessage = await response.Content.ReadAsStringAsync();
+                throw new Exception(errorMessage);
+            }
         }
 
         public async Task DeleteSalle(int salleId)
         {
-            string token =  _authService.GetTokenFromSessionAsync();
+            string? token = await _authService.GetTokenAsync();
+
+            if (string.IsNullOrEmpty(token))
+            {
+                throw new UnauthorizedAccessException("Token introuvable.");
+            }
+
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             var response = await _httpClient.DeleteAsync($"http://localhost:5011/api/Salles/{salleId}");

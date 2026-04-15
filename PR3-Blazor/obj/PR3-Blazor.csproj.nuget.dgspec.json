@@ -59,6 +59,10 @@
               "target": "Package",
               "version": "[8.0.6, )"
             },
+            "MudBlazor": {
+              "target": "Package",
+              "version": "[9.3.0, )"
+            },
             "NetcodeHub.Packages.Components.Modal": {
               "target": "Package",
               "version": "[1.0.0, )"
