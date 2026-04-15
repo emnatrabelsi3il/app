@@ -186,6 +186,7 @@ namespace PR3_SecureAPI.Controllers
                 }
                 return builder.ToString();
             }
+           
         }
         private string GenerateToken(String user)
         {
@@ -201,3 +202,4 @@ namespace PR3_SecureAPI.Controllers
 
     }
 }
+

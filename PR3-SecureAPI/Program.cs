@@ -6,20 +6,21 @@ using PR3_SecureAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddDbContext<SalleContext>(options => options.UseSqlite("DataSource=D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\PR3-database.db"));
-builder.Services.AddDbContext<PosteContext>(options => options.UseSqlite("DataSource=D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\PR3-database.db"));
-builder.Services.AddDbContext<UtilisateurContext>(options => options.UseSqlite("DataSource=D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\PR3-database.db"));
-builder.Services.AddDbContext<EtablissementContext>(options => options.UseSqlite("DataSource=D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\PR3-database.db"));
-builder.Services.AddDbContext<IncidentContext>(options => options.UseSqlite("DataSource=D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\PR3-database.db"));
 
+// Utiliser une connexion relative pour la DB
+var cs = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<SalleContext>(options => options.UseSqlite(cs));
+builder.Services.AddDbContext<PosteContext>(options => options.UseSqlite(cs));
+builder.Services.AddDbContext<UtilisateurContext>(options => options.UseSqlite(cs));
+builder.Services.AddDbContext<EtablissementContext>(options => options.UseSqlite(cs));
+builder.Services.AddDbContext<IncidentContext>(options => options.UseSqlite(cs));
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+// Configurer Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
@@ -28,7 +29,7 @@ builder.Services.AddSwaggerGen(options =>
         Version = "v1",
         Title = "Title",
         Description = "Description",
-        TermsOfService  = new Uri("https://example.com/terms"),
+        TermsOfService = new Uri("https://example.com/terms"),
     });
 
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
@@ -50,40 +51,34 @@ builder.Services.AddSwaggerGen(options =>
                     Type = ReferenceType.SecurityScheme,
                     Id = "Bearer"
                 }
-
-        },
-        new string[] {}
+            },
+            new string[] {}
         }
     });
-
-
 });
 
+// Configurer l'authentification JWT
+var jwtSettings = builder.Configuration.GetSection("Jwt");
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-}
-).AddJwtBearer(options => {
+})
+.AddJwtBearer(options =>
+{
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = true,
         ValidateAudience = true,
         ValidateLifetime = true,
         ValidateIssuerSigningKey = true,
-        ValidIssuer = "3iL",
-        ValidAudience = "API test",
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("96ZP0WzO5W3ZMWWVqZVhsUK0h3lChcdj96ZP0WzO5W3ZMWWVqZVhsUK0h3lChcdj"))
+        ValidIssuer = jwtSettings["Issuer"],
+        ValidAudience = jwtSettings["Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings["Key"]))  // Clé lue depuis appsettings.json
     };
 });
 
-
-
-
 var app = builder.Build();
-
-
-
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -92,9 +87,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 app.UseAuthentication();
-
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();
