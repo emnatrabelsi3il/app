@@ -131,7 +131,28 @@ namespace PR3_SecureAPI.Controllers
 
             return NoContent();
         }
+        [HttpGet("details")]
+        public async Task<IActionResult> GetPosteDetails()
+        {
+            var result = await (
+                from p in _context.Poste
+                join s in _context.Salle on p.SalleId equals s.Id
+                join e in _context.Etablissement on s.EtablissementId equals e.Id
+                select new
+                {
+                    p.Id,
+                    p.Numero,
+                    p.MacAdress,
+                    p.SalleId,
+                    p.IsConnected,
 
+                    SalleNom = s.Numero, // test
+                    EtablissementNom = e.Nom
+                }
+            ).ToListAsync();
+
+            return Ok(result);
+        }
         private bool PosteExists(int id)
         {
             return _context.Poste.Any(e => e.Id == id);

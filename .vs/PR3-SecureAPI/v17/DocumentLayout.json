@@ -3,24 +3,60 @@
   "WorkspaceRootPath": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|d:\\bureau\\projet\\projet\\pr3-secureapi\\pr3-secureapi\\controllers\\utilisateurscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|solutionrelative:pr3-secureapi\\controllers\\utilisateurscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|d:\\bureau\\projet\\projet\\pr3-secureapi\\pr3-secureapi\\controllers\\postescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|solutionrelative:pr3-secureapi\\controllers\\postescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|d:\\bureau\\projet\\projet\\pr3-secureapi\\pr3-secureapi\\models\\utilisateur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|solutionrelative:pr3-secureapi\\models\\utilisateur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|d:\\bureau\\projet\\projet\\pr3-secureapi\\pr3-secureapi\\models\\postecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|solutionrelative:pr3-secureapi\\models\\postecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|d:\\bureau\\projet\\projet\\pr3-secureapi\\pr3-secureapi\\models\\sallecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|solutionrelative:pr3-secureapi\\models\\sallecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|d:\\bureau\\projet\\projet\\pr3-secureapi\\pr3-secureapi\\models\\utilisateurcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|solutionrelative:pr3-secureapi\\models\\utilisateurcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|d:\\bureau\\projet\\projet\\pr3-secureapi\\pr3-secureapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|solutionrelative:pr3-secureapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|d:\\bureau\\projet\\projet\\pr3-secureapi\\pr3-secureapi\\models\\etablissementcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|solutionrelative:pr3-secureapi\\models\\etablissementcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|d:\\bureau\\projet\\projet\\pr3-secureapi\\pr3-secureapi\\models\\incidentcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|solutionrelative:pr3-secureapi\\models\\incidentcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|d:\\bureau\\projet\\projet\\pr3-secureapi\\pr3-secureapi\\models\\incident.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|solutionrelative:pr3-secureapi\\models\\incident.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|d:\\bureau\\projet\\projet\\pr3-secureapi\\pr3-secureapi\\models\\utilisateur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|solutionrelative:pr3-secureapi\\models\\utilisateur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|d:\\bureau\\projet\\projet\\pr3-secureapi\\pr3-secureapi\\models\\etablissement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|solutionrelative:pr3-secureapi\\models\\etablissement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|d:\\bureau\\projet\\projet\\pr3-secureapi\\pr3-secureapi\\models\\salle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|solutionrelative:pr3-secureapi\\models\\salle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|d:\\bureau\\projet\\projet\\pr3-secureapi\\pr3-secureapi\\controllers\\sallescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|solutionrelative:pr3-secureapi\\controllers\\sallescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|d:\\bureau\\projet\\projet\\pr3-secureapi\\pr3-secureapi\\models\\poste.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|solutionrelative:pr3-secureapi\\models\\poste.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|d:\\bureau\\projet\\projet\\pr3-secureapi\\pr3-secureapi\\controllers\\utilisateurscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|solutionrelative:pr3-secureapi\\controllers\\utilisateurscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|d:\\bureau\\projet\\projet\\pr3-secureapi\\pr3-secureapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|solutionrelative:pr3-secureapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|d:\\bureau\\projet\\projet\\pr3-secureapi\\pr3-secureapi\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -29,14 +65,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|d:\\bureau\\projet\\projet\\pr3-secureapi\\pr3-secureapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|solutionrelative:pr3-secureapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|d:\\bureau\\projet\\projet\\pr3-secureapi\\pr3-secureapi\\models\\sallecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|solutionrelative:pr3-secureapi\\models\\sallecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|d:\\bureau\\projet\\projet\\pr3-secureapi\\pr3-secureapi\\models\\salle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|solutionrelative:pr3-secureapi\\models\\salle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|d:\\bureau\\projet\\projet\\pr3-secureapi\\pr3-secureapi\\controllers\\etablissementscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -49,10 +77,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|d:\\bureau\\projet\\projet\\pr3-secureapi\\pr3-secureapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|solutionrelative:pr3-secureapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|d:\\bureau\\projet\\projet\\pr3-secureapi\\pr3-secureapi\\controllers\\postescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|solutionrelative:pr3-secureapi\\controllers\\postescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{37C6AC39-4B03-4A6E-ADB6-6999F8D643DF}|PR3-SecureAPI\\PR3-SecureAPI.csproj|d:\\bureau\\projet\\projet\\pr3-secureapi\\pr3-secureapi\\pr3-secureapi.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
@@ -74,11 +98,89 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 18,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "IncidentContext.cs",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\Models\\IncidentContext.cs",
+              "RelativeDocumentMoniker": "PR3-SecureAPI\\Models\\IncidentContext.cs",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\Models\\IncidentContext.cs",
+              "RelativeToolTip": "PR3-SecureAPI\\Models\\IncidentContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T17:46:46.224Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Incident.cs",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\Models\\Incident.cs",
+              "RelativeDocumentMoniker": "PR3-SecureAPI\\Models\\Incident.cs",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\Models\\Incident.cs",
+              "RelativeToolTip": "PR3-SecureAPI\\Models\\Incident.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T17:46:46.689Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Etablissement.cs",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\Models\\Etablissement.cs",
+              "RelativeDocumentMoniker": "PR3-SecureAPI\\Models\\Etablissement.cs",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\Models\\Etablissement.cs",
+              "RelativeToolTip": "PR3-SecureAPI\\Models\\Etablissement.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T17:46:38.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "EtablissementContext.cs",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\Models\\EtablissementContext.cs",
+              "RelativeDocumentMoniker": "PR3-SecureAPI\\Models\\EtablissementContext.cs",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\Models\\EtablissementContext.cs",
+              "RelativeToolTip": "PR3-SecureAPI\\Models\\EtablissementContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T17:34:12.741Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PosteContext.cs",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\Models\\PosteContext.cs",
+              "RelativeDocumentMoniker": "PR3-SecureAPI\\Models\\PosteContext.cs",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\Models\\PosteContext.cs",
+              "RelativeToolTip": "PR3-SecureAPI\\Models\\PosteContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T17:34:00.63Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Poste.cs",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\Models\\Poste.cs",
+              "RelativeDocumentMoniker": "PR3-SecureAPI\\Models\\Poste.cs",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\Models\\Poste.cs",
+              "RelativeToolTip": "PR3-SecureAPI\\Models\\Poste.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T17:32:27.145Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "launchSettings.json",
               "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "PR3-SecureAPI\\Properties\\launchSettings.json",
@@ -90,7 +192,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 17,
               "Title": "PR3-SecureAPI.csproj",
               "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\PR3-SecureAPI.csproj",
               "RelativeDocumentMoniker": "PR3-SecureAPI\\PR3-SecureAPI.csproj",
@@ -102,20 +204,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 12,
               "Title": "UtilisateursController.cs",
               "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\Controllers\\UtilisateursController.cs",
               "RelativeDocumentMoniker": "PR3-SecureAPI\\Controllers\\UtilisateursController.cs",
               "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\Controllers\\UtilisateursController.cs",
               "RelativeToolTip": "PR3-SecureAPI\\Controllers\\UtilisateursController.cs",
-              "ViewState": "AgIAALYAAAAAAAAAAAAqwMcAAABAAAAAAAAAAA==",
+              "ViewState": "AgIAALYAAAAAAAAAAAAqwMIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-05T20:45:18.25Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "Utilisateur.cs",
               "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\Models\\Utilisateur.cs",
               "RelativeDocumentMoniker": "PR3-SecureAPI\\Models\\Utilisateur.cs",
@@ -128,7 +230,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 10,
               "Title": "SallesController.cs",
               "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\Controllers\\SallesController.cs",
               "RelativeDocumentMoniker": "PR3-SecureAPI\\Controllers\\SallesController.cs",
@@ -136,11 +238,12 @@
               "RelativeToolTip": "PR3-SecureAPI\\Controllers\\SallesController.cs",
               "ViewState": "AgIAAAwAAAAAAAAAAAAewBMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T17:36:34.704Z"
+              "WhenOpened": "2026-04-13T17:36:34.704Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 13,
               "Title": "AuthController.cs",
               "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "PR3-SecureAPI\\Controllers\\AuthController.cs",
@@ -152,7 +255,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "UtilisateurContext.cs",
               "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\Models\\UtilisateurContext.cs",
               "RelativeDocumentMoniker": "PR3-SecureAPI\\Models\\UtilisateurContext.cs",
@@ -165,7 +268,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 15,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\Program.cs",
               "RelativeDocumentMoniker": "PR3-SecureAPI\\Program.cs",
@@ -177,7 +280,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 18,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\appsettings.json",
               "RelativeDocumentMoniker": "PR3-SecureAPI\\appsettings.json",
@@ -189,7 +292,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Salle.cs",
               "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\Models\\Salle.cs",
               "RelativeDocumentMoniker": "PR3-SecureAPI\\Models\\Salle.cs",
@@ -197,23 +300,25 @@
               "RelativeToolTip": "PR3-SecureAPI\\Models\\Salle.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T17:37:48.889Z"
+              "WhenOpened": "2026-04-13T17:37:48.889Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 2,
               "Title": "SalleContext.cs",
               "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\Models\\SalleContext.cs",
               "RelativeDocumentMoniker": "PR3-SecureAPI\\Models\\SalleContext.cs",
               "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\Models\\SalleContext.cs",
               "RelativeToolTip": "PR3-SecureAPI\\Models\\SalleContext.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T17:37:50.641Z"
+              "WhenOpened": "2026-04-13T17:37:50.641Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 16,
               "Title": "EtablissementsController.cs",
               "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\Controllers\\EtablissementsController.cs",
               "RelativeDocumentMoniker": "PR3-SecureAPI\\Controllers\\EtablissementsController.cs",
@@ -225,19 +330,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 0,
               "Title": "PostesController.cs",
               "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\Controllers\\PostesController.cs",
               "RelativeDocumentMoniker": "PR3-SecureAPI\\Controllers\\PostesController.cs",
               "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\Controllers\\PostesController.cs",
               "RelativeToolTip": "PR3-SecureAPI\\Controllers\\PostesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAAwIcAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-08T16:07:35.726Z"
+              "WhenOpened": "2025-04-08T16:07:35.726Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 19,
               "Title": "PR3-SecureAPI.http",
               "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\PR3-SecureAPI.http",
               "RelativeDocumentMoniker": "PR3-SecureAPI\\PR3-SecureAPI.http",
@@ -249,7 +355,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 21,
               "Title": "PR3-database.db",
               "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\PR3-database.db",
               "RelativeDocumentMoniker": "PR3-SecureAPI\\PR3-database.db",
@@ -260,7 +366,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 20,
               "Title": "IncidentsController.cs",
               "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-SecureAPI\\PR3-SecureAPI\\Controllers\\IncidentsController.cs",
               "RelativeDocumentMoniker": "PR3-SecureAPI\\Controllers\\IncidentsController.cs",

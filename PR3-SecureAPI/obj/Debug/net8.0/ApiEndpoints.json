@@ -354,6 +354,16 @@
   },
   {
     "ContainingType": "PR3_SecureAPI.Controllers.PostesController",
+    "Method": "GetPosteDetails",
+    "RelativePath": "api/Postes/details",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PR3_SecureAPI.Controllers.PostesController",
     "Method": "DisconnectPosteByMacAdress",
     "RelativePath": "api/Postes/DisconnectByMacAdress/{macAdress}",
     "HttpMethod": "PUT",

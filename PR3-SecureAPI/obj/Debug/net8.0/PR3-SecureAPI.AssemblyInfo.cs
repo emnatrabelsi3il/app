@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PR3-SecureAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ab43e944e9392b73d506dffe9eca34eba20cdc7d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5934ed65aea066d0195183b6825daf305583639d")]
 [assembly: System.Reflection.AssemblyProductAttribute("PR3-SecureAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PR3-SecureAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

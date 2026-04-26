@@ -635,6 +635,18 @@
         }
       }
     },
+    "/api/Postes/details": {
+      "get": {
+        "tags": [
+          "Postes"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/Salles": {
       "get": {
         "tags": [
