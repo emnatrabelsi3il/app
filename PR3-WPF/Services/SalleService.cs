@@ -24,7 +24,7 @@ namespace PR3_WPF.Services
         public async Task<List<Salle>> GetAllSalle()
         {
 
-            HttpResponseMessage response = await _httpClient.GetAsync("http://localhost:5011/api/Salles");
+            HttpResponseMessage response = await _httpClient.GetAsync("https://localhost:7011/api/Salles");
             response.EnsureSuccessStatusCode();
 
             string data = await response.Content.ReadAsStringAsync();

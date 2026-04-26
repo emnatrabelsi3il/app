@@ -16,19 +16,21 @@
 
         </Grid.RowDefinitions>
         <Grid>
-            <TextBlock Text="List des Postes" HorizontalAlignment="Center"></TextBlock>
+            <TextBlock Text="Liste des Postes" HorizontalAlignment="Center"></TextBlock>
         </Grid>
 
         <Grid Margin="0,0,0,0" Grid.Row="1">
-        <ListView Name="posteListView"  >
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}" Width="120"/>
-                    <GridViewColumn Header="Numero" DisplayMemberBinding="{Binding Numero}" Width="120"/>
-
+            <ListView x:Name="posteListView">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Numéro" DisplayMemberBinding="{Binding Numero}" Width="120"/>
+                        <GridViewColumn Header="Adresse MAC" DisplayMemberBinding="{Binding MacAdress}" Width="180"/>
+                        <GridViewColumn Header="Salle" DisplayMemberBinding="{Binding SalleNom}" Width="150"/>
+                        <GridViewColumn Header="Établissement" DisplayMemberBinding="{Binding EtablissementNom}" Width="180"/>
+                        
                     </GridView>
-            </ListView.View>
-        </ListView>
-    </Grid>
+                </ListView.View>
+            </ListView>
+        </Grid>
     </Grid>
 </Page>

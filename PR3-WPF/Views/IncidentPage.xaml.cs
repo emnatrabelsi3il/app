@@ -26,10 +26,10 @@ namespace PR3_WPF.Views
     /// </summary>
     public partial class IncidentPage : Page
     {
-        private const string apiIncident = "http://localhost:5011/api/Incidents";
-        private const string apiSalle = "http://localhost:5011/api/Salles";
-        private const string apiPoste = "http://localhost:5011/api/Postes";
-        private const string apiEtablissement = "http://localhost:5011/api/Etablissements";
+        private const string apiIncident = "https://localhost:7011/api/Incidents";
+        private const string apiSalle = "https://localhost:7011/api/Salles";
+        private const string apiPoste = "https://localhost:7011/api/Postes";
+        private const string apiEtablissement = "https://localhost:7011/api/Etablissements";
         public ObservableCollection<Incident> incidents { get; set; }
         private AuthService _authService;
         public IncidentPage()

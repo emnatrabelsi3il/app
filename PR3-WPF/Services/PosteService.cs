@@ -27,7 +27,7 @@ namespace PR3_WPF.Services
             string jwtToken = _authService.ReadToken();
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
 
-            HttpResponseMessage response = await _httpClient.GetAsync("http://localhost:5011/api/Postes");
+            HttpResponseMessage response = await _httpClient.GetAsync("https://localhost:7011/api/Postes");
             response.EnsureSuccessStatusCode();
 
             string data = await response.Content.ReadAsStringAsync();

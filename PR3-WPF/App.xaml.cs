@@ -16,7 +16,7 @@ namespace PR3_WPF
     /// </summary>
     public partial class App : Application
     {
-        private const string disconnedAPI = "http://localhost:5011/api/Postes/DisconnectByMacAdress";
+        private const string disconnedAPI = "https://localhost:7011/api/Postes/DisconnectByMacAdress";
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);

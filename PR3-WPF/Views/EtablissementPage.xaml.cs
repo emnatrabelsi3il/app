@@ -26,7 +26,7 @@ namespace PR3_WPF.Views
     /// </summary>
     public partial class EtablissementPage : Page
     {
-        private const string apiEtablissement = "http://localhost:5011/api/Etablissements";
+        private const string apiEtablissement = "https://localhost:7011/api/Etablissements";
 
         public ObservableCollection<Etablissement> etablissements { get; set; }
         private AuthService _authService;

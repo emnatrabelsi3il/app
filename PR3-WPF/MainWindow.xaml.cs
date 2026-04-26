@@ -1,42 +1,62 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
+﻿using PR3_WPF.Services;
+using PR3_WPF.Views;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using PR3_WPF.Models;
-using Newtonsoft.Json;
-
 
 namespace PR3_WPF
 {
-    /// <summary>
-    /// Logique d'interaction pour MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-
         public MainWindow()
         {
             InitializeComponent();
 
+            var authService = new AuthService(new HttpClient());
+            var token = authService.ReadToken();
+
+            if (string.IsNullOrWhiteSpace(token))
+            {
+                navframe.Navigate(new LoginPage());
+            }
+            else
+            {
+                navframe.Navigate(new MainPage());
+            }
         }
 
-        private void Sidebar_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Accueil_Click(object sender, RoutedEventArgs e)
         {
-            var selected = sidebar.SelectedItem as NavButton;
+            navframe.Navigate(new MainPage());
+        }
 
-            navframe.Navigate(selected.Navlink);
+        private void Postes_Click(object sender, RoutedEventArgs e)
+        {
+            navframe.Navigate(new PostePage());
+        }
+
+        private void AjouterPoste_Click(object sender, RoutedEventArgs e)
+        {
+            navframe.Navigate(new MainPage());
+        }
+
+        private void Salles_Click(object sender, RoutedEventArgs e)
+        {
+            navframe.Navigate(new SallePage());
+        }
+
+        private void Etablissements_Click(object sender, RoutedEventArgs e)
+        {
+            navframe.Navigate(new EtablissementPage());
+        }
+
+        private void Incidents_Click(object sender, RoutedEventArgs e)
+        {
+            navframe.Navigate(new IncidentPage());
+        }
+
+        private void Utilisateurs_Click(object sender, RoutedEventArgs e)
+        {
+            navframe.Navigate(new UtilisateurPage());
         }
     }
 }

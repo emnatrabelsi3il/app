@@ -14,6 +14,10 @@ namespace PR3_WPF.Models
         public long SalleId { get; set; }
         public bool IsConnected { get; set; }
 
+        public string SalleNom { get; set; }
+        public string EtablissementNom { get; set; }
+        public string CreatedByName { get; set; }
+
 
     }
 }

@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
 
         <Grid>
-            <TextBlock Text="List des Etablissements" HorizontalAlignment="Center"></TextBlock>
+            <TextBlock Text="Liste des Etablissements" HorizontalAlignment="Center"></TextBlock>
         </Grid>
 
         <Grid Margin="0,0,0,0" Grid.Row="1">

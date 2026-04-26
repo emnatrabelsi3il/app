@@ -24,7 +24,7 @@ namespace PR3_WPF.Services
         }
         public async Task<List<Utilisateur>> GetAllUtilisateur()
         {
-            HttpResponseMessage response = await _httpClient.GetAsync("http://localhost:5011/api/Utilisateurs");
+            HttpResponseMessage response = await _httpClient.GetAsync("https://localhost:7011/api/Utilisateurs");
             response.EnsureSuccessStatusCode();
 
             string data = await response.Content.ReadAsStringAsync();
@@ -33,7 +33,7 @@ namespace PR3_WPF.Services
 
         public async Task<(bool isSuccess, string token, Utilisateur utilisateur)> LoginAsync(LoginRequest loginRequest)
         {
-            var response = await _httpClient.PostAsJsonAsync("http://localhost:5011/api/utilisateurs/login", loginRequest);
+            var response = await _httpClient.PostAsJsonAsync("https://localhost:7011/api/utilisateurs/login", loginRequest);
 
             if (response.IsSuccessStatusCode)
             {

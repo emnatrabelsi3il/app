@@ -22,7 +22,7 @@ namespace PR3_WPF.Services
         }
         public async Task<string> GetToken()
         {
-            var response = await _httpClient.PostAsync("http://localhost:5011/Auth", null);
+            var response = await _httpClient.PostAsync("https://localhost:7011/Auth", null);
             response.EnsureSuccessStatusCode();
 
             string data = await response.Content.ReadAsStringAsync();

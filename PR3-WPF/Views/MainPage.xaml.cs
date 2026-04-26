@@ -53,7 +53,7 @@ namespace PR3_WPF.Views
             {
                 using (HttpClient client = new HttpClient())
                 {
-                    HttpResponseMessage responseExist = await client.GetAsync($"http://localhost:5011/api/Postes/ByMacAdress/{macAdress}");
+                    HttpResponseMessage responseExist = await client.GetAsync($"https://localhost:7011/api/Postes/ByMacAdress/{macAdress}");
                     if (responseExist.IsSuccessStatusCode)
                     {
                         string data = await responseExist.Content.ReadAsStringAsync();
@@ -64,7 +64,7 @@ namespace PR3_WPF.Views
                             NameTextBox.Text = poste.Numero;
                             NameTextBox.IsReadOnly = true;
                             MacAddressTextBox.IsReadOnly = true;
-                            HttpResponseMessage responseSalle = await client.GetAsync($"http://localhost:5011/api/Salles/{poste.SalleId}");
+                            HttpResponseMessage responseSalle = await client.GetAsync($"https://localhost:7011/api/Salles/{poste.SalleId}");
                             if (responseSalle.IsSuccessStatusCode)
                             {
                                 string salleData = await responseSalle.Content.ReadAsStringAsync();
@@ -80,7 +80,7 @@ namespace PR3_WPF.Views
                     }
                     else
                     {
-                        HttpResponseMessage response = await client.GetAsync("http://localhost:5011/api/Salles");
+                        HttpResponseMessage response = await client.GetAsync("https://localhost:7011/api/Salles");
 
                         if (response.IsSuccessStatusCode)
                         {
@@ -202,7 +202,7 @@ namespace PR3_WPF.Views
             Poste poste = new Poste();
             poste.Numero = name;
             poste.MacAdress = macAddress;
-            poste.SalleId = 1;
+            var selectedSalle = RoomComboBox.SelectedItem as Salle;
             poste.IsConnected = true;
             var json = JsonConvert.SerializeObject(poste);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
@@ -211,7 +211,7 @@ namespace PR3_WPF.Views
             {
                 try
                 {
-                    var response = await client.PostAsync("http://localhost:5011/api/Postes", content);
+                    var response = await client.PostAsync("https://localhost:7011/api/Postes", content);
                     if (response.IsSuccessStatusCode)
                     {
                         MessageBox.Show("Enregistrement réussi !");

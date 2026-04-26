@@ -27,7 +27,7 @@ namespace PR3_WPF.Views
     /// </summary>
     public partial class UtilisateurPage : Page
     {
-        private const string apiUtilisateur = "http://localhost:5011/api/Utilisateurs";
+        private const string apiUtilisateur = "https://localhost:7011/api/Utilisateurs";
         public ObservableCollection<Utilisateur> utilisateur { get; set; }
         private AuthService _authService;
         public UtilisateurPage()
