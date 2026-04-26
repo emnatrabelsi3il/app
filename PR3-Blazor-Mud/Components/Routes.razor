@@ -1,0 +1,39 @@
+﻿@rendermode InteractiveServer
+@using Microsoft.AspNetCore.Components.Authorization
+@using PR3_Blazor_Mud.Components.Layout
+
+<CascadingAuthenticationState>
+    <Router AppAssembly="@typeof(Program).Assembly">
+        <Found Context="routeData">
+            <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
+                <NotAuthorized>
+                    <LayoutView Layout="@typeof(EmptyLayout)">
+                        <MudContainer MaxWidth="MaxWidth.Small" Class="d-flex justify-center align-center" Style="height:100vh;">
+                            <MudPaper Class="pa-8 text-center" Elevation="3">
+                                <MudIcon Icon="@Icons.Material.Filled.Lock" Size="Size.Large" Color="Color.Error" Class="mb-3" />
+                                <MudText Typo="Typo.h5" GutterBottom="true">Accès refusé</MudText>
+                                <MudText Typo="Typo.body1" Class="mb-4" Color="Color.Secondary">
+                                    Vous devez vous connecter pour accéder à cette page.
+                                </MudText>
+                                <MudButton Variant="Variant.Filled"
+                                           Color="Color.Primary"
+                                           Href="/login"
+                                           StartIcon="@Icons.Material.Filled.Login">
+                                    Se connecter
+                                </MudButton>
+                            </MudPaper>
+                        </MudContainer>
+                    </LayoutView>
+                </NotAuthorized>
+            </AuthorizeRouteView>
+
+            <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+        </Found>
+
+        <NotFound>
+            <LayoutView Layout="@typeof(MainLayout)">
+                <MudText Typo="Typo.h4">Page introuvable</MudText>
+            </LayoutView>
+        </NotFound>
+    </Router>
+</CascadingAuthenticationState>

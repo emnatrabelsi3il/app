@@ -1,0 +1,103 @@
+﻿@page "/"
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using MudBlazor
+@attribute [Authorize]
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager Navigation
+@using PR3_Blazor_Mud.Components.Services
+
+<MudContainer MaxWidth="MaxWidth.False" Class="pa-6">
+    <MudPaper Class="pa-4 dashboard-card soft-glow" Elevation="0">
+        <MudText Typo="Typo.h3" GutterBottom="true" Style="font-weight:800;">
+            Bienvenue 👋
+        </MudText>
+        <MudText Typo="Typo.body1" Style="max-width:700px;">
+            Tableau de bord de gestion du parc informatique. Accédez rapidement aux salles, postes, incidents, établissements et utilisateurs.
+        </MudText>
+    </MudPaper>
+
+    <MudGrid Spacing="3">
+
+        <MudItem xs="12" sm="6" md="4">
+            <MudPaper Class="pa-4 dashboard-card soft-glow" Elevation="2">
+                <MudStack Spacing="2">
+                    <MudIcon Icon="@Icons.Material.Filled.MeetingRoom" Size="Size.Large" Color="Color.Primary" />
+                    <MudText Typo="Typo.h6">Salles</MudText>
+                    <MudText Typo="Typo.body2">Gérez les salles et leur établissement.</MudText>
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" Href="/sallePage">Ouvrir</MudButton>
+                </MudStack>
+            </MudPaper>
+        </MudItem>
+
+        <MudItem xs="12" sm="6" md="4">
+            <MudPaper Class="pa-4 dashboard-card soft-glow" Elevation="2">
+                <MudStack Spacing="2">
+                    <MudIcon Icon="@Icons.Material.Filled.Computer" Size="Size.Large" Color="Color.Primary" />
+                    <MudText Typo="Typo.h6">Postes</MudText>
+                    <MudText Typo="Typo.body2">Consultez les postes, leur état et leur salle.</MudText>
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" Href="/postePage">Ouvrir</MudButton>
+                </MudStack>
+            </MudPaper>
+        </MudItem>
+
+        <MudItem xs="12" sm="6" md="4">
+            <MudPaper Class="pa-4 dashboard-card soft-glow" Elevation="2">
+                <MudStack Spacing="2">
+                    <MudIcon Icon="@Icons.Material.Filled.ReportProblem" Size="Size.Large" Color="Color.Warning" />
+                    <MudText Typo="Typo.h6">Incidents</MudText>
+                    <MudText Typo="Typo.body2">Suivez les incidents liés aux postes, salles et établissements.</MudText>
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" Href="/incidentPage">Ouvrir</MudButton>
+                </MudStack>
+            </MudPaper>
+        </MudItem>
+
+        <MudItem xs="12" sm="6" md="4">
+            <MudPaper Class="pa-4 dashboard-card soft-glow" Elevation="2">
+                <MudStack Spacing="2">
+                    <MudIcon Icon="@Icons.Material.Filled.Business" Size="Size.Large" Color="Color.Primary" />
+                    <MudText Typo="Typo.h6">Établissements</MudText>
+                    <MudText Typo="Typo.body2">Gérez les établissements de l'application.</MudText>
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" Href="/etablissementPage">Ouvrir</MudButton>
+                </MudStack>
+            </MudPaper>
+        </MudItem>
+
+        <MudItem xs="12" sm="6" md="4">
+            <MudPaper Class="pa-4 dashboard-card soft-glow" Elevation="2">
+                <MudStack Spacing="2">
+                    <MudIcon Icon="@Icons.Material.Filled.People" Size="Size.Large" Color="Color.Primary" />
+                    <MudText Typo="Typo.h6">Utilisateurs</MudText>
+                    <MudText Typo="Typo.body2">Consultez et administrez les comptes utilisateurs.</MudText>
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" Href="/utilisateurPage">Ouvrir</MudButton>
+                </MudStack>
+            </MudPaper>
+        </MudItem>
+
+        <MudItem xs="12" sm="6" md="4">
+            <MudPaper Class="pa-4 dashboard-card soft-glow" Elevation="2">
+                <MudStack Spacing="2">
+                    <MudIcon Icon="@Icons.Material.Filled.Logout" Size="Size.Large" Color="Color.Error" />
+                    <MudText Typo="Typo.h6">Déconnexion</MudText>
+                    <MudText Typo="Typo.body2">Quittez votre session en toute sécurité.</MudText>
+                    <!-- ✅ OnClick au lieu de Href="/logout" -->
+                    <MudButton Variant="Variant.Outlined"
+                               Color="Color.Error"
+                               OnClick="Logout">
+                        Se déconnecter
+                    </MudButton>
+                </MudStack>
+            </MudPaper>
+        </MudItem>
+
+    </MudGrid>
+</MudContainer>
+
+@code {
+    private void Logout()
+    {
+        var customProvider = (CustomAuthStateProvider)AuthenticationStateProvider;
+        customProvider.NotifyUserLoggedOut();
+        Navigation.NavigateTo("/login", true);
+    }
+}

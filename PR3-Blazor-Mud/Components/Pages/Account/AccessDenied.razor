@@ -1,0 +1,22 @@
+﻿@page "/access-denied"
+@using MudBlazor
+
+<MudContainer MaxWidth="MaxWidth.Small" Class="d-flex justify-center mt-12">
+    <MudPaper Class="pa-8 text-center" Elevation="3" Style="width: 100%; border-radius: 16px;">
+        <MudIcon Icon="@Icons.Material.Filled.Lock" Size="Size.Large" Color="Color.Error" Class="mb-4" />
+
+        <MudText Typo="Typo.h4" GutterBottom="true">
+            Accès refusé
+        </MudText>
+
+        <MudText Typo="Typo.body1" Class="mb-6">
+            Vous n’avez pas l’autorisation d’accéder à cette page.
+        </MudText>
+
+        <MudButton Variant="Variant.Filled"
+                   Color="Color.Primary"
+                   Href="/">
+            Retour à l’accueil
+        </MudButton>
+    </MudPaper>
+</MudContainer>

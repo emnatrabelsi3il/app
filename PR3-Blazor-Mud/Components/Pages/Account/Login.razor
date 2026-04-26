@@ -1,0 +1,123 @@
+﻿@page "/login"
+@rendermode InteractiveServer
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Authentication.Cookies
+@using Microsoft.AspNetCore.Components.Authorization
+@using System.Security.Claims
+@using PR3_Blazor_Mud.Components.Models
+@using PR3_Blazor_Mud.Components.Models.ViewModels
+@using PR3_Blazor_Mud.Components.Services
+@inject UtilisateurService utilisateurService
+@inject NavigationManager navigationManager
+
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+@layout PR3_Blazor_Mud.Components.Layout.EmptyLayout
+
+<MudContainer MaxWidth="MaxWidth.False" Class="login-shell d-flex justify-center align-center pa-6">
+    <MudPaper Class="pa-8 login-card" Elevation="0" Style="width: 100%; max-width: 460px;">
+        <MudStack Spacing="3">
+            <div class="text-center">
+                <MudIcon Icon="@Icons.Material.Filled.Lock" Size="Size.Large" Color="Color.Primary" Class="mb-2" />
+                <MudText Typo="Typo.h4" GutterBottom="true">Connexion</MudText>
+                <MudText Typo="Typo.body2" Color="Color.Secondary">
+                    Connectez-vous pour accéder à l'application
+                </MudText>
+            </div>
+
+            <EditForm Model="@Model" OnValidSubmit="Authenticate" FormName="LoginForm">
+                <DataAnnotationsValidator />
+
+                <MudTextField @bind-Value="Model.Username"
+                              Label="Nom d'utilisateur"
+                              Variant="Variant.Outlined"
+                              Required="true"
+                              Immediate="true"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.Person" />
+
+                <ValidationMessage For="() => Model.Username" />
+
+                <MudTextField @bind-Value="Model.Password"
+                              Label="Mot de passe"
+                              Variant="Variant.Outlined"
+                              InputType="InputType.Password"
+                              Required="true"
+                              Immediate="true"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.Lock"
+                              Class="mt-3" />
+
+                <ValidationMessage For="() => Model.Password" />
+
+                @if (!string.IsNullOrWhiteSpace(errorMessage))
+                {
+                    <MudAlert Severity="Severity.Error" Variant="Variant.Outlined" Dense="true" Class="mt-3">
+                        @errorMessage
+                    </MudAlert>
+                }
+
+                <MudButton ButtonType="ButtonType.Submit"
+                           Variant="Variant.Filled"
+                           Color="Color.Primary"
+                           FullWidth="true"
+                           Class="mt-4"
+                           StartIcon="@Icons.Material.Filled.Login">
+                    Connexion
+                </MudButton>
+            </EditForm>
+        </MudStack>
+    </MudPaper>
+</MudContainer>
+
+@code {
+    private LoginViewModel Model { get; set; } = new();
+    private string? errorMessage;
+
+    private async Task Authenticate()
+    {
+        var loginRequest = new LoginRequest
+            {
+                Login = Model.Username,
+                MotDePasse = Model.Password
+            };
+
+        var result = await utilisateurService.LoginAsync(loginRequest);
+
+        if (!result.isSuccess || result.utilisateur is null || string.IsNullOrEmpty(result.token))
+        {
+            errorMessage = "Échec de connexion. Vérifiez vos identifiants.";
+            return;
+        }
+
+        // Cast vers ton provider custom
+        var customProvider = (CustomAuthStateProvider)AuthenticationStateProvider;
+        customProvider.NotifyUserAuthenticated(
+            Model.Username,
+            result.utilisateur.Role,
+            result.token
+        );
+        customProvider.NotifyUserAuthenticated(
+    Model.Username,
+    result.utilisateur.Role,
+    result.token
+    );
+
+        var testAuth = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        Console.WriteLine("AUTH = " + testAuth.User.Identity?.IsAuthenticated);
+        Console.WriteLine("USER = " + testAuth.User.Identity?.Name);
+
+        
+
+        navigationManager.NavigateTo("/");
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        if (authState.User.Identity?.IsAuthenticated ?? false)
+        {
+            navigationManager.NavigateTo("/");
+        }
+    }
+}

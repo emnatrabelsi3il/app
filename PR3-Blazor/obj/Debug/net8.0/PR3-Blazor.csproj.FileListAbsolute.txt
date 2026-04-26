@@ -91,10 +91,13 @@ D:\Bureau\projet\projet\PR3-Blazor\PR3-Blazor\obj\Debug\net8.0\staticwebassets\m
 D:\Bureau\projet\projet\PR3-Blazor\PR3-Blazor\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.PR3-Blazor.props
 D:\Bureau\projet\projet\PR3-Blazor\PR3-Blazor\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.PR3-Blazor.props
 D:\Bureau\projet\projet\PR3-Blazor\PR3-Blazor\obj\Debug\net8.0\staticwebassets.pack.json
-D:\Bureau\projet\projet\PR3-Blazor\PR3-Blazor\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\Bureau\projet\projet\PR3-Blazor\PR3-Blazor\obj\Debug\net8.0\PR3-Blazor.csproj.Up2Date
 D:\Bureau\projet\projet\PR3-Blazor\PR3-Blazor\obj\Debug\net8.0\PR3-Blazor.dll
 D:\Bureau\projet\projet\PR3-Blazor\PR3-Blazor\obj\Debug\net8.0\refint\PR3-Blazor.dll
 D:\Bureau\projet\projet\PR3-Blazor\PR3-Blazor\obj\Debug\net8.0\PR3-Blazor.pdb
 D:\Bureau\projet\projet\PR3-Blazor\PR3-Blazor\obj\Debug\net8.0\PR3-Blazor.genruntimeconfig.cache
 D:\Bureau\projet\projet\PR3-Blazor\PR3-Blazor\obj\Debug\net8.0\ref\PR3-Blazor.dll
+D:\Bureau\projet\projet\PR3-Blazor\PR3-Blazor\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Bureau\projet\projet\PR3-Blazor\PR3-Blazor\bin\Debug\net8.0\Microsoft.Extensions.Localization.dll
+D:\Bureau\projet\projet\PR3-Blazor\PR3-Blazor\bin\Debug\net8.0\Microsoft.Extensions.Localization.Abstractions.dll
+D:\Bureau\projet\projet\PR3-Blazor\PR3-Blazor\bin\Debug\net8.0\MudBlazor.dll

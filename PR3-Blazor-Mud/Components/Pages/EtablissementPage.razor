@@ -1,0 +1,238 @@
+﻿@page "/etablissementPage"
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@using Microsoft.AspNetCore.Components.Authorization
+@using PR3_Blazor_Mud.Components.Models
+@using PR3_Blazor_Mud.Components.Services
+@using MudBlazor
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject EtablissementService EtablissementService
+@inject ISnackbar Snackbar
+
+@rendermode InteractiveServer
+
+<MudContainer MaxWidth="MaxWidth.False" Class="pa-4">
+    <MudText Typo="Typo.h4" GutterBottom="true">Gestion des établissements</MudText>
+    <MudText Typo="Typo.body1" Class="mb-4">Ajoutez, modifiez et consultez les établissements</MudText>
+
+    <MudPaper Class="pa-4 mb-4" Elevation="1">
+        @if (IsAdmin)
+        {
+            <MudButton Color="Color.Primary"
+                       Variant="Variant.Filled"
+                       OnClick="OpenAddDialog">
+                Ajouter
+            </MudButton>
+        }
+    </MudPaper>
+
+    <MudPaper Class="pa-4" Elevation="1">
+        @if (etablissementList == null)
+        {
+            <MudProgressCircular Indeterminate="true" Color="Color.Primary" />
+            <MudText Class="mt-2">Chargement des établissements...</MudText>
+        }
+        else
+        {
+            <MudTable Items="etablissementList" Hover="true" Striped="true" Dense="false">
+                <HeaderContent>
+                    <MudTh>ID</MudTh>
+                    <MudTh>Nom</MudTh>
+                    <MudTh>Actions</MudTh>
+                </HeaderContent>
+
+                <RowTemplate>
+                    <MudTd DataLabel="ID">@context.Id</MudTd>
+                    <MudTd DataLabel="Nom">@context.Nom</MudTd>
+                    <MudTd DataLabel="Actions">
+                        @if (CanEdit)
+                        {
+                            <MudButton Color="Color.Primary"
+                                       Variant="Variant.Outlined"
+                                       Size="Size.Small"
+                                       OnClick="@(() => OpenUpdateDialog(context.Id))">
+                                Modifier
+                            </MudButton>
+                        }
+                        @if (IsAdmin)
+                        {
+                            <MudButton Color="Color.Error"
+                                       Variant="Variant.Outlined"
+                                       Size="Size.Small"
+                                       OnClick="@(() => DeleteEtablissement(context.Id))">
+                                Supprimer
+                            </MudButton>
+                        }
+                    </MudTd>
+                </RowTemplate>
+            </MudTable>
+        }
+    </MudPaper>
+</MudContainer>
+
+<MudDialog @bind-Visible="IsOpen">
+    <DialogContent>
+        <MudText Typo="Typo.h6" Class="mb-4">Ajouter un établissement</MudText>
+
+        <MudTextField Label="Nom"
+                      @bind-Value="etablissement.Nom"
+                      Required="true"
+                      Immediate="true" />
+    </DialogContent>
+
+    <DialogActions>
+        <MudButton Variant="Variant.Text" OnClick="CloseModal">Annuler</MudButton>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="AddEtablissement">Enregistrer</MudButton>
+    </DialogActions>
+</MudDialog>
+
+<MudDialog @bind-Visible="IsUpdateOpen">
+    <DialogContent>
+        <MudText Typo="Typo.h6" Class="mb-4">Modifier un établissement</MudText>
+
+        <MudTextField Label="Nom"
+                      @bind-Value="etablissement.Nom"
+                      Required="true"
+                      Immediate="true" />
+    </DialogContent>
+
+    <DialogActions>
+        <MudButton Variant="Variant.Text" OnClick="CloseUpdateModal">Annuler</MudButton>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="UpdateEtablissement">Enregistrer</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    private string? CurrentRole;
+    private bool IsAdmin => CurrentRole == "admin";
+    private bool CanEdit => CurrentRole == "admin" || CurrentRole == "user" || CurrentRole == "etudiant";
+    List<Etablissement>? etablissementList;
+    Etablissement etablissement = new Etablissement();
+
+    public bool IsOpen { get; set; }
+    public bool IsUpdateOpen { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        CurrentRole = authState.User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value;
+        await FetchEtablissementList();
+    }
+
+    private async Task FetchEtablissementList()
+    {
+        try
+        {
+            etablissementList = await EtablissementService.GetAllEtablissement();
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add(ex.Message, Severity.Error);
+        }
+    }
+
+    private async Task AddEtablissement()
+    {
+        if (string.IsNullOrWhiteSpace(etablissement.Nom))
+        {
+            Snackbar.Add("Le nom de l'établissement est obligatoire.", Severity.Warning);
+            return;
+        }
+
+        try
+        {
+            await EtablissementService.AddEtablissement(etablissement);
+            etablissementList = await EtablissementService.GetAllEtablissement();
+            etablissement = new Etablissement();
+            CloseModal();
+            Snackbar.Add("Établissement ajouté avec succès.", Severity.Success);
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add(ex.Message, Severity.Error);
+        }
+        if (!IsAdmin)
+        {
+            Snackbar.Add("Seul l'administrateur peut ajouter.", Severity.Warning);
+            return;
+        }
+    }
+
+    private async Task UpdateEtablissement()
+    {
+        if (string.IsNullOrWhiteSpace(etablissement.Nom))
+        {
+            Snackbar.Add("Le nom de l'établissement est obligatoire.", Severity.Warning);
+            return;
+        }
+
+        try
+        {
+            await EtablissementService.UpdateEtablissement(etablissement);
+            etablissementList = await EtablissementService.GetAllEtablissement();
+            etablissement = new Etablissement();
+            CloseUpdateModal();
+            Snackbar.Add("Établissement modifié avec succès.", Severity.Success);
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add(ex.Message, Severity.Error);
+        }
+        if (!CanEdit)
+        {
+            Snackbar.Add("Vous n'avez pas le droit de modifier.", Severity.Warning);
+            return;
+        }
+
+    }
+
+    private async Task DeleteEtablissement(int etablissementId)
+    {
+        try
+        {
+            await EtablissementService.DeleteEtablissement(etablissementId);
+            etablissementList = await EtablissementService.GetAllEtablissement();
+            Snackbar.Add("Établissement supprimé avec succès.", Severity.Success);
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add(ex.Message, Severity.Error);
+        }
+        if (!IsAdmin)
+        {
+            Snackbar.Add("Seul l'administrateur peut supprimer.", Severity.Warning);
+            return;
+        }
+    }
+
+    void OpenAddDialog()
+    {
+        etablissement = new Etablissement();
+        IsOpen = true;
+    }
+
+    void CloseModal()
+    {
+        IsOpen = false;
+        etablissement = new Etablissement();
+    }
+
+    async Task OpenUpdateDialog(int etablissementId)
+    {
+        try
+        {
+            etablissement = await EtablissementService.GetEtablissementById(etablissementId);
+            IsUpdateOpen = true;
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add(ex.Message, Severity.Error);
+        }
+    }
+
+    void CloseUpdateModal()
+    {
+        IsUpdateOpen = false;
+        etablissement = new Etablissement();
+    }
+}

@@ -1,0 +1,329 @@
+﻿@page "/sallePage"
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@using Microsoft.AspNetCore.Components.Authorization
+@using PR3_Blazor_Mud.Components.Models
+@using PR3_Blazor_Mud.Components.Services
+@using MudBlazor
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject SalleService SalleService
+@inject EtablissementService EtablissementService
+@inject IDialogService DialogService
+@inject ISnackbar Snackbar
+
+@rendermode InteractiveServer
+
+<MudContainer MaxWidth="MaxWidth.False" Class="pa-4">
+    <MudText Typo="Typo.h4" GutterBottom="true">Gestion des salles</MudText>
+    <MudText Typo="Typo.body1" Class="mb-4">Ajoutez, modifiez et consultez les salles</MudText>
+
+    <MudPaper Class="pa-4 mb-4" Elevation="1">
+        @if (IsAdmin)
+        {
+            <MudButton Color="Color.Primary"
+                       Variant="Variant.Filled"
+                       OnClick="OpenAddDialog">
+                Ajouter
+            </MudButton>
+        }
+    </MudPaper>
+
+    <MudPaper Class="pa-4" Elevation="1">
+        @if (salleList == null)
+        {
+            <MudProgressCircular Indeterminate="true" Color="Color.Primary" />
+            <MudText Class="mt-2">Chargement des salles...</MudText>
+        }
+        else
+        {
+            <MudTable Items="salleList" Hover="true" Striped="true" Dense="false" Bordered="false">
+                <HeaderContent>
+                    <MudTh>ID</MudTh>
+                    <MudTh>Numéro de la salle</MudTh>
+                    <MudTh>Établissement</MudTh>
+                    <MudTh>Actions</MudTh>
+                </HeaderContent>
+                <RowTemplate>
+                    <MudTd DataLabel="ID">@context.Id</MudTd>
+                    <MudTd DataLabel="Numéro">@context.Numero</MudTd>
+                    <MudTd DataLabel="Établissement">@GetNomEtablissement(context.EtablissementId)</MudTd>
+                    <MudTd DataLabel="Actions">
+                        @if (CanEdit)
+                        {
+                            <MudButton Color="Color.Primary"
+                                       Variant="Variant.Outlined"
+                                       Size="Size.Small"
+                                       OnClick="@(() => OpenUpdateDialog(context.Id))">
+                                Modifier
+                            </MudButton>
+                        }
+
+                        @if (IsAdmin)
+                        {
+                            <MudButton Color="Color.Error"
+                                       Variant="Variant.Outlined"
+                                       Size="Size.Small"
+                                       OnClick="@(() => DeleteSalle(context.Id))">
+                                Supprimer
+                            </MudButton>
+                        }
+                    </MudTd>
+                </RowTemplate>
+            </MudTable>
+        }
+    </MudPaper>
+</MudContainer>
+
+<MudDialog @bind-Visible="IsOpen">
+    <DialogContent>
+        <MudText Typo="Typo.h6" Class="mb-4">Ajouter une salle</MudText>
+
+        <MudTextField Label="Numéro de salle"
+                      @bind-Value="NumeroFiltre"
+                      Immediate="true"
+                      Required="true"
+                      Placeholder="Ex : 12" />
+
+        <MudSelect T="int"
+                   Label="Établissement"
+                   @bind-Value="salle.EtablissementId"
+                   Required="true"
+                   Class="mt-4">
+            @if (etablissementList != null)
+            {
+                @foreach (var etablissement in etablissementList)
+                {
+                    <MudSelectItem Value="@etablissement.Id">@etablissement.Nom</MudSelectItem>
+                }
+            }
+        </MudSelect>
+    </DialogContent>
+
+    <DialogActions>
+        <MudButton Variant="Variant.Text" OnClick="CloseModal">Annuler</MudButton>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="AddSalle">Enregistrer</MudButton>
+    </DialogActions>
+</MudDialog>
+
+<MudDialog @bind-Visible="IsUpdateOpen">
+    <DialogContent>
+        <MudText Typo="Typo.h6" Class="mb-4">Modifier une salle</MudText>
+
+        <MudTextField Label="Numéro de salle"
+                      @bind-Value="NumeroFiltre"
+                      Immediate="true"
+                      Required="true"
+                      Placeholder="Ex : 12" />
+
+        <MudSelect T="int"
+                   Label="Établissement"
+                   @bind-Value="salle.EtablissementId"
+                   Required="true"
+                   Class="mt-4">
+            @if (etablissementList != null)
+            {
+                @foreach (var etablissement in etablissementList)
+                {
+                    <MudSelectItem Value="@etablissement.Id">@etablissement.Nom</MudSelectItem>
+                }
+            }
+        </MudSelect>
+    </DialogContent>
+
+    <DialogActions>
+        <MudButton Variant="Variant.Text" OnClick="CloseUpdateModal">Annuler</MudButton>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="UpdateSalle">Enregistrer</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    private string? CurrentRole;
+    private bool IsAdmin => CurrentRole == "admin";
+    private bool CanEdit => CurrentRole == "admin" || CurrentRole == "user" || CurrentRole == "etudiant";
+
+    List<Salle>? salleList;
+    List<Etablissement>? etablissementList;
+
+    private string? erreurMessage;
+    private string? succesMessage;
+
+    Salle salle = new Salle();
+
+    public bool IsOpen { get; set; }
+    public bool IsUpdateOpen { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        CurrentRole = authState.User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value;
+        await FetchSalleList();
+    }
+
+    private async Task FetchSalleList()
+    {
+        try
+        {
+            salleList = await SalleService.GetAllSalle();
+            etablissementList = await EtablissementService.GetAllEtablissement();
+        }
+        catch (Exception ex)
+        {
+            erreurMessage = ex.Message;
+            Snackbar.Add(erreurMessage, Severity.Error);
+        }
+    }
+
+    private bool NumeroSalleValideLocal(string? numero)
+    {
+        if (string.IsNullOrWhiteSpace(numero))
+            return false;
+
+        numero = numero.Trim();
+        return numero.All(char.IsDigit);
+    }
+
+    private string NumeroFiltre
+    {
+        get => salle.Numero;
+        set
+        {
+            salle.Numero = new string((value ?? string.Empty).Where(char.IsDigit).ToArray());
+        }
+    }
+
+    private async Task AddSalle()
+    {
+        erreurMessage = null;
+        succesMessage = null;
+
+        if (!NumeroSalleValideLocal(salle.Numero))
+        {
+            erreurMessage = "Le numéro de salle doit contenir uniquement des chiffres.";
+            Snackbar.Add(erreurMessage, Severity.Warning);
+            return;
+        }
+        if (!IsAdmin)
+        {
+            Snackbar.Add("Seul l'administrateur peut ajouter.", Severity.Warning);
+            return;
+        }
+        if (salle.EtablissementId <= 0)
+        {
+            erreurMessage = "Veuillez sélectionner un établissement.";
+            Snackbar.Add(erreurMessage, Severity.Warning);
+            return;
+        }
+
+        try
+        {
+            await SalleService.AddSalle(salle);
+            salleList = await SalleService.GetAllSalle();
+            succesMessage = "Salle ajoutée avec succès.";
+            Snackbar.Add(succesMessage, Severity.Success);
+            salle = new Salle();
+            CloseModal();
+        }
+        catch (Exception ex)
+        {
+            if (ex.Message.Contains("existe déjà"))
+                erreurMessage = "Cette salle existe déjà dans cet établissement.";
+            else
+                erreurMessage = "Une erreur est survenue.";
+
+            Snackbar.Add(erreurMessage, Severity.Error);
+        }
+    }
+
+    private async Task UpdateSalle()
+    {
+        erreurMessage = null;
+        succesMessage = null;
+
+        if (!NumeroSalleValideLocal(salle.Numero))
+        {
+            erreurMessage = "Le numéro de salle doit contenir uniquement des chiffres.";
+            Snackbar.Add(erreurMessage, Severity.Warning);
+            return;
+        }
+
+        if (salle.EtablissementId <= 0)
+        {
+            erreurMessage = "Veuillez sélectionner un établissement.";
+            Snackbar.Add(erreurMessage, Severity.Warning);
+            return;
+        }
+
+        try
+        {
+            await SalleService.UpdateSalle(salle);
+            salleList = await SalleService.GetAllSalle();
+            succesMessage = "Salle modifiée avec succès.";
+            Snackbar.Add(succesMessage, Severity.Success);
+            salle = new Salle();
+            CloseUpdateModal();
+        }
+        catch (Exception ex)
+        {
+            if (ex.Message.Contains("existe déjà"))
+                erreurMessage = "Cette salle existe déjà dans cet établissement.";
+            else
+                erreurMessage = "Une erreur est survenue.";
+
+            Snackbar.Add(erreurMessage, Severity.Error);
+        }
+        if (!CanEdit)
+        {
+            Snackbar.Add("Vous n'avez pas le droit de modifier.", Severity.Warning);
+            return;
+        }
+    }
+
+    private async Task DeleteSalle(int salleId)
+    {
+        try
+        {
+            await SalleService.DeleteSalle(salleId);
+            salleList = await SalleService.GetAllSalle();
+            Snackbar.Add("Salle supprimée avec succès.", Severity.Success);
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add(ex.Message, Severity.Error);
+        }
+        if (!IsAdmin)
+        {
+            Snackbar.Add("Seul l'administrateur peut supprimer.", Severity.Warning);
+            return;
+        }
+    }
+
+    private string GetNomEtablissement(int etablissementId)
+    {
+        var etab = etablissementList?.FirstOrDefault(e => e.Id == etablissementId);
+        return etab?.Nom ?? "Non défini";
+    }
+
+    void OpenAddDialog()
+    {
+        salle = new Salle();
+        IsOpen = true;
+    }
+
+    void CloseModal()
+    {
+        IsOpen = false;
+        salle = new Salle();
+    }
+
+    async Task OpenUpdateDialog(int salleId)
+    {
+        salle = await SalleService.GetSalleById(salleId);
+        IsUpdateOpen = true;
+    }
+
+    void CloseUpdateModal()
+    {
+        IsUpdateOpen = false;
+        salle = new Salle();
+    }
+}

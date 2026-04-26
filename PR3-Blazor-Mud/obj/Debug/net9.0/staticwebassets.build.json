@@ -1,0 +1,2217 @@
+{
+  "Version": 1,
+  "Hash": "9Oh2Ub4MfAd7ZmmRJR9UQqAOjnoExKKQbhrNg+bI0kg=",
+  "Source": "`PR3-Blazor-Mud",
+  "BasePath": "_content/`PR3-Blazor-Mud",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "`PR3-Blazor-Mud\\wwwroot",
+      "Source": "`PR3-Blazor-Mud",
+      "ContentRoot": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\wwwroot\\",
+      "BasePath": "_content/`PR3-Blazor-Mud",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\emnat\\.nuget\\packages\\mudblazor\\9.4.0\\staticwebassets\\MudBlazor.min.css",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\emnat\\.nuget\\packages\\mudblazor\\9.4.0\\staticwebassets\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "6x2ajsl5c8",
+      "Integrity": "SqDX9xmrT9BCfPRnqUnprnrwuWL+Hv5YDGl87COYpkg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\emnat\\.nuget\\packages\\mudblazor\\9.4.0\\staticwebassets\\MudBlazor.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\emnat\\.nuget\\packages\\mudblazor\\9.4.0\\staticwebassets\\MudBlazor.min.js",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\emnat\\.nuget\\packages\\mudblazor\\9.4.0\\staticwebassets\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "jolev99wdd",
+      "Integrity": "QzjV54WPFDZoVGX1oYGL1g4pxgMR0AvEZ5Nfl3uvpOQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\emnat\\.nuget\\packages\\mudblazor\\9.4.0\\staticwebassets\\MudBlazor.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\emnat\\.nuget\\packages\\mudblazor\\9.4.0\\staticwebassets\\MudBlazor.min.js.map",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\emnat\\.nuget\\packages\\mudblazor\\9.4.0\\staticwebassets\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.js.map",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "h82a7aihv0",
+      "Integrity": "0Vg1f91pA6QEgkLeFyFqoyeO2AdNGpVnLfPmiU/MyHw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\emnat\\.nuget\\packages\\mudblazor\\9.4.0\\staticwebassets\\MudBlazor.min.js.map"
+    },
+    {
+      "Identity": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Layout\\ReconnectModal.razor.js",
+      "SourceId": "`PR3-Blazor-Mud",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\",
+      "BasePath": "_content/`PR3-Blazor-Mud",
+      "RelativePath": "Components/Layout/ReconnectModal.razor.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ycbzh0sbjd",
+      "Integrity": "QlWWcf5RpEclEeIaJ/IPv/jDMRlIfAjHvdR/vuJ9su4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "Components\\Layout\\ReconnectModal.razor.js"
+    },
+    {
+      "Identity": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\0wz98yz2xy-jolev99wdd.gz",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\emnat\\.nuget\\packages\\mudblazor\\9.4.0\\staticwebassets\\MudBlazor.min.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "265nnapzix",
+      "Integrity": "FlfWqrivVkm/YIX1jmoGraaJQvS5LvqjmsewEd41vmY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\emnat\\.nuget\\packages\\mudblazor\\9.4.0\\staticwebassets\\MudBlazor.min.js"
+    },
+    {
+      "Identity": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\cldpkuu8b2-k4sg2uymus.gz",
+      "SourceId": "`PR3-Blazor-Mud",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/`PR3-Blazor-Mud",
+      "RelativePath": "`PR3-Blazor-Mud#[.{fingerprint=k4sg2uymus}]!.bundle.scp.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\`PR3-Blazor-Mud.bundle.scp.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "3391kacibx",
+      "Integrity": "wd//cKTnEjGC7erlilSltLpWzu7Jpw3wz4tX/tarIfw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\`PR3-Blazor-Mud.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\gk3hv89r0l-hefbzqhxic.gz",
+      "SourceId": "`PR3-Blazor-Mud",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/`PR3-Blazor-Mud",
+      "RelativePath": "app#[.{fingerprint=hefbzqhxic}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\wwwroot\\app.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "uv07me6gbu",
+      "Integrity": "xtEgaQ0C9Ea1CdBihSbA9QrFJ95E0qFGcsKbeDjcpok=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\wwwroot\\app.css"
+    },
+    {
+      "Identity": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\hjhap7zbhs-2jeq8efc6q.gz",
+      "SourceId": "`PR3-Blazor-Mud",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/`PR3-Blazor-Mud",
+      "RelativePath": "favicon#[.{fingerprint=2jeq8efc6q}]?.ico.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\wwwroot\\favicon.ico",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "3ren6c1acn",
+      "Integrity": "b7CPHqpoIGsGVgOrEO+r2XPyaLrLUBwkA6R2jOMbS7M=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\o7k4cxtn0u-h82a7aihv0.gz",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.js.map.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\emnat\\.nuget\\packages\\mudblazor\\9.4.0\\staticwebassets\\MudBlazor.min.js.map",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "0agzlyuxj2",
+      "Integrity": "KFpSVqbAlF9qkF6/+w3/e/K3T1zR/G29FptoRx5Sr60=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\emnat\\.nuget\\packages\\mudblazor\\9.4.0\\staticwebassets\\MudBlazor.min.js.map"
+    },
+    {
+      "Identity": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\oyvliaekl7-k4sg2uymus.gz",
+      "SourceId": "`PR3-Blazor-Mud",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/`PR3-Blazor-Mud",
+      "RelativePath": "`PR3-Blazor-Mud#[.{fingerprint=k4sg2uymus}]?.styles.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "CurrentProject",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\scopedcss\\bundle\\`PR3-Blazor-Mud.styles.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "3391kacibx",
+      "Integrity": "wd//cKTnEjGC7erlilSltLpWzu7Jpw3wz4tX/tarIfw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\scopedcss\\bundle\\`PR3-Blazor-Mud.styles.css"
+    },
+    {
+      "Identity": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\tzxjg6is5z-6x2ajsl5c8.gz",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\emnat\\.nuget\\packages\\mudblazor\\9.4.0\\staticwebassets\\MudBlazor.min.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "m38jk4xrdm",
+      "Integrity": "wqPfYpmGfXVIevZ/0Z+9LHspQYA+ptN2EWuMRzUSD+s=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\emnat\\.nuget\\packages\\mudblazor\\9.4.0\\staticwebassets\\MudBlazor.min.css"
+    },
+    {
+      "Identity": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\xtwupbvkcc-ycbzh0sbjd.gz",
+      "SourceId": "`PR3-Blazor-Mud",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/`PR3-Blazor-Mud",
+      "RelativePath": "Components/Layout/ReconnectModal.razor.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Layout\\ReconnectModal.razor.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "e94n4p5e08",
+      "Integrity": "rjIsH32XanW/xMY4HujkJK46Nj2ZE/r5dIHd4/2IQWA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Layout\\ReconnectModal.razor.js"
+    },
+    {
+      "Identity": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\scopedcss\\bundle\\`PR3-Blazor-Mud.styles.css",
+      "SourceId": "`PR3-Blazor-Mud",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\scopedcss\\bundle\\",
+      "BasePath": "_content/`PR3-Blazor-Mud",
+      "RelativePath": "`PR3-Blazor-Mud#[.{fingerprint}]?.styles.css",
+      "AssetKind": "All",
+      "AssetMode": "CurrentProject",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ApplicationBundle",
+      "Fingerprint": "k4sg2uymus",
+      "Integrity": "ZAym6BVnHudPBxQxJj3coIcSMEX340aIKDzvALdli5Y=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\scopedcss\\bundle\\`PR3-Blazor-Mud.styles.css"
+    },
+    {
+      "Identity": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\`PR3-Blazor-Mud.bundle.scp.css",
+      "SourceId": "`PR3-Blazor-Mud",
+      "SourceType": "Computed",
+      "ContentRoot": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\",
+      "BasePath": "_content/`PR3-Blazor-Mud",
+      "RelativePath": "`PR3-Blazor-Mud#[.{fingerprint}]!.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "Fingerprint": "k4sg2uymus",
+      "Integrity": "ZAym6BVnHudPBxQxJj3coIcSMEX340aIKDzvALdli5Y=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\`PR3-Blazor-Mud.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\wwwroot\\app.css",
+      "SourceId": "`PR3-Blazor-Mud",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\wwwroot\\",
+      "BasePath": "_content/`PR3-Blazor-Mud",
+      "RelativePath": "app#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "hefbzqhxic",
+      "Integrity": "uR2GkHKT9lI0m+ur/vXQ8TgUSN5mU3sNVgBsSNjeJMw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\app.css"
+    },
+    {
+      "Identity": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\wwwroot\\favicon.ico",
+      "SourceId": "`PR3-Blazor-Mud",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\wwwroot\\",
+      "BasePath": "_content/`PR3-Blazor-Mud",
+      "RelativePath": "favicon#[.{fingerprint}]?.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "2jeq8efc6q",
+      "Integrity": "8kNQh+LErZHx3sMz237BHWFasAGQ88EWakJrWWYOxTA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\favicon.ico"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "_content/MudBlazor/MudBlazor.min.6x2ajsl5c8.css",
+      "AssetFile": "C:\\Users\\emnat\\.nuget\\packages\\mudblazor\\9.4.0\\staticwebassets\\MudBlazor.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "607935"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SqDX9xmrT9BCfPRnqUnprnrwuWL+Hv5YDGl87COYpkg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 22:50:12 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6x2ajsl5c8"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-SqDX9xmrT9BCfPRnqUnprnrwuWL+Hv5YDGl87COYpkg="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/MudBlazor/MudBlazor.min.css"
+        }
+      ]
+    },
+    {
+      "Route": "_content/MudBlazor/MudBlazor.min.css",
+      "AssetFile": "C:\\Users\\emnat\\.nuget\\packages\\mudblazor\\9.4.0\\staticwebassets\\MudBlazor.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "607935"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SqDX9xmrT9BCfPRnqUnprnrwuWL+Hv5YDGl87COYpkg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 22:50:12 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-SqDX9xmrT9BCfPRnqUnprnrwuWL+Hv5YDGl87COYpkg="
+        }
+      ]
+    },
+    {
+      "Route": "_content/MudBlazor/MudBlazor.min.css",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\tzxjg6is5z-6x2ajsl5c8.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000015240650"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "65613"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wqPfYpmGfXVIevZ/0Z+9LHspQYA+ptN2EWuMRzUSD+s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 22:50:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"SqDX9xmrT9BCfPRnqUnprnrwuWL+Hv5YDGl87COYpkg=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-SqDX9xmrT9BCfPRnqUnprnrwuWL+Hv5YDGl87COYpkg="
+        }
+      ]
+    },
+    {
+      "Route": "_content/MudBlazor/MudBlazor.min.css.gz",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\tzxjg6is5z-6x2ajsl5c8.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "65613"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wqPfYpmGfXVIevZ/0Z+9LHspQYA+ptN2EWuMRzUSD+s=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 22:50:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-wqPfYpmGfXVIevZ/0Z+9LHspQYA+ptN2EWuMRzUSD+s="
+        }
+      ]
+    },
+    {
+      "Route": "_content/MudBlazor/MudBlazor.min.jolev99wdd.js",
+      "AssetFile": "C:\\Users\\emnat\\.nuget\\packages\\mudblazor\\9.4.0\\staticwebassets\\MudBlazor.min.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "65783"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QzjV54WPFDZoVGX1oYGL1g4pxgMR0AvEZ5Nfl3uvpOQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 22:50:11 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "jolev99wdd"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-QzjV54WPFDZoVGX1oYGL1g4pxgMR0AvEZ5Nfl3uvpOQ="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/MudBlazor/MudBlazor.min.js"
+        }
+      ]
+    },
+    {
+      "Route": "_content/MudBlazor/MudBlazor.min.js",
+      "AssetFile": "C:\\Users\\emnat\\.nuget\\packages\\mudblazor\\9.4.0\\staticwebassets\\MudBlazor.min.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "65783"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QzjV54WPFDZoVGX1oYGL1g4pxgMR0AvEZ5Nfl3uvpOQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 22:50:11 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QzjV54WPFDZoVGX1oYGL1g4pxgMR0AvEZ5Nfl3uvpOQ="
+        }
+      ]
+    },
+    {
+      "Route": "_content/MudBlazor/MudBlazor.min.js",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\0wz98yz2xy-jolev99wdd.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000061323358"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "16306"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FlfWqrivVkm/YIX1jmoGraaJQvS5LvqjmsewEd41vmY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 22:50:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"QzjV54WPFDZoVGX1oYGL1g4pxgMR0AvEZ5Nfl3uvpOQ=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QzjV54WPFDZoVGX1oYGL1g4pxgMR0AvEZ5Nfl3uvpOQ="
+        }
+      ]
+    },
+    {
+      "Route": "_content/MudBlazor/MudBlazor.min.js.gz",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\0wz98yz2xy-jolev99wdd.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "16306"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FlfWqrivVkm/YIX1jmoGraaJQvS5LvqjmsewEd41vmY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 22:50:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-FlfWqrivVkm/YIX1jmoGraaJQvS5LvqjmsewEd41vmY="
+        }
+      ]
+    },
+    {
+      "Route": "_content/MudBlazor/MudBlazor.min.js.h82a7aihv0.map",
+      "AssetFile": "C:\\Users\\emnat\\.nuget\\packages\\mudblazor\\9.4.0\\staticwebassets\\MudBlazor.min.js.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "240050"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0Vg1f91pA6QEgkLeFyFqoyeO2AdNGpVnLfPmiU/MyHw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 22:50:11 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "h82a7aihv0"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-0Vg1f91pA6QEgkLeFyFqoyeO2AdNGpVnLfPmiU/MyHw="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/MudBlazor/MudBlazor.min.js.map"
+        }
+      ]
+    },
+    {
+      "Route": "_content/MudBlazor/MudBlazor.min.js.map",
+      "AssetFile": "C:\\Users\\emnat\\.nuget\\packages\\mudblazor\\9.4.0\\staticwebassets\\MudBlazor.min.js.map",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "240050"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0Vg1f91pA6QEgkLeFyFqoyeO2AdNGpVnLfPmiU/MyHw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 22:50:11 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-0Vg1f91pA6QEgkLeFyFqoyeO2AdNGpVnLfPmiU/MyHw="
+        }
+      ]
+    },
+    {
+      "Route": "_content/MudBlazor/MudBlazor.min.js.map",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\o7k4cxtn0u-h82a7aihv0.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000019402406"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "51539"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KFpSVqbAlF9qkF6/+w3/e/K3T1zR/G29FptoRx5Sr60=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 22:50:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"0Vg1f91pA6QEgkLeFyFqoyeO2AdNGpVnLfPmiU/MyHw=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-0Vg1f91pA6QEgkLeFyFqoyeO2AdNGpVnLfPmiU/MyHw="
+        }
+      ]
+    },
+    {
+      "Route": "_content/MudBlazor/MudBlazor.min.js.map.gz",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\o7k4cxtn0u-h82a7aihv0.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "51539"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KFpSVqbAlF9qkF6/+w3/e/K3T1zR/G29FptoRx5Sr60=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 22 Apr 2026 22:50:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-KFpSVqbAlF9qkF6/+w3/e/K3T1zR/G29FptoRx5Sr60="
+        }
+      ]
+    },
+    {
+      "Route": "`PR3-Blazor-Mud.bundle.scp.css",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\cldpkuu8b2-k4sg2uymus.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000678886626"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1472"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wd//cKTnEjGC7erlilSltLpWzu7Jpw3wz4tX/tarIfw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 25 Apr 2026 11:18:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"ZAym6BVnHudPBxQxJj3coIcSMEX340aIKDzvALdli5Y=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZAym6BVnHudPBxQxJj3coIcSMEX340aIKDzvALdli5Y="
+        }
+      ]
+    },
+    {
+      "Route": "`PR3-Blazor-Mud.bundle.scp.css",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\`PR3-Blazor-Mud.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6869"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZAym6BVnHudPBxQxJj3coIcSMEX340aIKDzvALdli5Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 25 Apr 2026 11:18:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZAym6BVnHudPBxQxJj3coIcSMEX340aIKDzvALdli5Y="
+        }
+      ]
+    },
+    {
+      "Route": "`PR3-Blazor-Mud.bundle.scp.css.gz",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\cldpkuu8b2-k4sg2uymus.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1472"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wd//cKTnEjGC7erlilSltLpWzu7Jpw3wz4tX/tarIfw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 25 Apr 2026 11:18:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-wd//cKTnEjGC7erlilSltLpWzu7Jpw3wz4tX/tarIfw="
+        }
+      ]
+    },
+    {
+      "Route": "`PR3-Blazor-Mud.k4sg2uymus.bundle.scp.css",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\cldpkuu8b2-k4sg2uymus.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000678886626"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1472"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wd//cKTnEjGC7erlilSltLpWzu7Jpw3wz4tX/tarIfw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 25 Apr 2026 11:18:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"ZAym6BVnHudPBxQxJj3coIcSMEX340aIKDzvALdli5Y=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "k4sg2uymus"
+        },
+        {
+          "Name": "label",
+          "Value": "`PR3-Blazor-Mud.bundle.scp.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZAym6BVnHudPBxQxJj3coIcSMEX340aIKDzvALdli5Y="
+        }
+      ]
+    },
+    {
+      "Route": "`PR3-Blazor-Mud.k4sg2uymus.bundle.scp.css",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\scopedcss\\projectbundle\\`PR3-Blazor-Mud.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6869"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZAym6BVnHudPBxQxJj3coIcSMEX340aIKDzvALdli5Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 25 Apr 2026 11:18:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "k4sg2uymus"
+        },
+        {
+          "Name": "label",
+          "Value": "`PR3-Blazor-Mud.bundle.scp.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZAym6BVnHudPBxQxJj3coIcSMEX340aIKDzvALdli5Y="
+        }
+      ]
+    },
+    {
+      "Route": "`PR3-Blazor-Mud.k4sg2uymus.bundle.scp.css.gz",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\cldpkuu8b2-k4sg2uymus.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1472"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wd//cKTnEjGC7erlilSltLpWzu7Jpw3wz4tX/tarIfw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 25 Apr 2026 11:18:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "k4sg2uymus"
+        },
+        {
+          "Name": "label",
+          "Value": "`PR3-Blazor-Mud.bundle.scp.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-wd//cKTnEjGC7erlilSltLpWzu7Jpw3wz4tX/tarIfw="
+        }
+      ]
+    },
+    {
+      "Route": "`PR3-Blazor-Mud.k4sg2uymus.styles.css",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\oyvliaekl7-k4sg2uymus.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000678886626"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1472"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wd//cKTnEjGC7erlilSltLpWzu7Jpw3wz4tX/tarIfw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 25 Apr 2026 11:18:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"ZAym6BVnHudPBxQxJj3coIcSMEX340aIKDzvALdli5Y=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "k4sg2uymus"
+        },
+        {
+          "Name": "label",
+          "Value": "`PR3-Blazor-Mud.styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZAym6BVnHudPBxQxJj3coIcSMEX340aIKDzvALdli5Y="
+        }
+      ]
+    },
+    {
+      "Route": "`PR3-Blazor-Mud.k4sg2uymus.styles.css",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\scopedcss\\bundle\\`PR3-Blazor-Mud.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6869"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZAym6BVnHudPBxQxJj3coIcSMEX340aIKDzvALdli5Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 25 Apr 2026 11:18:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "k4sg2uymus"
+        },
+        {
+          "Name": "label",
+          "Value": "`PR3-Blazor-Mud.styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZAym6BVnHudPBxQxJj3coIcSMEX340aIKDzvALdli5Y="
+        }
+      ]
+    },
+    {
+      "Route": "`PR3-Blazor-Mud.k4sg2uymus.styles.css.gz",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\oyvliaekl7-k4sg2uymus.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1472"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wd//cKTnEjGC7erlilSltLpWzu7Jpw3wz4tX/tarIfw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 25 Apr 2026 11:18:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "k4sg2uymus"
+        },
+        {
+          "Name": "label",
+          "Value": "`PR3-Blazor-Mud.styles.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-wd//cKTnEjGC7erlilSltLpWzu7Jpw3wz4tX/tarIfw="
+        }
+      ]
+    },
+    {
+      "Route": "`PR3-Blazor-Mud.styles.css",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\oyvliaekl7-k4sg2uymus.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000678886626"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1472"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wd//cKTnEjGC7erlilSltLpWzu7Jpw3wz4tX/tarIfw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 25 Apr 2026 11:18:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"ZAym6BVnHudPBxQxJj3coIcSMEX340aIKDzvALdli5Y=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZAym6BVnHudPBxQxJj3coIcSMEX340aIKDzvALdli5Y="
+        }
+      ]
+    },
+    {
+      "Route": "`PR3-Blazor-Mud.styles.css",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\scopedcss\\bundle\\`PR3-Blazor-Mud.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6869"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZAym6BVnHudPBxQxJj3coIcSMEX340aIKDzvALdli5Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 25 Apr 2026 11:18:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZAym6BVnHudPBxQxJj3coIcSMEX340aIKDzvALdli5Y="
+        }
+      ]
+    },
+    {
+      "Route": "`PR3-Blazor-Mud.styles.css.gz",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\oyvliaekl7-k4sg2uymus.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1472"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wd//cKTnEjGC7erlilSltLpWzu7Jpw3wz4tX/tarIfw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 25 Apr 2026 11:18:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-wd//cKTnEjGC7erlilSltLpWzu7Jpw3wz4tX/tarIfw="
+        }
+      ]
+    },
+    {
+      "Route": "app.css",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\gk3hv89r0l-hefbzqhxic.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001243781095"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "803"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xtEgaQ0C9Ea1CdBihSbA9QrFJ95E0qFGcsKbeDjcpok=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 25 Apr 2026 11:31:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"uR2GkHKT9lI0m+ur/vXQ8TgUSN5mU3sNVgBsSNjeJMw=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-uR2GkHKT9lI0m+ur/vXQ8TgUSN5mU3sNVgBsSNjeJMw="
+        }
+      ]
+    },
+    {
+      "Route": "app.css",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\wwwroot\\app.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2509"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uR2GkHKT9lI0m+ur/vXQ8TgUSN5mU3sNVgBsSNjeJMw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 25 Apr 2026 11:31:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-uR2GkHKT9lI0m+ur/vXQ8TgUSN5mU3sNVgBsSNjeJMw="
+        }
+      ]
+    },
+    {
+      "Route": "app.css.gz",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\gk3hv89r0l-hefbzqhxic.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "803"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xtEgaQ0C9Ea1CdBihSbA9QrFJ95E0qFGcsKbeDjcpok=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 25 Apr 2026 11:31:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-xtEgaQ0C9Ea1CdBihSbA9QrFJ95E0qFGcsKbeDjcpok="
+        }
+      ]
+    },
+    {
+      "Route": "app.hefbzqhxic.css",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\gk3hv89r0l-hefbzqhxic.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001243781095"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "803"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xtEgaQ0C9Ea1CdBihSbA9QrFJ95E0qFGcsKbeDjcpok=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 25 Apr 2026 11:31:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"uR2GkHKT9lI0m+ur/vXQ8TgUSN5mU3sNVgBsSNjeJMw=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "hefbzqhxic"
+        },
+        {
+          "Name": "label",
+          "Value": "app.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-uR2GkHKT9lI0m+ur/vXQ8TgUSN5mU3sNVgBsSNjeJMw="
+        }
+      ]
+    },
+    {
+      "Route": "app.hefbzqhxic.css",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\wwwroot\\app.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2509"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uR2GkHKT9lI0m+ur/vXQ8TgUSN5mU3sNVgBsSNjeJMw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 25 Apr 2026 11:31:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "hefbzqhxic"
+        },
+        {
+          "Name": "label",
+          "Value": "app.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-uR2GkHKT9lI0m+ur/vXQ8TgUSN5mU3sNVgBsSNjeJMw="
+        }
+      ]
+    },
+    {
+      "Route": "app.hefbzqhxic.css.gz",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\gk3hv89r0l-hefbzqhxic.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "803"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xtEgaQ0C9Ea1CdBihSbA9QrFJ95E0qFGcsKbeDjcpok=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 25 Apr 2026 11:31:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "hefbzqhxic"
+        },
+        {
+          "Name": "label",
+          "Value": "app.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-xtEgaQ0C9Ea1CdBihSbA9QrFJ95E0qFGcsKbeDjcpok="
+        }
+      ]
+    },
+    {
+      "Route": "Components/Layout/ReconnectModal.razor.js",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Layout\\ReconnectModal.razor.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2746"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QlWWcf5RpEclEeIaJ/IPv/jDMRlIfAjHvdR/vuJ9su4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 15 Apr 2026 17:35:10 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QlWWcf5RpEclEeIaJ/IPv/jDMRlIfAjHvdR/vuJ9su4="
+        },
+        {
+          "Name": "script-type",
+          "Value": "module"
+        }
+      ]
+    },
+    {
+      "Route": "Components/Layout/ReconnectModal.razor.js",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\xtwupbvkcc-ycbzh0sbjd.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001269035533"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "787"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"rjIsH32XanW/xMY4HujkJK46Nj2ZE/r5dIHd4/2IQWA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 15 Apr 2026 17:35:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"QlWWcf5RpEclEeIaJ/IPv/jDMRlIfAjHvdR/vuJ9su4=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QlWWcf5RpEclEeIaJ/IPv/jDMRlIfAjHvdR/vuJ9su4="
+        },
+        {
+          "Name": "script-type",
+          "Value": "module"
+        }
+      ]
+    },
+    {
+      "Route": "Components/Layout/ReconnectModal.razor.js.gz",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\xtwupbvkcc-ycbzh0sbjd.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "787"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"rjIsH32XanW/xMY4HujkJK46Nj2ZE/r5dIHd4/2IQWA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 15 Apr 2026 17:35:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-rjIsH32XanW/xMY4HujkJK46Nj2ZE/r5dIHd4/2IQWA="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.2jeq8efc6q.ico",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\hjhap7zbhs-2jeq8efc6q.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000336021505"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2975"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"b7CPHqpoIGsGVgOrEO+r2XPyaLrLUBwkA6R2jOMbS7M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 15 Apr 2026 17:35:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/x-icon"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"8kNQh+LErZHx3sMz237BHWFasAGQ88EWakJrWWYOxTA=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2jeq8efc6q"
+        },
+        {
+          "Name": "label",
+          "Value": "favicon.ico"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-8kNQh+LErZHx3sMz237BHWFasAGQ88EWakJrWWYOxTA="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.2jeq8efc6q.ico",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\wwwroot\\favicon.ico",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "15086"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/x-icon"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8kNQh+LErZHx3sMz237BHWFasAGQ88EWakJrWWYOxTA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 15 Apr 2026 17:35:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2jeq8efc6q"
+        },
+        {
+          "Name": "label",
+          "Value": "favicon.ico"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-8kNQh+LErZHx3sMz237BHWFasAGQ88EWakJrWWYOxTA="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.2jeq8efc6q.ico.gz",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\hjhap7zbhs-2jeq8efc6q.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2975"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/x-icon"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"b7CPHqpoIGsGVgOrEO+r2XPyaLrLUBwkA6R2jOMbS7M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 15 Apr 2026 17:35:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2jeq8efc6q"
+        },
+        {
+          "Name": "label",
+          "Value": "favicon.ico.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-b7CPHqpoIGsGVgOrEO+r2XPyaLrLUBwkA6R2jOMbS7M="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.ico",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\hjhap7zbhs-2jeq8efc6q.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000336021505"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2975"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"b7CPHqpoIGsGVgOrEO+r2XPyaLrLUBwkA6R2jOMbS7M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 15 Apr 2026 17:35:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/x-icon"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"8kNQh+LErZHx3sMz237BHWFasAGQ88EWakJrWWYOxTA=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-8kNQh+LErZHx3sMz237BHWFasAGQ88EWakJrWWYOxTA="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.ico",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\wwwroot\\favicon.ico",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "15086"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/x-icon"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8kNQh+LErZHx3sMz237BHWFasAGQ88EWakJrWWYOxTA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 15 Apr 2026 17:35:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-8kNQh+LErZHx3sMz237BHWFasAGQ88EWakJrWWYOxTA="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.ico.gz",
+      "AssetFile": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\obj\\Debug\\net9.0\\compressed\\hjhap7zbhs-2jeq8efc6q.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2975"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/x-icon"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"b7CPHqpoIGsGVgOrEO+r2XPyaLrLUBwkA6R2jOMbS7M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 15 Apr 2026 17:35:11 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-b7CPHqpoIGsGVgOrEO+r2XPyaLrLUBwkA6R2jOMbS7M="
+        }
+      ]
+    }
+  ]
+}

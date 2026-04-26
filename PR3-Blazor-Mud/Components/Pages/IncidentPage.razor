@@ -1,0 +1,506 @@
+﻿@page "/incidentPage"
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@using Microsoft.AspNetCore.Components.Authorization
+@using PR3_Blazor_Mud.Components.Models
+@using PR3_Blazor_Mud.Components.Services
+@using MudBlazor
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject IncidentService IncidentService
+@inject UtilisateurService UtilisateurService
+@inject PosteService PosteService
+@inject SalleService SalleService
+@inject EtablissementService EtablissementService
+@inject ISnackbar Snackbar
+
+@rendermode InteractiveServer
+
+<MudContainer MaxWidth="MaxWidth.False" Class="pa-4">
+    <MudText Typo="Typo.h4" GutterBottom="true">Gestion des incidents</MudText>
+    <MudText Typo="Typo.body1" Class="mb-4">Ajoutez, modifiez et consultez les incidents</MudText>
+
+    <MudPaper Class="pa-4 mb-4" Elevation="1">
+       
+            <MudButton Color="Color.Primary"
+                       Variant="Variant.Filled"
+                       OnClick="OpenAddDialog">
+                Ajouter
+            </MudButton>
+        
+    </MudPaper>
+
+    <MudPaper Class="pa-4" Elevation="1">
+        @if (incidentList == null)
+        {
+            <MudProgressCircular Indeterminate="true" Color="Color.Primary" />
+            <MudText Class="mt-2">Chargement des incidents...</MudText>
+        }
+        else
+        {
+            <MudTable Items="incidentList" Hover="true" Striped="true" Dense="false">
+                <HeaderContent>
+                    <MudTh>ID</MudTh>
+                    <MudTh>Description</MudTh>
+                    <MudTh>Responsable</MudTh>
+                    <MudTh>Type</MudTh>
+                    <MudTh>Élément concerné</MudTh>
+                    <MudTh>Actions</MudTh>
+                </HeaderContent>
+
+                <RowTemplate>
+                    <MudTd DataLabel="ID">@context.Id</MudTd>
+                    <MudTd DataLabel="Description">@context.Description</MudTd>
+                    <MudTd DataLabel="Responsable">@context.Responsable?.Nom @context.Responsable?.Prenom</MudTd>
+                    <MudTd DataLabel="Type">@GetIncidentType(context)</MudTd>
+                    <MudTd DataLabel="Élément concerné">@GetIncidentTarget(context)</MudTd>
+                    <MudTd DataLabel="Actions">
+                        @if (CanEdit)
+                        {
+                            <MudButton Color="Color.Primary"
+                                       Variant="Variant.Outlined"
+                                       Size="Size.Small"
+                                       OnClick="@(() => OpenUpdateDialog(context.Id))">
+                                Modifier
+                            </MudButton>
+                        }
+
+                        @if (IsAdmin)
+                        {
+                            <MudButton Color="Color.Error"
+                                       Variant="Variant.Outlined"
+                                       Size="Size.Small"
+                                       OnClick="@(() => DeleteIncident(context.Id))">
+                                Supprimer
+                            </MudButton>
+                        }
+                    </MudTd>
+                </RowTemplate>
+            </MudTable>
+        }
+    </MudPaper>
+</MudContainer>
+
+<MudDialog @bind-Visible="IsOpen">
+    <DialogContent>
+        <MudText Typo="Typo.h6" Class="mb-4">Ajouter un incident</MudText>
+
+        <MudTextField Label="Description"
+                      @bind-Value="incident.Description"
+                      Required="true"
+                      Immediate="true" />
+
+        <MudSelect T="int"
+                   Label="Responsable"
+                   @bind-Value="incident.UtilisateurId"
+                   Required="true"
+                   Class="mt-3">
+            @if (utilisateurList != null)
+            {
+                @foreach (var utilisateur in utilisateurList)
+                {
+                    <MudSelectItem Value="@utilisateur.Id">@($"{utilisateur.Nom} {utilisateur.Prenom}")</MudSelectItem>
+                }
+            }
+        </MudSelect>
+
+        <MudSelect T="string"
+                   Label="Type"
+                   @bind-Value="selectedType"
+                   Required="true"
+                   Class="mt-3">
+            <MudSelect T="string"
+                       Label="Type"
+                       @bind-Value="selectedType"
+                       Required="true"
+                       Class="mt-3">
+                <MudSelectItem Value='@("Poste")'>Poste</MudSelectItem>
+                <MudSelectItem Value='@("Salle")'>Salle</MudSelectItem>
+                <MudSelectItem Value='@("Etablissement")'>Établissement</MudSelectItem>
+            </MudSelect>
+        </MudSelect>
+
+        @if (selectedType == "Poste")
+        {
+            <MudSelect T="int?"
+                       Label="Poste"
+                       @bind-Value="incident.PosteId"
+                       Required="true"
+                       Class="mt-3">
+                @if (posteList != null)
+                {
+                    @foreach (var poste in posteList)
+                    {
+                        <MudSelectItem Value="@((int?)poste.Id)">@poste.Numero</MudSelectItem>
+                    }
+                }
+            </MudSelect>
+        }
+        else if (selectedType == "Salle")
+        {
+            <MudSelect T="int?"
+                       Label="Salle"
+                       @bind-Value="incident.SalleId"
+                       Required="true"
+                       Class="mt-3">
+                @if (salleList != null)
+                {
+                    @foreach (var salle in salleList)
+                    {
+                        <MudSelectItem Value="@((int?)salle.Id)">@salle.Numero</MudSelectItem>
+                    }
+                }
+            </MudSelect>
+        }
+        else if (selectedType == "Etablissement")
+        {
+            <MudSelect T="int?"
+                       Label="Établissement"
+                       @bind-Value="incident.EtablissementId"
+                       Required="true"
+                       Class="mt-3">
+                @if (etablissementList != null)
+                {
+                    @foreach (var etablissement in etablissementList)
+                    {
+                        <MudSelectItem Value="@((int?)etablissement.Id)">@etablissement.Nom</MudSelectItem>
+                    }
+                }
+            </MudSelect>
+        }
+    </DialogContent>
+
+    <DialogActions>
+        <MudButton Variant="Variant.Text" OnClick="CloseModal">Annuler</MudButton>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="AddIncident">Enregistrer</MudButton>
+    </DialogActions>
+</MudDialog>
+
+<MudDialog @bind-Visible="IsUpdateOpen">
+    <DialogContent>
+        <MudText Typo="Typo.h6" Class="mb-4">Modifier un incident</MudText>
+
+        <MudTextField Label="Description"
+                      @bind-Value="incident.Description"
+                      Required="true"
+                      Immediate="true" />
+
+        <MudSelect T="int"
+                   Label="Responsable"
+                   @bind-Value="incident.UtilisateurId"
+                   Required="true"
+                   Class="mt-3">
+            @if (utilisateurList != null)
+            {
+                @foreach (var utilisateur in utilisateurList)
+                {
+                    <MudSelectItem Value="@utilisateur.Id">@($"{utilisateur.Nom} {utilisateur.Prenom}")</MudSelectItem>
+                }
+            }
+        </MudSelect>
+
+        <MudSelect T="string"
+                   Label="Type"
+                   @bind-Value="selectedType"
+                   Required="true"
+                   Class="mt-3">
+          <MudSelectItem Value='@("Poste")'>Poste</MudSelectItem>
+<MudSelectItem Value='@("Salle")'>Salle</MudSelectItem>
+<MudSelectItem Value='@("Etablissement")'>Établissement</MudSelectItem>
+        </MudSelect>
+
+        @if (selectedType == "Poste")
+        {
+            <MudSelect T="int?"
+                       Label="Poste"
+                       @bind-Value="incident.PosteId"
+                       Required="true"
+                       Class="mt-3">
+                @if (posteList != null)
+                {
+                    @foreach (var poste in posteList)
+                    {
+                        <MudSelectItem Value="@((int?)poste.Id)">@poste.Numero</MudSelectItem>
+                    }
+                }
+            </MudSelect>
+        }
+        else if (selectedType == "Salle")
+        {
+            <MudSelect T="int?"
+                       Label="Salle"
+                       @bind-Value="incident.SalleId"
+                       Required="true"
+                       Class="mt-3">
+                @if (salleList != null)
+                {
+                    @foreach (var salle in salleList)
+                    {
+                        <MudSelectItem Value="@((int?)salle.Id)">@salle.Numero</MudSelectItem>
+                    }
+                }
+            </MudSelect>
+        }
+        else if (selectedType == "Etablissement")
+        {
+            <MudSelect T="int?"
+                       Label="Établissement"
+                       @bind-Value="incident.EtablissementId"
+                       Required="true"
+                       Class="mt-3">
+                @if (etablissementList != null)
+                {
+                    @foreach (var etablissement in etablissementList)
+                    {
+                        <MudSelectItem Value="@((int?)etablissement.Id)">@etablissement.Nom</MudSelectItem>
+                    }
+                }
+            </MudSelect>
+        }
+    </DialogContent>
+
+    <DialogActions>
+        <MudButton Variant="Variant.Text" OnClick="CloseUpdateModal">Annuler</MudButton>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="UpdateIncident">Enregistrer</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    private string? CurrentRole;
+    private bool IsAdmin => CurrentRole == "admin";
+    private bool CanEdit => CurrentRole == "admin" || CurrentRole == "user" || CurrentRole == "etudiant";
+    List<Incident>? incidentList;
+    List<Utilisateur>? utilisateurList;
+    List<Poste>? posteList;
+    List<Salle>? salleList;
+    List<Etablissement>? etablissementList;
+
+    Incident incident = new Incident();
+
+    public bool IsOpen { get; set; }
+    public bool IsUpdateOpen { get; set; }
+
+    private string selectedType = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        CurrentRole = authState.User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value;
+
+        
+        await FetchIncidentList();
+    }
+
+    private async Task FetchIncidentList()
+    {
+        try
+        {
+            incidentList = await IncidentService.GetAllIncident();
+            utilisateurList = await UtilisateurService.GetAllUtilisateur();
+            posteList = await PosteService.GetAllPoste();
+            salleList = await SalleService.GetAllSalle();
+            etablissementList = await EtablissementService.GetAllEtablissement();
+
+            await EnrichIncidentList();
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add(ex.Message, Severity.Error);
+        }
+    }
+
+    private async Task EnrichIncidentList()
+    {
+        if (incidentList == null) return;
+
+        foreach (var item in incidentList)
+        {
+            item.Responsable = await UtilisateurService.GetUtilisateurById(item.UtilisateurId);
+
+            if (item.PosteId.HasValue)
+                item.poste = await PosteService.GetPosteById(item.PosteId.Value);
+            else if (item.SalleId.HasValue)
+                item.salle = await SalleService.GetSalleById(item.SalleId.Value);
+            else if (item.EtablissementId.HasValue)
+                item.etablissement = await EtablissementService.GetEtablissementById(item.EtablissementId.Value);
+        }
+    }
+
+    private async Task AddIncident()
+    {
+        if (!ValiderIncident())
+            return;
+
+        AppliquerTypeSelectionne();
+
+        try
+        {
+            await IncidentService.AddIncident(incident);
+            incidentList = await IncidentService.GetAllIncident();
+            await EnrichIncidentList();
+            incident = new Incident();
+            selectedType = string.Empty;
+            CloseModal();
+            Snackbar.Add("Incident ajouté avec succès.", Severity.Success);
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add(ex.Message, Severity.Error);
+        }
+    }
+
+    private async Task UpdateIncident()
+    {
+        if (!ValiderIncident())
+            return;
+
+        AppliquerTypeSelectionne();
+
+        try
+        {
+            await IncidentService.UpdateIncident(incident);
+            incidentList = await IncidentService.GetAllIncident();
+            await EnrichIncidentList();
+            incident = new Incident();
+            selectedType = string.Empty;
+            CloseUpdateModal();
+            Snackbar.Add("Incident modifié avec succès.", Severity.Success);
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add(ex.Message, Severity.Error);
+        }
+    }
+
+    private async Task DeleteIncident(int incidentId)
+    {
+        try
+        {
+            await IncidentService.DeleteIncident(incidentId);
+            incidentList = await IncidentService.GetAllIncident();
+            await EnrichIncidentList();
+            Snackbar.Add("Incident supprimé avec succès.", Severity.Success);
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add(ex.Message, Severity.Error);
+        }
+    }
+
+    private bool ValiderIncident()
+    {
+        if (string.IsNullOrWhiteSpace(incident.Description))
+        {
+            Snackbar.Add("La description est obligatoire.", Severity.Warning);
+            return false;
+        }
+
+        if (incident.UtilisateurId <= 0)
+        {
+            Snackbar.Add("Veuillez sélectionner un responsable.", Severity.Warning);
+            return false;
+        }
+
+        if (string.IsNullOrWhiteSpace(selectedType))
+        {
+            Snackbar.Add("Veuillez sélectionner un type.", Severity.Warning);
+            return false;
+        }
+
+        if (selectedType == "Poste" && !incident.PosteId.HasValue)
+        {
+            Snackbar.Add("Veuillez sélectionner un poste.", Severity.Warning);
+            return false;
+        }
+
+        if (selectedType == "Salle" && !incident.SalleId.HasValue)
+        {
+            Snackbar.Add("Veuillez sélectionner une salle.", Severity.Warning);
+            return false;
+        }
+
+        if (selectedType == "Etablissement" && !incident.EtablissementId.HasValue)
+        {
+            Snackbar.Add("Veuillez sélectionner un établissement.", Severity.Warning);
+            return false;
+        }
+
+        return true;
+    }
+
+    private void AppliquerTypeSelectionne()
+    {
+        switch (selectedType)
+        {
+            case "Poste":
+                incident.SalleId = null;
+                incident.EtablissementId = null;
+                break;
+            case "Salle":
+                incident.PosteId = null;
+                incident.EtablissementId = null;
+                break;
+            case "Etablissement":
+                incident.PosteId = null;
+                incident.SalleId = null;
+                break;
+        }
+    }
+
+    void OpenAddDialog()
+    {
+        incident = new Incident();
+        selectedType = string.Empty;
+        IsOpen = true;
+    }
+
+    void CloseModal()
+    {
+        IsOpen = false;
+        incident = new Incident();
+        selectedType = string.Empty;
+    }
+
+    async Task OpenUpdateDialog(int incidentId)
+    {
+        try
+        {
+            incident = await IncidentService.GetIncidentById(incidentId);
+
+            if (incident.PosteId.HasValue)
+                selectedType = "Poste";
+            else if (incident.SalleId.HasValue)
+                selectedType = "Salle";
+            else if (incident.EtablissementId.HasValue)
+                selectedType = "Etablissement";
+            else
+                selectedType = string.Empty;
+
+            IsUpdateOpen = true;
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add(ex.Message, Severity.Error);
+        }
+    }
+
+    void CloseUpdateModal()
+    {
+        IsUpdateOpen = false;
+        incident = new Incident();
+        selectedType = string.Empty;
+    }
+
+    private string GetIncidentType(Incident item)
+    {
+        if (item.PosteId.HasValue) return "Poste";
+        if (item.SalleId.HasValue) return "Salle";
+        return "Etablissement";
+    }
+
+    private string GetIncidentTarget(Incident item)
+    {
+        if (item.PosteId.HasValue) return item.poste?.Numero ?? "Non défini";
+        if (item.SalleId.HasValue) return item.salle?.Numero ?? "Non défini";
+        return item.etablissement?.Nom ?? "Non défini";
+    }
+}

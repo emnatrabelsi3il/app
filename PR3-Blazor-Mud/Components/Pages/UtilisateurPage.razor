@@ -1,0 +1,328 @@
+﻿@page "/utilisateurPage"
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@using Microsoft.AspNetCore.Components.Authorization
+@using PR3_Blazor_Mud.Components.Models
+@using PR3_Blazor_Mud.Components.Services
+@using MudBlazor
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+@inject UtilisateurService UtilisateurService
+@inject ISnackbar Snackbar
+
+@rendermode InteractiveServer
+
+<MudContainer MaxWidth="MaxWidth.False" Class="pa-4">
+    <MudText Typo="Typo.h4" GutterBottom="true">Gestion des utilisateurs</MudText>
+    <MudText Typo="Typo.body1" Class="mb-4">Ajoutez, modifiez et consultez les utilisateurs</MudText>
+
+    <MudPaper Class="pa-4 mb-4" Elevation="1">
+        @if (IsAdmin)
+        {
+            <MudButton Variant="Variant.Filled"
+                       Color="Color.Primary"
+                       StartIcon="@Icons.Material.Filled.Add"
+                       OnClick="OpenAddDialog">
+                Ajouter un utilisateur
+            </MudButton>
+        }
+    </MudPaper>
+
+    <MudPaper Class="pa-4" Elevation="1">
+        @if (userList == null)
+        {
+            <MudProgressCircular Indeterminate="true" Color="Color.Primary" />
+            <MudText Class="mt-2">Chargement des utilisateurs...</MudText>
+        }
+        else
+        {
+            <MudTable Items="userList" Hover="true" Striped="true" Dense="false">
+                <HeaderContent>
+                    <MudTh>ID</MudTh>
+                    <MudTh>Nom</MudTh>
+                    <MudTh>Prénom</MudTh>
+                    <MudTh>Login</MudTh>
+                    <MudTh>Rôle</MudTh>
+                    <MudTh>Mot de passe</MudTh>
+                    <MudTh>Actions</MudTh>
+                   
+                </HeaderContent>
+
+                <RowTemplate>
+                    <MudTd DataLabel="ID">@context.Id</MudTd>
+                    <MudTd DataLabel="Nom">@context.Nom</MudTd>
+                    <MudTd DataLabel="Prénom">@context.Prenom</MudTd>
+                    <MudTd DataLabel="Login">@context.Login</MudTd>
+                    <MudTd DataLabel="Rôle">@context.Role</MudTd>
+                    <MudTd DataLabel="Mot de passe">••••••••</MudTd>
+                    <MudTd DataLabel="Actions">
+                        <MudTd DataLabel="Actions">
+                            @if (context.Login == CurrentLogin || IsAdmin)
+                            {
+                                <MudButton Variant="Variant.Outlined"
+                                           Color="Color.Primary"
+                                           Size="Size.Small"
+                                           StartIcon="@Icons.Material.Filled.Edit"
+                                           OnClick="@(() => OpenUpdateDialog(context.Id))">
+                                    Editer
+                                </MudButton>
+                            }
+
+                            @if (IsAdmin)
+                            {
+                                <MudButton Variant="Variant.Outlined"
+                                           Color="Color.Error"
+                                           Size="Size.Small"
+                                           StartIcon="@Icons.Material.Filled.Delete"
+                                           Class="ml-2"
+                                           OnClick="@(() => DeleteUtilisateur(context.Id))">
+                                    Supprimer
+                                </MudButton>
+                            }
+                        </MudTd>
+                    </MudTd>
+                </RowTemplate>
+            </MudTable>
+        }
+    </MudPaper>
+</MudContainer>
+
+<MudDialog @bind-Visible="IsOpen">
+    <DialogContent>
+        <MudText Typo="Typo.h6" Class="mb-4">Ajouter un utilisateur</MudText>
+
+        <MudTextField Label="Nom"
+                      @bind-Value="utilisateur.Nom"
+                      Required="true"
+                      Immediate="true" />
+
+        <MudTextField Label="Prénom"
+                      @bind-Value="utilisateur.Prenom"
+                      Required="true"
+                      Immediate="true"
+                      Class="mt-3" />
+
+        <MudTextField Label="Login"
+                      @bind-Value="utilisateur.Login"
+                      Required="true"
+                      Immediate="true"
+                      Class="mt-3" />
+
+        <MudTextField Label="Mot de passe"
+                      @bind-Value="utilisateur.MotDePasse"
+                      InputType="InputType.Password"
+                      Required="true"
+                      Immediate="true"
+                      Class="mt-3" />
+        <MudSelect T="string"
+                   Label="Rôle"
+                   @bind-Value="utilisateur.Role"
+                   Required="true"
+                   Class="mt-3">
+            @foreach (var role in roles)
+            {
+                <MudSelectItem T="string" Value="@role">@role</MudSelectItem>
+            }
+        </MudSelect>
+    </DialogContent>
+
+    <DialogActions>
+        <MudButton Variant="Variant.Text" OnClick="CloseModal">Annuler</MudButton>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="AddUtilisateur">Enregistrer</MudButton>
+    </DialogActions>
+</MudDialog>
+
+<MudDialog @bind-Visible="IsUpdateOpen">
+    <DialogContent>
+        <MudText Typo="Typo.h6" Class="mb-4">Modifier un utilisateur</MudText>
+        <MudTextField Label="Nom"
+                      @bind-Value="utilisateur.Nom"
+                      Disabled="@(!IsEditingOwnProfile)"
+                      Required="true"
+                      Immediate="true" />
+
+        <MudTextField Label="Prénom"
+                      @bind-Value="utilisateur.Prenom"
+                      Disabled="@(!IsEditingOwnProfile)"
+                      Required="true"
+                      Immediate="true"
+                      Class="mt-3" />
+
+        <MudTextField Label="Login"
+                      @bind-Value="utilisateur.Login"
+                      Disabled="@(!IsEditingOwnProfile)"
+                      Required="true"
+                      Immediate="true"
+                      Class="mt-3" />
+
+        <MudTextField Label="Mot de passe"
+                      @bind-Value="utilisateur.MotDePasse"
+                      InputType="InputType.Password"
+                      Disabled="@(!IsEditingOwnProfile)"
+                      Required="true"
+                      Immediate="true"
+                      Class="mt-3" />
+
+        <MudSelect T="string"
+                   Label="Rôle"
+                   @bind-Value="utilisateur.Role"
+                   Disabled="@(!IsAdmin)"
+                   Required="true"
+                   Class="mt-3">
+            @foreach (var role in roles)
+            {
+                <MudSelectItem T="string" Value="@role">@role</MudSelectItem>
+            }
+        </MudSelect>
+    </DialogContent>
+
+    <DialogActions>
+        <MudButton Variant="Variant.Text" OnClick="CloseUpdateModal">Annuler</MudButton>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="UpdateUtilisateur">Enregistrer</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    private List<string> roles = new() { "user", "etudiant", "admin" };
+    private bool IsEditingOwnProfile => utilisateur.Login == CurrentLogin;
+    private string? CurrentLogin;
+    private string? CurrentRole;
+
+    private bool IsAdmin => CurrentRole == "admin";
+    List<Utilisateur>? userList;
+    Utilisateur utilisateur = new Utilisateur();
+
+    public bool IsOpen { get; set; }
+    public bool IsUpdateOpen { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+
+        CurrentLogin = authState.User.Identity?.Name;
+        CurrentRole = authState.User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value;
+
+        await FetchUserList();
+    }
+
+    private async Task FetchUserList()
+    {
+        try
+        {
+            userList = await UtilisateurService.GetAllUtilisateur();
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add(ex.Message, Severity.Error);
+        }
+    }
+
+    private async Task AddUtilisateur()
+    {
+        if (string.IsNullOrWhiteSpace(utilisateur.Nom) ||
+            string.IsNullOrWhiteSpace(utilisateur.Prenom) ||
+            string.IsNullOrWhiteSpace(utilisateur.Login) ||
+            string.IsNullOrWhiteSpace(utilisateur.MotDePasse))
+        {
+            Snackbar.Add("Veuillez remplir tous les champs.", Severity.Warning);
+            return;
+        }
+        if (!IsAdmin)
+        {
+            Snackbar.Add("Seul l'administrateur peut ajouter un utilisateur.", Severity.Warning);
+            return;
+        }
+        try
+        {
+            await UtilisateurService.AddUtilisateur(utilisateur);
+            userList = await UtilisateurService.GetAllUtilisateur();
+            utilisateur = new Utilisateur();
+            CloseModal();
+            Snackbar.Add("Utilisateur ajouté avec succès.", Severity.Success);
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add(ex.Message, Severity.Error);
+        }
+    }
+
+    private async Task UpdateUtilisateur()
+    {
+        if (string.IsNullOrWhiteSpace(utilisateur.Nom) ||
+            string.IsNullOrWhiteSpace(utilisateur.Prenom) ||
+            string.IsNullOrWhiteSpace(utilisateur.Login) ||
+            string.IsNullOrWhiteSpace(utilisateur.MotDePasse))
+        {
+            Snackbar.Add("Veuillez remplir tous les champs.", Severity.Warning);
+            return;
+        }
+        if (!IsAdmin && utilisateur.Login != CurrentLogin)
+        {
+            Snackbar.Add("Vous ne pouvez modifier que votre propre compte.", Severity.Warning);
+            return;
+        }
+
+        try
+        {
+            await UtilisateurService.UpdateUtilisateur(utilisateur);
+            userList = await UtilisateurService.GetAllUtilisateur();
+            utilisateur = new Utilisateur();
+            CloseUpdateModal();
+            Snackbar.Add("Utilisateur modifié avec succès.", Severity.Success);
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add(ex.Message, Severity.Error);
+        }
+    }
+
+    private async Task DeleteUtilisateur(int utilisateurId)
+    {
+        if (!IsAdmin)
+        {
+            Snackbar.Add("Seul l'administrateur peut supprimer un utilisateur.", Severity.Warning);
+            return;
+        }
+        try
+        {
+            await UtilisateurService.DeleteUtilisateur(utilisateurId);
+            userList = await UtilisateurService.GetAllUtilisateur();
+            Snackbar.Add("Utilisateur supprimé avec succès.", Severity.Success);
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add(ex.Message, Severity.Error);
+        }
+    }
+
+    void OpenAddDialog()
+    {
+        utilisateur = new Utilisateur();
+        IsOpen = true;
+    }
+
+    void CloseModal()
+    {
+        IsOpen = false;
+        utilisateur = new Utilisateur();
+    }
+
+    async Task OpenUpdateDialog(int utilisateurId)
+    {
+        try
+        {
+            utilisateur = await UtilisateurService.GetUtilisateurById(utilisateurId);
+            IsUpdateOpen = true;
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add(ex.Message, Severity.Error);
+        }
+    }
+
+    void CloseUpdateModal()
+    {
+        IsUpdateOpen = false;
+        utilisateur = new Utilisateur();
+    }
+}

@@ -1,0 +1,169 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4801C7A9-F9EE-4774-BA54-37B8DD407A77}|PR3-Blazor-Mud.csproj|d:\\bureau\\projet\\projet\\pr3-blazor\\pr3-blazor-mud\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4801C7A9-F9EE-4774-BA54-37B8DD407A77}|PR3-Blazor-Mud.csproj|solutionrelative:components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4801C7A9-F9EE-4774-BA54-37B8DD407A77}|PR3-Blazor-Mud.csproj|d:\\bureau\\projet\\projet\\pr3-blazor\\pr3-blazor-mud\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4801C7A9-F9EE-4774-BA54-37B8DD407A77}|PR3-Blazor-Mud.csproj|solutionrelative:components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4801C7A9-F9EE-4774-BA54-37B8DD407A77}|PR3-Blazor-Mud.csproj|d:\\bureau\\projet\\projet\\pr3-blazor\\pr3-blazor-mud\\components\\pages\\utilisateurpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4801C7A9-F9EE-4774-BA54-37B8DD407A77}|PR3-Blazor-Mud.csproj|solutionrelative:components\\pages\\utilisateurpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4801C7A9-F9EE-4774-BA54-37B8DD407A77}|PR3-Blazor-Mud.csproj|d:\\bureau\\projet\\projet\\pr3-blazor\\pr3-blazor-mud\\components\\services\\utilisateurservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4801C7A9-F9EE-4774-BA54-37B8DD407A77}|PR3-Blazor-Mud.csproj|solutionrelative:components\\services\\utilisateurservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4801C7A9-F9EE-4774-BA54-37B8DD407A77}|PR3-Blazor-Mud.csproj|d:\\bureau\\projet\\projet\\pr3-blazor\\pr3-blazor-mud\\components\\models\\utilisateur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4801C7A9-F9EE-4774-BA54-37B8DD407A77}|PR3-Blazor-Mud.csproj|solutionrelative:components\\models\\utilisateur.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4801C7A9-F9EE-4774-BA54-37B8DD407A77}|PR3-Blazor-Mud.csproj|d:\\bureau\\projet\\projet\\pr3-blazor\\pr3-blazor-mud\\components\\pages\\etablissementpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4801C7A9-F9EE-4774-BA54-37B8DD407A77}|PR3-Blazor-Mud.csproj|solutionrelative:components\\pages\\etablissementpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4801C7A9-F9EE-4774-BA54-37B8DD407A77}|PR3-Blazor-Mud.csproj|d:\\bureau\\projet\\projet\\pr3-blazor\\pr3-blazor-mud\\components\\pages\\sallepage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4801C7A9-F9EE-4774-BA54-37B8DD407A77}|PR3-Blazor-Mud.csproj|solutionrelative:components\\pages\\sallepage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4801C7A9-F9EE-4774-BA54-37B8DD407A77}|PR3-Blazor-Mud.csproj|d:\\bureau\\projet\\projet\\pr3-blazor\\pr3-blazor-mud\\components\\pages\\incidentpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4801C7A9-F9EE-4774-BA54-37B8DD407A77}|PR3-Blazor-Mud.csproj|solutionrelative:components\\pages\\incidentpage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4801C7A9-F9EE-4774-BA54-37B8DD407A77}|PR3-Blazor-Mud.csproj|d:\\bureau\\projet\\projet\\pr3-blazor\\pr3-blazor-mud\\components\\pages\\postepage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4801C7A9-F9EE-4774-BA54-37B8DD407A77}|PR3-Blazor-Mud.csproj|solutionrelative:components\\pages\\postepage.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "Components\\Layout\\MainLayout.razor",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "Components\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAABsAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-26T16:39:51.685Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "Components\\Layout\\NavMenu.razor",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "Components\\Layout\\NavMenu.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-26T16:37:50.698Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UtilisateurService.cs",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Services\\UtilisateurService.cs",
+              "RelativeDocumentMoniker": "Components\\Services\\UtilisateurService.cs",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Services\\UtilisateurService.cs",
+              "RelativeToolTip": "Components\\Services\\UtilisateurService.cs",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAowGgAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T16:20:15.14Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Utilisateur.cs",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Models\\Utilisateur.cs",
+              "RelativeDocumentMoniker": "Components\\Models\\Utilisateur.cs",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Models\\Utilisateur.cs",
+              "RelativeToolTip": "Components\\Models\\Utilisateur.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-26T15:40:46Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UtilisateurPage.razor",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Pages\\UtilisateurPage.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\UtilisateurPage.razor",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Pages\\UtilisateurPage.razor",
+              "RelativeToolTip": "Components\\Pages\\UtilisateurPage.razor",
+              "ViewState": "AgIAAPIAAAAAAAAAAAAowAYBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-25T13:44:42.921Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EtablissementPage.razor",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Pages\\EtablissementPage.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\EtablissementPage.razor",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Pages\\EtablissementPage.razor",
+              "RelativeToolTip": "Components\\Pages\\EtablissementPage.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-25T13:38:54.953Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SallePage.razor",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Pages\\SallePage.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\SallePage.razor",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Pages\\SallePage.razor",
+              "RelativeToolTip": "Components\\Pages\\SallePage.razor",
+              "ViewState": "AgIAAAUBAAAAAAAAAAAAABUBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-25T13:35:14.864Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IncidentPage.razor",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Pages\\IncidentPage.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\IncidentPage.razor",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Pages\\IncidentPage.razor",
+              "RelativeToolTip": "Components\\Pages\\IncidentPage.razor",
+              "ViewState": "AgIAACgAAAAAAAAAAAAAADgAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-25T13:32:37.139Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PostePage.razor",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Pages\\PostePage.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\PostePage.razor",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Pages\\PostePage.razor",
+              "RelativeToolTip": "Components\\Pages\\PostePage.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-25T13:20:54.215Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

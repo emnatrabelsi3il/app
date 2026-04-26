@@ -1,0 +1,232 @@
+﻿@page "/postePage"
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+@using Microsoft.AspNetCore.Components.Authorization
+@using PR3_Blazor_Mud.Components.Models
+@using PR3_Blazor_Mud.Components.Services
+@using MudBlazor
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+@inject PosteService PosteService
+@inject SalleService SalleService
+@inject ISnackbar Snackbar
+
+@rendermode InteractiveServer
+
+<MudContainer MaxWidth="MaxWidth.False" Class="pa-4">
+    <MudText Typo="Typo.h4" GutterBottom="true">Gestion des postes</MudText>
+    <MudText Typo="Typo.body1" Class="mb-4">Consultez, modifiez et supprimez les postes</MudText>
+
+    <MudAlert Severity="Severity.Info" Variant="Variant.Outlined" Dense="true" Class="mb-4">
+        Pour l'ajout de postes, utiliser l'application Desktop.
+    </MudAlert>
+
+    <MudPaper Class="pa-4" Elevation="1">
+        @if (posteList == null)
+        {
+            <MudProgressCircular Indeterminate="true" Color="Color.Primary" />
+            <MudText Class="mt-2">Chargement des postes...</MudText>
+        }
+        else
+        {
+            <MudTable Items="posteList" Hover="true" Striped="true" Dense="false">
+                <HeaderContent>
+                    <MudTh>ID</MudTh>
+                    <MudTh>Numéro</MudTh>
+                    <MudTh>Adresse MAC</MudTh>
+                    <MudTh>Connecté</MudTh>
+                    <MudTh>Salle</MudTh>
+                    <MudTh>Actions</MudTh>
+                </HeaderContent>
+
+                <RowTemplate>
+                    <MudTd DataLabel="ID">@context.Id</MudTd>
+                    <MudTd DataLabel="Numéro">@context.Numero</MudTd>
+                    <MudTd DataLabel="Adresse MAC">@context.MacAdress</MudTd>
+                    <MudTd DataLabel="Connecté">
+                        @if (context.IsConnected)
+                        {
+                            <MudChip T="string" Color="Color.Success" Variant="Variant.Filled" Size="Size.Small">
+                                Connecté
+                            </MudChip>
+                        }
+                        else
+                        {
+                            <MudChip T="string" Color="Color.Error" Variant="Variant.Filled" Size="Size.Small">
+                                Déconnecté
+                            </MudChip>
+                        }
+                    </MudTd>
+                    <MudTd DataLabel="Salle">@GetNomSalle(context.SalleId)</MudTd>
+                    <MudTd DataLabel="Actions">
+                        @if (CanEdit)
+                        {
+                            <MudButton Color="Color.Primary"
+                                       Variant="Variant.Outlined"
+                                       Size="Size.Small"
+                                       OnClick="@(() => OpenUpdateDialog(context.Id))">
+                                Modifier
+                            </MudButton>
+                        }
+
+                        @if (IsAdmin)
+                        {
+                            <MudButton Color="Color.Error"
+                                       Variant="Variant.Outlined"
+                                       Size="Size.Small"
+                                       OnClick="@(() => DeletePoste(context.Id))">
+                                Supprimer
+                            </MudButton>
+                        }
+                    </MudTd>
+                </RowTemplate>
+            </MudTable>
+        }
+    </MudPaper>
+</MudContainer>
+
+<MudDialog @bind-Visible="IsOpen">
+    <DialogContent>
+        <MudText Typo="Typo.h6" Class="mb-4">Modifier un poste</MudText>
+
+        <MudTextField Label="Numéro"
+                      @bind-Value="poste.Numero"
+                      Required="true"
+                      Immediate="true" />
+
+        <MudTextField Label="Adresse MAC"
+                      @bind-Value="poste.MacAdress"
+                      Disabled="true"
+                      Class="mt-3" />
+
+        <MudSelect T="int"
+                   Label="Salle"
+                   @bind-Value="poste.SalleId"
+                   Required="true"
+                   Class="mt-3">
+            @if (salleList != null)
+            {
+                @foreach (var salle in salleList)
+                {
+                    <MudSelectItem Value="@salle.Id">@salle.Numero</MudSelectItem>
+                }
+            }
+        </MudSelect>
+    </DialogContent>
+
+    <DialogActions>
+        <MudButton Variant="Variant.Text" OnClick="CloseUpdateModal">Annuler</MudButton>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="UpdatePoste">Enregistrer</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    private string? CurrentRole;
+    private bool IsAdmin => CurrentRole == "admin";
+    private bool CanEdit => CurrentRole == "admin" || CurrentRole == "user" || CurrentRole == "etudiant";
+
+    
+    List<Poste>? posteList;
+    List<Salle>? salleList;
+    Poste poste = new Poste();
+
+    public bool IsOpen { get; set; }
+
+  
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        CurrentRole = authState.User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value;
+
+        await FetchPosteList();
+    }
+    private async Task FetchPosteList()
+    {
+        try
+        {
+            posteList = await PosteService.GetAllPoste();
+            salleList = await SalleService.GetAllSalle();
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add(ex.Message, Severity.Error);
+        }
+    }
+
+    private async Task UpdatePoste()
+    {
+        if (string.IsNullOrWhiteSpace(poste.Numero))
+        {
+            Snackbar.Add("Le numéro du poste est obligatoire.", Severity.Warning);
+            return;
+        }
+
+        if (poste.SalleId <= 0)
+        {
+            Snackbar.Add("Veuillez sélectionner une salle.", Severity.Warning);
+            return;
+        }
+
+        if (!CanEdit)
+        {
+            Snackbar.Add("Vous n'avez pas le droit de modifier.", Severity.Warning);
+            return;
+        }
+        try
+        {
+            await PosteService.UpdatePoste(poste);
+            posteList = await PosteService.GetAllPoste();
+            CloseUpdateModal();
+            Snackbar.Add("Poste modifié avec succès.", Severity.Success);
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add(ex.Message, Severity.Error);
+        }
+    }
+
+    private async Task DeletePoste(int posteId)
+    {
+        try
+        {
+            await PosteService.DeletePoste(posteId);
+            posteList = await PosteService.GetAllPoste();
+            Snackbar.Add("Poste supprimé avec succès.", Severity.Success);
+        }
+
+        catch (Exception ex)
+        {
+            Snackbar.Add(ex.Message, Severity.Error);
+        }
+        if (!IsAdmin)
+        {
+            Snackbar.Add("Seul l'administrateur peut supprimer.", Severity.Warning);
+            return;
+        }
+    }
+
+    async Task OpenUpdateDialog(int posteId)
+    {
+        try
+        {
+            poste = await PosteService.GetPosteById(posteId);
+            IsOpen = true;
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add(ex.Message, Severity.Error);
+        }
+    }
+
+    void CloseUpdateModal()
+    {
+        IsOpen = false;
+        poste = new Poste();
+    }
+
+    private string GetNomSalle(int salleId)
+    {
+        var salle = salleList?.FirstOrDefault(s => s.Id == salleId);
+        return salle?.Numero ?? "Non définie";
+    }
+}

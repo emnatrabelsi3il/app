@@ -1,0 +1,138 @@
+﻿@inherits LayoutComponentBase
+@using Microsoft.AspNetCore.Components.Authorization
+@inject AuthenticationStateProvider AuthenticationStateProvider
+<MudThemeProvider Theme="@_theme" IsDarkMode="_isDarkMode" />
+<MudPopoverProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+    <MudAppBar Elevation="0">
+        <MudIconButton Icon="@Icons.Material.Filled.Menu"
+                       Color="Color.Inherit"
+                       Edge="Edge.Start"
+                       OnClick="DrawerToggle" />
+
+        <MudText Typo="Typo.h5" Class="ml-3" Style="font-weight:700;">
+            Dashboard Gestion des postes Groupe 3iL
+        </MudText>
+
+        <MudSpacer />
+
+        <MudChip T="string"
+                 Color="Color.Primary"
+                 Variant="Variant.Filled"
+                 Size="Size.Small"
+                 Class="mr-3">
+            @DisplayRole
+        </MudChip>
+
+        <MudIconButton Icon="@DarkLightModeButtonIcon"
+                       Color="Color.Inherit"
+                       OnClick="DarkModeToggle" />
+    </MudAppBar>
+
+    <MudDrawer id="nav-drawer"
+               @bind-Open="_drawerOpen"
+               ClipMode="DrawerClipMode.Always"
+               Elevation="0"
+               Width="280px">
+        <NavMenu />
+    </MudDrawer>
+    <MudMainContent Class="pt-16 pa-4">
+        @Body
+    </MudMainContent>
+</MudLayout>
+
+<div id="blazor-error-ui" data-nosnippet>
+    An unhandled error has occurred.
+    <a href="." class="reload">Reload</a>
+    <span class="dismiss">🗙</span>
+</div>
+
+@code {
+    private bool _drawerOpen = true;
+    private bool _isDarkMode = true;
+    private MudTheme? _theme = null;
+    private string? CurrentRole;
+
+    private string DisplayRole => CurrentRole switch
+    {
+        "admin" => "Admin",
+        "user" => "User",
+        "etudiant" => "Étudiant",
+        _ => "Invité"
+    };
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        CurrentRole = authState.User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value;
+    }
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        _theme = new MudTheme()
+            {
+                PaletteLight = _lightPalette,
+                PaletteDark = _darkPalette,
+                LayoutProperties = new LayoutProperties()
+            };
+    }
+
+    private void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
+
+    private void DarkModeToggle()
+    {
+        _isDarkMode = !_isDarkMode;
+    }
+
+    private readonly PaletteLight _lightPalette = new()
+        {
+            Primary = "#6D5BFF",
+            Secondary = "#4A86FF",
+            Background = "#F5F7FF",
+            Surface = "#FFFFFF",
+            AppbarBackground = "rgba(255,255,255,0.85)",
+            AppbarText = "#1A1B2F",
+            DrawerBackground = "#FFFFFF",
+            DrawerText = "#3A3C56",
+            DrawerIcon = "#6D5BFF",
+            TextPrimary = "#1A1B2F",
+            TextSecondary = "#6B6E8A",
+            Success = "#34C38F",
+            Warning = "#FFB547",
+            Error = "#FF5A7A",
+            Info = "#4A86FF"
+        };
+
+    private readonly PaletteDark _darkPalette = new()
+        {
+            Primary = "#7E6FFF",
+            Secondary = "#4A86FF",
+            Surface = "#1E1E2D",
+            Background = "#151625",
+            BackgroundGray = "#111220",
+            AppbarText = "#E7E9FF",
+            AppbarBackground = "rgba(18,20,36,0.72)",
+            DrawerBackground = "#121425",
+            DrawerText = "#B7B9D3",
+            DrawerIcon = "#9C8CFF",
+            TextPrimary = "#F2F3FF",
+            TextSecondary = "#A4A7C1",
+            Success = "#39D98A",
+            Warning = "#FFB84D",
+            Error = "#FF5C7C",
+            Info = "#5B8CFF",
+            Divider = "rgba(255,255,255,0.06)",
+            LinesDefault = "rgba(255,255,255,0.08)",
+            TableLines = "rgba(255,255,255,0.08)"
+        };
+    public string DarkLightModeButtonIcon => _isDarkMode
+        ? Icons.Material.Rounded.AutoMode
+        : Icons.Material.Outlined.DarkMode;
+}

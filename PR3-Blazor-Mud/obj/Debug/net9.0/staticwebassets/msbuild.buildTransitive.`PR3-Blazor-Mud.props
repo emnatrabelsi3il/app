@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\`PR3-Blazor-Mud.props" />
+</Project>
