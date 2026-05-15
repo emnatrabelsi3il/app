@@ -11,5 +11,7 @@
         public long SalleId { get; set; }
 
         public bool IsConnected { get; set; }
+        
+     
     }
 }

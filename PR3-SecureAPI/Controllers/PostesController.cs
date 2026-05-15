@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PR3_SecureAPI.Models;
@@ -110,11 +111,13 @@ namespace PR3_SecureAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Poste>> PostPoste(Poste poste)
         {
+  
             _context.Poste.Add(poste);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetPoste", new { id = poste.Id }, poste);
         }
+
 
         // DELETE: api/Postes/5
         [HttpDelete("{id}")]

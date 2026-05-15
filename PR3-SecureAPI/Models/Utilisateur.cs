@@ -9,5 +9,6 @@
         public string MotDePasse { get; set; }
 
         public string Role { get; set; }
+        
     }
 }
