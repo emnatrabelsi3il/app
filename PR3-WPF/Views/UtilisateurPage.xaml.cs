@@ -48,8 +48,15 @@ namespace PR3_WPF.Views
                 {
                     _authService = new AuthService(client);
                     string jwtToken = _authService.ReadToken();
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
 
+                    if (string.IsNullOrWhiteSpace(jwtToken))
+                    {
+                        MessageBox.Show("Session expirée. Veuillez vous reconnecter.");
+                        return;
+                    }
+
+                    client.DefaultRequestHeaders.Authorization =
+                        new AuthenticationHeaderValue("Bearer", jwtToken);
 
                     HttpResponseMessage response = await client.GetAsync(apiUtilisateur);
 
@@ -57,17 +64,22 @@ namespace PR3_WPF.Views
                     {
                         string data = await response.Content.ReadAsStringAsync();
 
-                        // Deserialize the JSON data
-                        var utilisateurList = JsonConvert.DeserializeObject<ObservableCollection<Utilisateur>>(data);
+                        var UtilisateurList = JsonConvert.DeserializeObject<ObservableCollection<Utilisateur>>(data);
                         utilisateur.Clear();
-                        foreach (var salutilisateur in utilisateurList)
+
+                        foreach (var Utilisateur in UtilisateurList)
                         {
-                            utilisateur.Add(salutilisateur);
+                            utilisateur.Add(Utilisateur);
                         }
+                    }
+                    else if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                    {
+                        MessageBox.Show("Accès non autorisé. Veuillez vous reconnecter.");
                     }
                     else
                     {
-                        MessageBox.Show($"Error: {response.StatusCode}");
+                        string error = await response.Content.ReadAsStringAsync();
+                        MessageBox.Show($"Error: {response.StatusCode}\n{error}");
                     }
                 }
             }

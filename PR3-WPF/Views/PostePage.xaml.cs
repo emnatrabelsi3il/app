@@ -48,41 +48,56 @@ namespace PR3_WPF.Views
 
         private async void LoadDataFromApi()
         {
-
-            using (HttpClient client = new HttpClient())
+            try
             {
-                try
+                using (HttpClient client = new HttpClient())
                 {
                     _authService = new AuthService(client);
-                    string jwtToken = _authService.ReadToken();
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
+                    string jwtToken = _authService.ReadToken()?.Trim();
+
+                    if (string.IsNullOrWhiteSpace(jwtToken))
+                    {
+                        MessageBox.Show("Session expirée. Veuillez vous reconnecter.");
+                        // Redirection vers la page de login
+                        var loginPage = new LoginPage();
+                        this.NavigationService.Navigate(loginPage);
+                        return;
+                    }
+
+                    client.DefaultRequestHeaders.Authorization =
+                        new AuthenticationHeaderValue("Bearer", jwtToken);
 
                     HttpResponseMessage response = await client.GetAsync(apiPoste);
 
                     if (response.IsSuccessStatusCode)
                     {
                         string data = await response.Content.ReadAsStringAsync();
+
                         var posteList = JsonConvert.DeserializeObject<ObservableCollection<Poste>>(data);
                         Postes.Clear();
+
                         foreach (var poste in posteList)
                         {
                             Postes.Add(poste);
                         }
                     }
-                    else if (response.StatusCode == HttpStatusCode.Unauthorized)
+                    else if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
                     {
-                        // Handle unauthorized access
-                        MessageBox.Show("Unauthorized access. Please check your credentials.");
+                        MessageBox.Show("Accès non autorisé. Veuillez vous reconnecter.");
+                        // Redirection vers la page de login
+                        var loginPage = new LoginPage();
+                        this.NavigationService.Navigate(loginPage);
                     }
                     else
                     {
-                        MessageBox.Show($"Error: {response.StatusCode}");
+                        string error = await response.Content.ReadAsStringAsync();
+                        MessageBox.Show($"Error: {response.StatusCode}\n{error}");
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error: {ex.Message}");
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
             }
         }
 

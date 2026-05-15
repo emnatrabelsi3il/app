@@ -36,9 +36,6 @@
                            FontWeight="Bold"
                            Margin="20,0,0,25"/>
 
-                <Button Content="Accueil"
-                        Style="{StaticResource MenuButtonStyle}"
-                        Click="Accueil_Click"/>
 
                 <Button Content="Postes"
                         Style="{StaticResource MenuButtonStyle}"
@@ -62,6 +59,11 @@
                 <Button Content="Utilisateurs"
                         Style="{StaticResource MenuButtonStyle}"
                         Click="Utilisateurs_Click"/>
+                <Button Content="Déconnexion"
+        Click="Logout_Click"
+        Margin="10"
+        Background="#e74c3c"
+        Foreground="White"/>
 
             </StackPanel>
         </Border>

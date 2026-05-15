@@ -4,7 +4,8 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Net.Http;
 
-
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 
 
 namespace PR3_WPF.Services
@@ -14,12 +15,43 @@ namespace PR3_WPF.Services
         private readonly HttpClient _httpClient;
 
         private static readonly string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "AuthService", "token.txt");
+        private static readonly string rolePath = Path.Combine(
+    Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+    "AuthService",
+    "role.txt"
+);
 
+        public void StoreRole(string role)
+        {
+            string directoryPath = Path.GetDirectoryName(rolePath);
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+            }
+
+            File.WriteAllText(rolePath, role);
+        }
+
+        public string ReadRole()
+        {
+            if (!File.Exists(rolePath))
+            {
+                return "user";
+            }
+
+            return File.ReadAllText(rolePath);
+        }
         public AuthService(HttpClient httpClient)
         {
             _httpClient = httpClient;
-
         }
+
+        // Méthode pour récupérer le rôle depuis le token JWT
+        public string GetUserRole()
+        {
+            return ReadRole();
+        }
+
         public async Task<string> GetToken()
         {
             var response = await _httpClient.PostAsync("https://localhost:7011/Auth", null);
@@ -28,7 +60,13 @@ namespace PR3_WPF.Services
             string data = await response.Content.ReadAsStringAsync();
             return data;
         }
-
+        public void ClearToken()
+        {
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
+        }
         public void StoreToken(string data)
         {
             try
@@ -43,7 +81,6 @@ namespace PR3_WPF.Services
             }
             catch (Exception ex)
             {
-                // Log the exception or handle it as necessary
                 Console.WriteLine($"Error storing token: {ex.Message}");
             }
         }
@@ -61,18 +98,9 @@ namespace PR3_WPF.Services
             }
             catch (Exception ex)
             {
-                // Log the exception or handle it as necessary
                 Console.WriteLine($"Error reading token: {ex.Message}");
                 return null;
             }
         }
-
-
-        public class JwtResponse
-        {
-            public string Token { get; set; }
-        }
     }
-
-
 }

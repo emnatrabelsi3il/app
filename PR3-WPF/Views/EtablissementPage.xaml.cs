@@ -47,9 +47,16 @@ namespace PR3_WPF.Views
                 using (HttpClient client = new HttpClient())
                 {
                     _authService = new AuthService(client);
-                    string jwtToken = _authService.ReadToken();
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
+                    string jwtToken = _authService.ReadToken()?.Trim();
 
+                    if (string.IsNullOrWhiteSpace(jwtToken))
+                    {
+                        MessageBox.Show("Session expirée. Veuillez vous reconnecter.");
+                        return;
+                    }
+
+                    client.DefaultRequestHeaders.Authorization =
+                        new AuthenticationHeaderValue("Bearer", jwtToken);
 
                     HttpResponseMessage response = await client.GetAsync(apiEtablissement);
 
@@ -57,17 +64,22 @@ namespace PR3_WPF.Views
                     {
                         string data = await response.Content.ReadAsStringAsync();
 
-                        // Deserialize the JSON data
                         var etablissementList = JsonConvert.DeserializeObject<ObservableCollection<Etablissement>>(data);
                         etablissements.Clear();
+
                         foreach (var etablissement in etablissementList)
                         {
                             etablissements.Add(etablissement);
                         }
                     }
+                    else if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                    {
+                        MessageBox.Show("Accès non autorisé. Veuillez vous reconnecter.");
+                    }
                     else
                     {
-                        MessageBox.Show($"Error: {response.StatusCode}");
+                        string error = await response.Content.ReadAsStringAsync();
+                        MessageBox.Show($"Error: {response.StatusCode}\n{error}");
                     }
                 }
             }

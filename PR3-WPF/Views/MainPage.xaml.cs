@@ -34,13 +34,51 @@ namespace PR3_WPF.Views
         public Poste poste { get; set; }
         public MainPage()
         {
-
-
             InitializeComponent();
-            LoadData();
-            LoadSystemInformation();
 
+            var authService = new AuthService(new HttpClient());
+            var token = authService.ReadToken();  // Lire le token
+
+            // Vérifie si le token existe et si l'utilisateur est authentifié
+            if (string.IsNullOrEmpty(token))
+            {
+                // Si le token est vide ou invalide, redirige vers la page de login
+                this.NavigationService.Navigate(new LoginPage());
+            }
+            else
+            {
+                // Authentification réussie, charger les données et informations système
+                LoadData();
+                LoadSystemInformation();
+
+                // Vérifie si l'utilisateur est un admin
+                if (IsUserAdmin(authService))
+                {
+                    EnableEditing(true);  // Activer l'édition si l'utilisateur est un admin
+                }
+                else
+                {
+                    EnableEditing(false);  // Désactiver l'édition pour les non-admins
+                }
+            }
         }
+
+        // Méthode pour vérifier si l'utilisateur est un admin
+        private bool IsUserAdmin(AuthService authService)
+        {
+            var role = authService.GetUserRole();  // Récupère le rôle de l'utilisateur
+            MessageBox.Show($"Role: {role}");  // Affiche le rôle de l'utilisateur pour débogage
+            return role == "admin";  // Retourne true si l'utilisateur est un admin
+        }
+
+        // Méthode pour activer/désactiver les champs d'édition
+        private void EnableEditing(bool isAdmin)
+        {
+            NameTextBox.IsReadOnly = !isAdmin;  // Le champ "Nom" est modifiable uniquement pour les admins
+            RoomComboBox.IsEnabled = isAdmin;   // La salle est modifiable uniquement pour les admins
+            RegisterButton.IsEnabled = isAdmin; // Le bouton d'ajout est activé uniquement pour les admins
+        }
+    
 
         private async Task LoadData()
         {
@@ -189,21 +227,32 @@ namespace PR3_WPF.Views
 
         private async void OnRegisterButtonClick(object sender, RoutedEventArgs e)
         {
-            var name = NameTextBox.Text;
-            var room = RoomComboBox.SelectedItem?.ToString();
-            var macAddress = MacAddressTextBox.Text;
+            var authService = new AuthService(new HttpClient());
 
-            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(room))
+            if (!IsUserAdmin(authService))
             {
-                MessageBox.Show("Veuillez remplir tous les champs.");
+                MessageBox.Show("Seuls les administrateurs peuvent ajouter ou modifier des postes.");
                 return;
             }
 
-            Poste poste = new Poste();
-            poste.Numero = name;
-            poste.MacAdress = macAddress;
+            var name = NameTextBox.Text;
+            var macAddress = MacAddressTextBox.Text;
             var selectedSalle = RoomComboBox.SelectedItem as Salle;
-            poste.IsConnected = true;
+
+            if (string.IsNullOrWhiteSpace(name) || selectedSalle == null)
+            {
+                MessageBox.Show("Veuillez remplir le nom et sélectionner une salle.");
+                return;
+            }
+
+            Poste poste = new Poste
+            {
+                Numero = name,
+                MacAdress = macAddress,
+                SalleId = selectedSalle.Id,
+                IsConnected = true
+            };
+
             var json = JsonConvert.SerializeObject(poste);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
@@ -211,14 +260,27 @@ namespace PR3_WPF.Views
             {
                 try
                 {
+                    // 🔍 Vérifier si le poste existe déjà
+                    var checkResponse = await client.GetAsync($"https://localhost:7011/api/Postes/ByMacAdress/{macAddress}");
+
+                    if (checkResponse.IsSuccessStatusCode)
+                    {
+                        // 👉 CAS : le poste existe déjà
+                        MessageBox.Show("Ce poste existe déjà. La modification se fait depuis l'application Blazor.");
+                        return;
+                    }
+
+                    // 👉 CAS : le poste n'existe pas → création
                     var response = await client.PostAsync("https://localhost:7011/api/Postes", content);
+
                     if (response.IsSuccessStatusCode)
                     {
                         MessageBox.Show("Enregistrement réussi !");
                     }
                     else
                     {
-                        MessageBox.Show("Erreur lors de l'enregistrement.");
+                        var error = await response.Content.ReadAsStringAsync();
+                        MessageBox.Show($"Erreur lors de l'enregistrement:\n{error}");
                     }
                 }
                 catch (Exception ex)
@@ -227,7 +289,6 @@ namespace PR3_WPF.Views
                 }
             }
         }
-
         private void LoginButtonClick(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new LoginPage());

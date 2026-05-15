@@ -24,10 +24,7 @@ namespace PR3_WPF
             }
         }
 
-        private void Accueil_Click(object sender, RoutedEventArgs e)
-        {
-            navframe.Navigate(new MainPage());
-        }
+       
 
         private void Postes_Click(object sender, RoutedEventArgs e)
         {
@@ -57,6 +54,26 @@ namespace PR3_WPF
         private void Utilisateurs_Click(object sender, RoutedEventArgs e)
         {
             navframe.Navigate(new UtilisateurPage());
+        }
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            var authService = new AuthService(new HttpClient());
+            authService.ClearToken();
+
+            // 🔥 ouvrir nouvelle fenêtre login
+            Window loginWindow = new Window
+            {
+                Title = "Connexion",
+                Content = new LoginPage(),
+                Width = 400,
+                Height = 500,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
+            };
+
+            loginWindow.Show();
+
+            // ❌ fermer la fenêtre principale (celle avec menu)
+            this.Close();
         }
     }
 }

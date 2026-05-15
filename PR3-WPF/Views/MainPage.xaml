@@ -24,18 +24,18 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Label Content="Nom:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center"/>
-        <TextBox x:Name="NameTextBox" Grid.Row="0" Grid.Column="1" Margin="5"/>
+        <!-- Nom du poste (modifiable uniquement pour les admins) -->
+        <TextBox x:Name="NameTextBox" IsReadOnly="True" Grid.Row="0" Grid.Column="1" Margin="5"/>
 
-        <Label Content="Salle:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
-        <ComboBox x:Name="RoomComboBox" Grid.Row="1" Grid.Column="1" Margin="5"/>
+        <!-- Salle (modifiable uniquement pour les admins) -->
+        <ComboBox x:Name="RoomComboBox" IsEnabled="False" Grid.Row="1" Grid.Column="1" Margin="5"/>
 
         <Label Content="Adresse MAC:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
         <TextBox x:Name="MacAddressTextBox" Grid.Row="2" Grid.Column="1" Margin="5" IsReadOnly="True"/>
 
         <Button x:Name="RegisterButton" Content="Enregistrer" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" Margin="5" Click="OnRegisterButtonClick"/>
 
-        <Button Content="Connexion" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right" Margin="5" Click="LoginButtonClick"/>
+        
 
         <Label Content="Utilisation de la RAM:" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center"/>
         <TextBox x:Name="RamUsageTextBox" Grid.Row="5" Grid.Column="1" Margin="5" IsReadOnly="True"/>

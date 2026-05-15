@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -51,9 +52,19 @@ namespace PR3_WPF.Views
                 using (HttpClient client = new HttpClient())
                 {
                     _authService = new AuthService(client);
-                    string jwtToken = _authService.ReadToken();
-                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
+                    string jwtToken = _authService.ReadToken()?.Trim();
 
+                    if (string.IsNullOrWhiteSpace(jwtToken))
+                    {
+                        MessageBox.Show("Session expirée. Veuillez vous reconnecter.");
+                        // Redirection vers la page de login
+                        var loginPage = new LoginPage();
+                        this.NavigationService.Navigate(loginPage);
+                        return;
+                    }
+
+                    client.DefaultRequestHeaders.Authorization =
+                        new AuthenticationHeaderValue("Bearer", jwtToken);
 
                     HttpResponseMessage response = await client.GetAsync(apiSalle);
 
@@ -61,17 +72,25 @@ namespace PR3_WPF.Views
                     {
                         string data = await response.Content.ReadAsStringAsync();
 
-                        // Deserialize the JSON data
                         var salleList = JsonConvert.DeserializeObject<ObservableCollection<Salle>>(data);
                         Salles.Clear();
+
                         foreach (var salle in salleList)
                         {
                             Salles.Add(salle);
                         }
                     }
+                    else if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                    {
+                        MessageBox.Show("Accès non autorisé. Veuillez vous reconnecter.");
+                        // Redirection vers la page de login
+                        var loginPage = new LoginPage();
+                        this.NavigationService.Navigate(loginPage);
+                    }
                     else
                     {
-                        MessageBox.Show($"Error: {response.StatusCode}");
+                        string error = await response.Content.ReadAsStringAsync();
+                        MessageBox.Show($"Error: {response.StatusCode}\n{error}");
                     }
                 }
             }
