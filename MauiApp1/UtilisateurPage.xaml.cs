@@ -1,39 +1,94 @@
 namespace MauiApp1;
-using System.Collections.ObjectModel;
-using System.Net.Http;
-using System.Net.Http.Json;
 
+using System.Collections.ObjectModel;
+using System.Net;
 using System.Net.Http.Headers;
+using System.Net.Http.Json;
 using MauiApp1.Model;
-using MauiApp1.Services;
-using Newtonsoft.Json;
+
 public partial class UtilisateurPage : ContentPage
 {
-    private AuthService authService;
-
     public ObservableCollection<Utilisateur> utilisateurs { get; set; } = new ObservableCollection<Utilisateur>();
+
+    private bool _alreadyLoaded = false;
 
     public UtilisateurPage()
     {
         InitializeComponent();
         BindingContext = this;
+    }
 
-        LoadDataFromApi();
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+
+        if (_alreadyLoaded)
+            return;
+
+        _alreadyLoaded = true;
+
+        await LoadDataFromApiAsync();
     }
 
     private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
     {
     }
-    private async void LoadDataFromApi()
+
+    private async Task LoadDataFromApiAsync()
     {
-        var httpClient = new HttpClient();
         try
         {
-            authService = new AuthService(httpClient);
-            var jwtToken = await authService.RetrieveTokenAsync();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", jwtToken);
+#if DEBUG
+            var handler = new HttpClientHandler
+            {
+                ServerCertificateCustomValidationCallback =
+                    HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+            };
+#else
+            var handler = new HttpClientHandler();
+#endif
 
-            var utilisateur = await httpClient.GetFromJsonAsync<List<Utilisateur>>("http://10.0.2.2:5011/api/Utilisateurs");
+            using var httpClient = new HttpClient(handler);
+
+            var jwtToken = await SecureStorage.GetAsync("access_token");
+
+            if (!string.IsNullOrWhiteSpace(jwtToken))
+            {
+                httpClient.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", jwtToken);
+            }
+            else
+            {
+                Console.WriteLine("Token absent dans SecureStorage.");
+            }
+
+            var response = await httpClient.GetAsync(
+                "https://hqx6q9wt-7011.uks1.devtunnels.ms/api/Utilisateurs"
+            );
+
+            if (response.StatusCode == HttpStatusCode.Unauthorized)
+            {
+                await DisplayAlert(
+                    "Erreur authentification",
+                    "L'API a refusé l'accès. Le token est absent, expiré ou invalide.",
+                    "OK"
+                );
+                return;
+            }
+
+            if (!response.IsSuccessStatusCode)
+            {
+                var errorContent = await response.Content.ReadAsStringAsync();
+
+                await DisplayAlert(
+                    "Erreur API",
+                    $"Code : {response.StatusCode}\nDétail : {errorContent}",
+                    "OK"
+                );
+                return;
+            }
+
+            var utilisateur = await response.Content.ReadFromJsonAsync<List<Utilisateur>>();
 
             if (utilisateur != null)
             {
@@ -48,13 +103,13 @@ public partial class UtilisateurPage : ContentPage
             }
             else
             {
-                await DisplayAlert("Error", "No data received from server", "OK");
+                await DisplayAlert("Erreur", "Aucune donnée reçue depuis le serveur.", "OK");
             }
-
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error: {ex.Message}");
+            Console.WriteLine($"Erreur UtilisateurPage : {ex.Message}");
+            await DisplayAlert("Erreur chargement", ex.Message, "OK");
         }
     }
 }

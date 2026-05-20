@@ -1,0 +1,79 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net8.0-ios
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = MauiApp1
+build_property.ProjectDir = D:\Bureau\projet\projet\PR3-MAUI\MauiApp1\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[D:/Bureau/projet/projet/PR3-MAUI/MauiApp1/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[D:/Bureau/projet/projet/PR3-MAUI/MauiApp1/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[D:/Bureau/projet/projet/PR3-MAUI/MauiApp1/EtablissementPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.EtablissementPage.xaml
+build_metadata.AdditionalFiles.TargetPath = EtablissementPage.xaml
+build_metadata.AdditionalFiles.RelativePath = EtablissementPage.xaml
+
+[D:/Bureau/projet/projet/PR3-MAUI/MauiApp1/IncidentPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.IncidentPage.xaml
+build_metadata.AdditionalFiles.TargetPath = IncidentPage.xaml
+build_metadata.AdditionalFiles.RelativePath = IncidentPage.xaml
+
+[D:/Bureau/projet/projet/PR3-MAUI/MauiApp1/MainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
+
+[D:/Bureau/projet/projet/PR3-MAUI/MauiApp1/PostePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.PostePage.xaml
+build_metadata.AdditionalFiles.TargetPath = PostePage.xaml
+build_metadata.AdditionalFiles.RelativePath = PostePage.xaml
+
+[D:/Bureau/projet/projet/PR3-MAUI/MauiApp1/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
+
+[D:/Bureau/projet/projet/PR3-MAUI/MauiApp1/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[D:/Bureau/projet/projet/PR3-MAUI/MauiApp1/SallePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.SallePage.xaml
+build_metadata.AdditionalFiles.TargetPath = SallePage.xaml
+build_metadata.AdditionalFiles.RelativePath = SallePage.xaml
+
+[D:/Bureau/projet/projet/PR3-MAUI/MauiApp1/UtilisateurPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MauiApp1.UtilisateurPage.xaml
+build_metadata.AdditionalFiles.TargetPath = UtilisateurPage.xaml
+build_metadata.AdditionalFiles.RelativePath = UtilisateurPage.xaml
