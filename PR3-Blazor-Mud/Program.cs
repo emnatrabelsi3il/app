@@ -17,12 +17,13 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddHttpClient();
 builder.Services.AddScoped<UtilisateurService>();
 builder.Services.AddScoped<SalleService>();
+builder.Services.AddScoped<CommandeService>();
 builder.Services.AddScoped<PosteService>();
 builder.Services.AddScoped<EtablissementService>();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<IncidentService>();
 builder.Services.AddAuthorizationCore();
-builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>();
+
 // Remplace les deux lignes existantes par ceci :
 builder.Services.AddScoped<CustomAuthStateProvider>();
 builder.Services.AddScoped<AuthenticationStateProvider>(

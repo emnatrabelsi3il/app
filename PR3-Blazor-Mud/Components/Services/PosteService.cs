@@ -28,7 +28,7 @@ namespace PR3_Blazor_Mud.Components.Services
 
             _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-            HttpResponseMessage response = await _httpClient.GetAsync("https://localhost:7011/api/Postes");
+            HttpResponseMessage response = await _httpClient.GetAsync("https://localhost:7011/api/Postes/details");
             response.EnsureSuccessStatusCode();
 
             string data = await response.Content.ReadAsStringAsync();

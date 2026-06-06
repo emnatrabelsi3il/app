@@ -4,3 +4,4 @@ D:\Bureau\projet\projet\PR3-Blazor\PR3-Blazor-Mud\wwwroot\favicon.ico
 D:\Bureau\projet\projet\PR3-Blazor\PR3-Blazor-Mud\Components\Layout\ReconnectModal.razor.js
 wwwroot\app.css
 wwwroot\favicon.ico
+wwwroot\logo_edupark_it.png

@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v9.0": {
       "`PR3-Blazor-Mud/1.0.0": {
         "dependencies": {
-          "MudBlazor": "9.4.0",
+          "MudBlazor": "9.5.0",
           "Newtonsoft.Json": "13.0.4"
         },
         "runtime": {
@@ -155,7 +155,7 @@
           }
         }
       },
-      "MudBlazor/9.4.0": {
+      "MudBlazor/9.5.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Components": "9.0.1",
           "Microsoft.AspNetCore.Components.Web": "9.0.1",
@@ -163,8 +163,8 @@
         },
         "runtime": {
           "lib/net9.0/MudBlazor.dll": {
-            "assemblyVersion": "9.4.0.0",
-            "fileVersion": "9.4.0.0"
+            "assemblyVersion": "9.5.0.0",
+            "fileVersion": "9.5.0.0"
           }
         }
       },
@@ -282,12 +282,12 @@
       "path": "microsoft.jsinterop/9.0.1",
       "hashPath": "microsoft.jsinterop.9.0.1.nupkg.sha512"
     },
-    "MudBlazor/9.4.0": {
+    "MudBlazor/9.5.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-p6BF8zmt4c/yi/hD9hP7yPioUK5loOnif19gwIEANq6I46407QnSu0HTW1NuALC5seRKcWb2pBP5LwC8aBE2Mg==",
-      "path": "mudblazor/9.4.0",
-      "hashPath": "mudblazor.9.4.0.nupkg.sha512"
+      "sha512": "sha512-mZiuKdOG42RkA/cZhiwNwbBZAKBExDx387ylvxzokcenRFHi8n4tq8olGuXs/oWNX1Qgo7Tj7J0AhOjjSnTpcw==",
+      "path": "mudblazor/9.5.0",
+      "hashPath": "mudblazor.9.5.0.nupkg.sha512"
     },
     "Newtonsoft.Json/13.0.4": {
       "type": "package",

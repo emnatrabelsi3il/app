@@ -6,7 +6,7 @@
 @using PR3_Blazor_Mud.Components.Services
 @using MudBlazor
 @inject AuthenticationStateProvider AuthenticationStateProvider
-
+@inject CommandeService CommandeService
 @inject PosteService PosteService
 @inject SalleService SalleService
 @inject ISnackbar Snackbar
@@ -29,22 +29,44 @@
         }
         else
         {
+            @if (IsAdmin)
+            {
+                <MudButton Color="Color.Secondary"
+                           Variant="Variant.Filled"
+                           Class="mb-4"
+                           StartIcon="@Icons.Material.Filled.Sync"
+                           OnClick="RefreshAllPostes">
+                    Actualiser tous les postes
+                </MudButton>
+            }
             <MudTable Items="posteList" Hover="true" Striped="true" Dense="false">
                 <HeaderContent>
-                    <MudTh>ID</MudTh>
-                    <MudTh>Numéro</MudTh>
-                    <MudTh>Adresse MAC</MudTh>
-                    <MudTh>Connecté</MudTh>
-                    <MudTh>Salle</MudTh>
-                    <MudTh>Actions</MudTh>
+              <HeaderContent>
+    <MudTh>ID</MudTh>
+    <MudTh>Numéro</MudTh>
+    <MudTh>Adresse MAC</MudTh>
+    <MudTh>État</MudTh>
+    <MudTh>Salle</MudTh>
+    <MudTh>Établissement</MudTh>
+    <MudTh>Nom machine</MudTh>
+    <MudTh>IP</MudTh>
+    <MudTh>OS</MudTh>
+    <MudTh>RAM</MudTh>
+    <MudTh>Disque</MudTh>
+    <MudTh>Dernière remontée</MudTh>
+    <MudTh>Actions</MudTh>
+</HeaderContent>
                 </HeaderContent>
 
                 <RowTemplate>
                     <MudTd DataLabel="ID">@context.Id</MudTd>
+
                     <MudTd DataLabel="Numéro">@context.Numero</MudTd>
+
                     <MudTd DataLabel="Adresse MAC">@context.MacAdress</MudTd>
-                    <MudTd DataLabel="Connecté">
-                        @if (context.IsConnected)
+
+                    <MudTd DataLabel="État">
+                        @if (IsOnline(context))
                         {
                             <MudChip T="string" Color="Color.Success" Variant="Variant.Filled" Size="Size.Small">
                                 Connecté
@@ -57,13 +79,57 @@
                             </MudChip>
                         }
                     </MudTd>
-                    <MudTd DataLabel="Salle">@GetNomSalle(context.SalleId)</MudTd>
+
+                    <MudTd DataLabel="Salle">
+                        @(context.SalleNom ?? GetNomSalle(context.SalleId))
+                    </MudTd>
+
+                    <MudTd DataLabel="Établissement">
+                        @(context.EtablissementNom ?? "-")
+                    </MudTd>
+
+                    <MudTd DataLabel="Nom machine">
+                        @(context.NomMachine ?? "-")
+                    </MudTd>
+
+                    <MudTd DataLabel="IP">
+                        @(context.AdresseIP ?? "-")
+                    </MudTd>
+
+                    <MudTd DataLabel="OS">
+                        @(context.OsVersion ?? "-")
+                    </MudTd>
+
+                    <MudTd DataLabel="RAM">
+                        @FormatRam(context)
+                    </MudTd>
+
+                    <MudTd DataLabel="Disque">
+                        @FormatDisk(context)
+                    </MudTd>
+
+                    <MudTd DataLabel="Dernière remontée">
+                        @(context.LastSeen?.ToString("dd/MM/yyyy HH:mm:ss") ?? "-")
+                    </MudTd>
+
                     <MudTd DataLabel="Actions">
+                        @if (IsAdmin)
+                        {
+                            <MudButton Color="Color.Secondary"
+                                       Variant="Variant.Outlined"
+                                       Size="Size.Small"
+                                       Class="mr-2"
+                                       OnClick="@(() => RefreshSelectedPoste(context.Id))">
+                                Actualiser
+                            </MudButton>
+                        }
+
                         @if (CanEdit)
                         {
                             <MudButton Color="Color.Primary"
                                        Variant="Variant.Outlined"
                                        Size="Size.Small"
+                                       Class="mr-2"
                                        OnClick="@(() => OpenUpdateDialog(context.Id))">
                                 Modifier
                             </MudButton>
@@ -152,7 +218,69 @@
             Snackbar.Add(ex.Message, Severity.Error);
         }
     }
+    private bool IsOnline(Poste p)
+    {
+        return p.LastSeen.HasValue &&
+               p.LastSeen.Value >= DateTime.Now.AddMinutes(-3);
+    }
 
+    private string FormatRam(Poste p)
+    {
+        if (p.RamDisponibleMb.HasValue && p.RamTotaleMb.HasValue)
+        {
+            return $"{p.RamDisponibleMb.Value:F0} / {p.RamTotaleMb.Value:F0} MB";
+        }
+
+        return "-";
+    }
+
+    private string FormatDisk(Poste p)
+    {
+        if (p.DisqueLibreGb.HasValue && p.DisqueTotalGb.HasValue)
+        {
+            return $"{p.DisqueLibreGb.Value:F1} / {p.DisqueTotalGb.Value:F1} GB";
+        }
+
+        return "-";
+    }
+
+    private async Task RefreshSelectedPoste(int posteId)
+    {
+        if (!IsAdmin)
+        {
+            Snackbar.Add("Seul l'administrateur peut lancer cette opération.", Severity.Warning);
+            return;
+        }
+
+        try
+        {
+            await CommandeService.RefreshOnePoste(posteId);
+            Snackbar.Add("Commande envoyée au poste sélectionné.", Severity.Success);
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add("Erreur : " + ex.Message, Severity.Error);
+        }
+    }
+
+    private async Task RefreshAllPostes()
+    {
+        if (!IsAdmin)
+        {
+            Snackbar.Add("Seul l'administrateur peut lancer cette opération.", Severity.Warning);
+            return;
+        }
+
+        try
+        {
+            await CommandeService.RefreshAllPostes();
+            Snackbar.Add("Commande globale envoyée à tous les postes.", Severity.Success);
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add("Erreur : " + ex.Message, Severity.Error);
+        }
+    }
     private async Task UpdatePoste()
     {
         if (string.IsNullOrWhiteSpace(poste.Numero))
@@ -187,21 +315,21 @@
 
     private async Task DeletePoste(int posteId)
     {
+        if (!IsAdmin)
+        {
+            Snackbar.Add("Seul l'administrateur peut supprimer.", Severity.Warning);
+            return;
+        }
+
         try
         {
             await PosteService.DeletePoste(posteId);
             posteList = await PosteService.GetAllPoste();
             Snackbar.Add("Poste supprimé avec succès.", Severity.Success);
         }
-
         catch (Exception ex)
         {
             Snackbar.Add(ex.Message, Severity.Error);
-        }
-        if (!IsAdmin)
-        {
-            Snackbar.Add("Seul l'administrateur peut supprimer.", Severity.Warning);
-            return;
         }
     }
 

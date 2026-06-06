@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\wwwroot\\logo_edupark_it.png",
+      "PackagePath": "staticwebassets\\logo_edupark_it.png"
+    },
+    {
       "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.`PR3-Blazor-Mud.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },

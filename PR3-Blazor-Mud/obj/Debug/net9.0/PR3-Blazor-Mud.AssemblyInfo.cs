@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("`PR3-Blazor-Mud")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c7376cd6c7fa6b7c3b7e73395d046c850b60a5e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+df923f7b0f27238c9680326904b76f330933ffbb")]
 [assembly: System.Reflection.AssemblyProductAttribute("`PR3-Blazor-Mud")]
 [assembly: System.Reflection.AssemblyTitleAttribute("`PR3-Blazor-Mud")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
