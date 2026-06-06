@@ -2,23 +2,97 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp1.PostePage"
-             Title="PostePage">
-    
+             Title="Postes">
+
     <ScrollView>
-        <StackLayout>
-            <Label Text="Liste des Parcs Informatiques" 
-            FontSize="Large" 
-            HorizontalOptions="Center" 
-            Margin="10" />
-            <ListView x:Name="MyListView" 
-               ItemsSource="{Binding postes}"
-               ItemSelected="OnItemSelected">
-                <ListView.ItemTemplate>
+        <VerticalStackLayout Padding="15" Spacing="15">
+
+            <Label Text="Liste des parcs informatiques"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+
+            <Button Text="Actualiser tous les postes"
+                    BackgroundColor="#2563EB"
+                    TextColor="White"
+                    CornerRadius="10"
+                    HeightRequest="45"
+                    Clicked="OnRefreshAllClicked" />
+
+            <Button Text="Recharger la liste"
+                    BackgroundColor="#0EA5E9"
+                    TextColor="White"
+                    CornerRadius="10"
+                    HeightRequest="45"
+                    Clicked="OnReloadClicked" />
+
+            <CollectionView x:Name="PostesCollectionView"
+                            ItemsSource="{Binding Postes}"
+                            SelectionMode="None">
+
+                <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding Numero}" />
+                        <Frame Margin="0,8"
+                               Padding="15"
+                               CornerRadius="15"
+                               BorderColor="#E5E7EB"
+                               BackgroundColor="White"
+                               HasShadow="True">
+
+                            <VerticalStackLayout Spacing="7">
+
+                                <Label Text="{Binding Numero}"
+                                       FontSize="20"
+                                       FontAttributes="Bold"
+                                       TextColor="#111827" />
+
+                                <Label Text="{Binding MacAdress, StringFormat='MAC : {0}'}"
+                                       TextColor="#374151" />
+
+                                <Label Text="{Binding SalleNom, StringFormat='Salle : {0}'}"
+                                       TextColor="#374151" />
+
+                                <Label Text="{Binding EtablissementNom, StringFormat='Établissement : {0}'}"
+                                       TextColor="#374151" />
+
+                                <Label Text="{Binding NomMachine, StringFormat='Nom machine : {0}'}"
+                                       TextColor="#374151" />
+
+                                <Label Text="{Binding AdresseIP, StringFormat='IP : {0}'}"
+                                       TextColor="#374151" />
+
+                                <Label Text="{Binding OsVersion, StringFormat='OS : {0}'}"
+                                       TextColor="#374151" />
+
+                                <Label Text="{Binding RamDisponibleMb, StringFormat='RAM disponible : {0:F0} MB'}"
+                                       TextColor="#374151" />
+
+                                <Label Text="{Binding RamTotaleMb, StringFormat='RAM totale : {0:F0} MB'}"
+                                       TextColor="#374151" />
+
+                                <Label Text="{Binding DisqueLibreGb, StringFormat='Disque libre : {0:F1} GB'}"
+                                       TextColor="#374151" />
+
+                                <Label Text="{Binding DisqueTotalGb, StringFormat='Disque total : {0:F1} GB'}"
+                                       TextColor="#374151" />
+
+                                <Label Text="{Binding LastSeen, StringFormat='Dernière remontée : {0:dd/MM/yyyy HH:mm:ss}'}"
+                                       TextColor="#6B7280" />
+
+                                <Button Text="Actualiser ce poste"
+                                        BackgroundColor="#10B981"
+                                        TextColor="White"
+                                        CornerRadius="10"
+                                        HeightRequest="42"
+                                        CommandParameter="{Binding Id}"
+                                        Clicked="OnRefreshOneClicked" />
+
+                            </VerticalStackLayout>
+                        </Frame>
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
