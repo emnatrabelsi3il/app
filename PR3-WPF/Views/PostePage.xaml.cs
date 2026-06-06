@@ -20,6 +20,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
+using System.Windows;
 
 namespace PR3_WPF.Views
 {
@@ -39,7 +43,7 @@ namespace PR3_WPF.Views
             InitializeComponent();
             Postes = new ObservableCollection<Poste>();
 
-            posteListView.ItemsSource = Postes;
+            PostesListView.ItemsSource = Postes;
 
             LoadDataFromApi();
         }
@@ -98,6 +102,101 @@ namespace PR3_WPF.Views
             catch (Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}");
+            }
+        }
+        private async void RefreshSelectedPoste_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedPoste = PostesListView.SelectedItem as Poste;
+
+            if (selectedPoste == null)
+            {
+                MessageBox.Show("Veuillez sélectionner un poste.");
+                return;
+            }
+
+            await SendRefreshCommandForOnePoste(selectedPoste.Id);
+        }
+
+        private async void RefreshAllPostes_Click(object sender, RoutedEventArgs e)
+        {
+            var result = MessageBox.Show(
+                "Voulez-vous vraiment actualiser les informations de tous les postes ?",
+                "Confirmation",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question
+            );
+
+            if (result != MessageBoxResult.Yes)
+            {
+                return;
+            }
+
+            await SendRefreshCommandForAllPostes();
+        }
+
+        private async Task SendRefreshCommandForOnePoste(int posteId)
+        {
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    var token = _authService.ReadToken();
+
+                    client.DefaultRequestHeaders.Authorization =
+                        new AuthenticationHeaderValue("Bearer", token);
+
+                    var response = await client.PostAsync(
+                        "https://localhost:7011/api/Commandes/poste/" + posteId + "/refresh",
+                        null
+                    );
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show("Commande envoyée au poste sélectionné.");
+                    }
+                    else
+                    {
+                        var error = await response.Content.ReadAsStringAsync();
+                        MessageBox.Show("Erreur : " + error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur lors de l'envoi de la commande : " + ex.Message);
+            }
+        }
+
+        private async Task SendRefreshCommandForAllPostes()
+        {
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    var token = _authService.ReadToken();
+
+                    client.DefaultRequestHeaders.Authorization =
+                        new AuthenticationHeaderValue("Bearer", token);
+
+                    var response = await client.PostAsync(
+                        "https://localhost:7011/api/Commandes/global/refresh",
+                        null
+                    );
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show("Commande globale envoyée à tous les postes.");
+                    }
+                    else
+                    {
+                        var error = await response.Content.ReadAsStringAsync();
+                        MessageBox.Show("Erreur : " + error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur lors de l'envoi de la commande globale : " + ex.Message);
             }
         }
 

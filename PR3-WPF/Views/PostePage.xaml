@@ -20,17 +20,50 @@
         </Grid>
 
         <Grid Margin="0,0,0,0" Grid.Row="1">
-            <ListView x:Name="posteListView">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="Numéro" DisplayMemberBinding="{Binding Numero}" Width="120"/>
-                        <GridViewColumn Header="Adresse MAC" DisplayMemberBinding="{Binding MacAdress}" Width="180"/>
-                        <GridViewColumn Header="Salle" DisplayMemberBinding="{Binding SalleNom}" Width="150"/>
-                        <GridViewColumn Header="Établissement" DisplayMemberBinding="{Binding EtablissementNom}" Width="180"/>
-                        
-                    </GridView>
-                </ListView.View>
-            </ListView>
+            <StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <Button Content="Actualiser le poste sélectionné"
+                Width="220"
+                Height="35"
+                Margin="0,0,10,0"
+                Click="RefreshSelectedPoste_Click"/>
+
+                    <Button Content="Actualiser tous les postes"
+                Width="200"
+                Height="35"
+                Click="RefreshAllPostes_Click"/>
+                </StackPanel>
+
+                <ListView x:Name="PostesListView"
+              ScrollViewer.HorizontalScrollBarVisibility="Auto"
+              ScrollViewer.VerticalScrollBarVisibility="Auto">
+
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Numéro" DisplayMemberBinding="{Binding Numero}" Width="120"/>
+                            <GridViewColumn Header="Adresse MAC" DisplayMemberBinding="{Binding MacAdress}" Width="180"/>
+                            <GridViewColumn Header="Salle" DisplayMemberBinding="{Binding SalleNom}" Width="150"/>
+                            <GridViewColumn Header="Établissement" DisplayMemberBinding="{Binding EtablissementNom}" Width="180"/>
+
+                            <GridViewColumn Header="Nom machine" DisplayMemberBinding="{Binding NomMachine}" Width="150"/>
+                            <GridViewColumn Header="Adresse IP" DisplayMemberBinding="{Binding AdresseIP}" Width="130"/>
+                            <GridViewColumn Header="Système" DisplayMemberBinding="{Binding OsVersion}" Width="220"/>
+
+                            <GridViewColumn Header="RAM libre (MB)" DisplayMemberBinding="{Binding RamDisponibleMb, StringFormat={}{0:F0}}" Width="120"/>
+                            <GridViewColumn Header="RAM totale (MB)" DisplayMemberBinding="{Binding RamTotaleMb, StringFormat={}{0:F0}}" Width="120"/>
+
+                            <GridViewColumn Header="Disque libre (GB)" DisplayMemberBinding="{Binding DisqueLibreGb, StringFormat={}{0:F1}}" Width="130"/>
+                            <GridViewColumn Header="Disque total (GB)" DisplayMemberBinding="{Binding DisqueTotalGb, StringFormat={}{0:F1}}" Width="130"/>
+
+                            <GridViewColumn Header="Dernière remontée" DisplayMemberBinding="{Binding LastSeen, StringFormat={}{0:dd/MM/yyyy HH:mm:ss}}" Width="170"/>
+                            <GridViewColumn Header="Connecté" DisplayMemberBinding="{Binding IsConnected}" Width="90"/>
+                        </GridView>
+                    </ListView.View>
+
+                </ListView>
+
+            </StackPanel>
         </Grid>
     </Grid>
 </Page>
