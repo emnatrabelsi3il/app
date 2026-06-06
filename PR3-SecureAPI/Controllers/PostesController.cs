@@ -49,7 +49,7 @@ namespace PR3_SecureAPI.Controllers
             {
                 return NotFound();
             }
-            poste.IsConnected = true; 
+            poste.IsConnected = poste.LastSeen != null; 
 
             // Save changes to the database
             await _context.SaveChangesAsync();
@@ -150,7 +150,15 @@ namespace PR3_SecureAPI.Controllers
                     p.IsConnected,
 
                     SalleNom = s.Numero, // test
-                    EtablissementNom = e.Nom
+                    EtablissementNom = e.Nom,
+                    NomMachine = p.NomMachine,
+                    AdresseIP = p.AdresseIP,
+                    OsVersion = p.OsVersion,
+                    RamDisponibleMb = p.RamDisponibleMb,
+                    RamTotaleMb = p.RamTotaleMb,
+                    DisqueTotalGb = p.DisqueTotalGb,
+                    DisqueLibreGb = p.DisqueLibreGb,
+                    LastSeen = p.LastSeen
                 }
             ).ToListAsync();
 
@@ -159,6 +167,52 @@ namespace PR3_SecureAPI.Controllers
         private bool PosteExists(int id)
         {
             return _context.Poste.Any(e => e.Id == id);
+        }
+
+        [AllowAnonymous]
+        [HttpPost("heartbeat")]
+        public async Task<IActionResult> Heartbeat([FromBody] AgentHeartbeatDto dto)
+        {
+            if (dto == null || string.IsNullOrWhiteSpace(dto.MacAdress))
+            {
+                return BadRequest("Adresse MAC obligatoire.");
+            }
+
+            var poste = await _context.Poste
+                .FirstOrDefaultAsync(p => p.MacAdress == dto.MacAdress);
+
+            if (poste == null)
+            {
+                poste = new Poste
+                {
+                    Numero = dto.Numero,
+                    MacAdress = dto.MacAdress,
+                    SalleId = 1,
+                    IsConnected = true
+                };
+
+                _context.Poste.Add(poste);
+            }
+
+            poste.IsConnected = poste.LastSeen != null && poste.LastSeen >= DateTime.Now.AddMinutes(-3);
+            poste.LastSeen = DateTime.Now;
+            poste.NomMachine = dto.NomMachine;
+            poste.AdresseIP = dto.AdresseIP;
+            poste.OsVersion = dto.OsVersion;
+            poste.RamDisponibleMb = dto.RamDisponibleMb;
+            poste.RamTotaleMb = dto.RamTotaleMb;
+            poste.DisqueTotalGb = dto.DisqueTotalGb;
+            poste.DisqueLibreGb = dto.DisqueLibreGb;
+
+            await _context.SaveChangesAsync();
+
+            return Ok(new
+            {
+                message = "Informations du poste remontées avec succès.",
+                poste.Id,
+                poste.Numero,
+                poste.LastSeen
+            });
         }
     }
 }

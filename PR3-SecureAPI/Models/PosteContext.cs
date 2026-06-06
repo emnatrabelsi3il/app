@@ -9,7 +9,7 @@ namespace PR3_SecureAPI.Models
         }
         public DbSet<Salle> Salle { get; set; }
         public DbSet<Etablissement> Etablissement { get; set; }
-        
+        public DbSet<CommandePoste> CommandesPostes { get; set; }
 
         public DbSet<Poste> Poste { get; set; } = null!;
     }

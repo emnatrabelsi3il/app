@@ -1,5 +1,78 @@
 [
   {
+    "ContainingType": "PR3_SecureAPI.Controllers.CommandesController",
+    "Method": "GetCommandes",
+    "RelativePath": "api/Commandes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PR3_SecureAPI.Controllers.CommandesController",
+    "Method": "CompleteCommand",
+    "RelativePath": "api/Commandes/{id}/complete",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "PR3_SecureAPI.Models.CompleteCommandeDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PR3_SecureAPI.Controllers.CommandesController",
+    "Method": "RefreshAllPostes",
+    "RelativePath": "api/Commandes/global/refresh",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PR3_SecureAPI.Controllers.CommandesController",
+    "Method": "GetPendingCommands",
+    "RelativePath": "api/Commandes/pending/{macAdress}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "macAdress",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PR3_SecureAPI.Controllers.CommandesController",
+    "Method": "RefreshOnePoste",
+    "RelativePath": "api/Commandes/poste/{posteId}/refresh",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "posteId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "PR3_SecureAPI.Controllers.EtablissementsController",
     "Method": "GetEtablissement",
     "RelativePath": "api/Etablissements",
@@ -373,6 +446,22 @@
       {
         "Name": "macAdress",
         "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PR3_SecureAPI.Controllers.PostesController",
+    "Method": "Heartbeat",
+    "RelativePath": "api/Postes/heartbeat",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "PR3_SecureAPI.Models.AgentHeartbeatDto",
         "IsRequired": true
       }
     ],

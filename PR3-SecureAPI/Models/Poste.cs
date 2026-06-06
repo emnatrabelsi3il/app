@@ -11,7 +11,22 @@
         public long SalleId { get; set; }
 
         public bool IsConnected { get; set; }
-        
-     
+        public string? NomMachine { get; set; }
+
+        public string? AdresseIP { get; set; }
+
+        public string? OsVersion { get; set; }
+
+        public double? RamDisponibleMb { get; set; }
+
+        public double? RamTotaleMb { get; set; }
+
+        public double? DisqueTotalGb { get; set; }
+
+        public double? DisqueLibreGb { get; set; }
+
+        public DateTime? LastSeen { get; set; }
     }
+
+
 }

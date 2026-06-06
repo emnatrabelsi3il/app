@@ -19,6 +19,117 @@
         }
       }
     },
+    "/api/Commandes/poste/{posteId}/refresh": {
+      "post": {
+        "tags": [
+          "Commandes"
+        ],
+        "parameters": [
+          {
+            "name": "posteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Commandes/global/refresh": {
+      "post": {
+        "tags": [
+          "Commandes"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Commandes/pending/{macAdress}": {
+      "get": {
+        "tags": [
+          "Commandes"
+        ],
+        "parameters": [
+          {
+            "name": "macAdress",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Commandes/{id}/complete": {
+      "post": {
+        "tags": [
+          "Commandes"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompleteCommandeDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompleteCommandeDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompleteCommandeDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Commandes": {
+      "get": {
+        "tags": [
+          "Commandes"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/Etablissements": {
       "get": {
         "tags": [
@@ -647,6 +758,37 @@
         }
       }
     },
+    "/api/Postes/heartbeat": {
+      "post": {
+        "tags": [
+          "Postes"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentHeartbeatDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentHeartbeatDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AgentHeartbeatDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/api/Salles": {
       "get": {
         "tags": [
@@ -1092,6 +1234,61 @@
   },
   "components": {
     "schemas": {
+      "AgentHeartbeatDto": {
+        "type": "object",
+        "properties": {
+          "numero": {
+            "type": "string",
+            "nullable": true
+          },
+          "macAdress": {
+            "type": "string",
+            "nullable": true
+          },
+          "nomMachine": {
+            "type": "string",
+            "nullable": true
+          },
+          "adresseIP": {
+            "type": "string",
+            "nullable": true
+          },
+          "osVersion": {
+            "type": "string",
+            "nullable": true
+          },
+          "ramDisponibleMb": {
+            "type": "number",
+            "format": "double"
+          },
+          "ramTotaleMb": {
+            "type": "number",
+            "format": "double"
+          },
+          "disqueTotalGb": {
+            "type": "number",
+            "format": "double"
+          },
+          "disqueLibreGb": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompleteCommandeDto": {
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "resultat": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "DateOnly": {
         "type": "object",
         "properties": {
@@ -1218,6 +1415,43 @@
           },
           "isConnected": {
             "type": "boolean"
+          },
+          "nomMachine": {
+            "type": "string",
+            "nullable": true
+          },
+          "adresseIP": {
+            "type": "string",
+            "nullable": true
+          },
+          "osVersion": {
+            "type": "string",
+            "nullable": true
+          },
+          "ramDisponibleMb": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "ramTotaleMb": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "disqueTotalGb": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "disqueLibreGb": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "lastSeen": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
           }
         },
         "additionalProperties": false
