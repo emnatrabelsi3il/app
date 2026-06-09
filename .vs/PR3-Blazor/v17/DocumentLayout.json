@@ -117,17 +117,8 @@
           "SelectedChildIndex": 6,
           "Children": [
             {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AccessDenied.razor",
-              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\Account\\AccessDenied.razor",
-              "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Pages\\Account\\AccessDenied.razor",
-              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\Account\\AccessDenied.razor",
-              "RelativeToolTip": "PR3-Blazor\\Components\\Pages\\Account\\AccessDenied.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-20T16:52:53.953Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
               "$type": "Document",
@@ -139,8 +130,7 @@
               "RelativeToolTip": "PR3-Blazor\\Components\\Pages\\SallePage.razor",
               "ViewState": "AgIAAFIBAAAAAAAAAAAkwF0BAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-08T20:47:02.397Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-08T20:47:02.397Z"
             },
             {
               "$type": "Document",
@@ -152,8 +142,7 @@
               "RelativeToolTip": "PR3-Blazor\\Components\\Pages\\UtilisateurPage.razor",
               "ViewState": "AgIAAKsAAAAAAAAAAAAkwMIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-08T20:47:08.341Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-08T20:47:08.341Z"
             },
             {
               "$type": "Document",
@@ -165,8 +154,7 @@
               "RelativeToolTip": "PR3-Blazor\\Components\\Pages\\PostePage.razor",
               "ViewState": "AgIAAIgAAAAAAAAAAAAkwJ8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-08T20:46:59.585Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-08T20:46:59.585Z"
             },
             {
               "$type": "Document",
@@ -178,8 +166,7 @@
               "RelativeToolTip": "PR3-Blazor\\Components\\Pages\\IncidentPage.razor",
               "ViewState": "AgIAAG0BAAAAAAAAAAAkwIQBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-08T20:46:57.132Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-08T20:46:57.132Z"
             },
             {
               "$type": "Document",
@@ -191,8 +178,7 @@
               "RelativeToolTip": "PR3-Blazor\\Components\\Pages\\Home.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-08T17:56:32.08Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-08T17:56:32.08Z"
             },
             {
               "$type": "Document",
@@ -209,6 +195,18 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AccessDenied.razor",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\Account\\AccessDenied.razor",
+              "RelativeDocumentMoniker": "PR3-Blazor\\Components\\Pages\\Account\\AccessDenied.razor",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Components\\Pages\\Account\\AccessDenied.razor",
+              "RelativeToolTip": "PR3-Blazor\\Components\\Pages\\Account\\AccessDenied.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-20T16:52:53.953Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 7,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor\\Program.cs",
@@ -217,8 +215,7 @@
               "RelativeToolTip": "PR3-Blazor\\Program.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAQwDcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-20T15:59:27.452Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-20T15:59:27.452Z"
             },
             {
               "$type": "Document",
@@ -230,8 +227,7 @@
               "RelativeToolTip": "PR3-Blazor\\PR3-Blazor.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-04-08T19:52:39.473Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-08T19:52:39.473Z"
             },
             {
               "$type": "Document",
@@ -243,8 +239,7 @@
               "RelativeToolTip": "PR3-Blazor\\Components\\_Imports.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-08T20:50:35.752Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-08T20:50:35.752Z"
             },
             {
               "$type": "Document",
@@ -256,8 +251,7 @@
               "RelativeToolTip": "PR3-Blazor\\Components\\Pages\\Account\\Login.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAIBJwFYAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-08T19:57:15.824Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-08T19:57:15.824Z"
             },
             {
               "$type": "Document",
@@ -269,8 +263,7 @@
               "RelativeToolTip": "PR3-Blazor\\Components\\Services\\UtilisateurService.cs",
               "ViewState": "AgIAAEYAAAAAAAAAAAAkwJMAAABtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T17:04:57.412Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T17:04:57.412Z"
             },
             {
               "$type": "Document",
@@ -282,8 +275,7 @@
               "RelativeToolTip": "PR3-Blazor\\Components\\Services\\AuthService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T17:02:12.747Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T17:02:12.747Z"
             },
             {
               "$type": "Document",
@@ -295,8 +287,7 @@
               "RelativeToolTip": "PR3-Blazor\\Components\\Services\\EtablissementService.cs",
               "ViewState": "AgIAACYAAAAAAAAAAAAgwGMAAABtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T17:04:30.874Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T17:04:30.874Z"
             },
             {
               "$type": "Document",
@@ -308,8 +299,7 @@
               "RelativeToolTip": "PR3-Blazor\\Components\\Services\\SalleService.cs",
               "ViewState": "AgIAAD0AAAAAAAAAAAAkwGAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T17:02:53.581Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T17:02:53.581Z"
             },
             {
               "$type": "Document",
@@ -321,8 +311,7 @@
               "RelativeToolTip": "PR3-Blazor\\Components\\Services\\PosteService.cs",
               "ViewState": "AgIAAEMAAAAAAAAAAAAkwGMAAABtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T17:03:12.783Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T17:03:12.783Z"
             },
             {
               "$type": "Document",
@@ -334,8 +323,7 @@
               "RelativeToolTip": "PR3-Blazor\\Components\\Services\\IncidentService.cs",
               "ViewState": "AgIAAEsAAAAAAAAAAAAowGQAAABtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-13T17:03:18.512Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-13T17:03:18.512Z"
             },
             {
               "$type": "Document",
@@ -347,8 +335,7 @@
               "RelativeToolTip": "PR3-Blazor\\wwwroot\\app.css",
               "ViewState": "AgIAAGAAAAAAAAAAAAAqwHQAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-04-14T15:50:46.473Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-14T15:50:46.473Z"
             },
             {
               "$type": "Document",
@@ -360,8 +347,7 @@
               "RelativeToolTip": "PR3-Blazor\\Components\\Routes.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-08T20:29:41.006Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-08T20:29:41.006Z"
             },
             {
               "$type": "Document",
@@ -373,8 +359,7 @@
               "RelativeToolTip": "PR3-Blazor\\Components\\Layout\\EmptyLayout.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-08T18:34:18.637Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-08T18:34:18.637Z"
             },
             {
               "$type": "Document",
@@ -386,8 +371,7 @@
               "RelativeToolTip": "PR3-Blazor\\Components\\Pages\\Error.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-08T20:47:13.008Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-08T20:47:13.008Z"
             },
             {
               "$type": "Document",
@@ -399,8 +383,7 @@
               "RelativeToolTip": "PR3-Blazor\\Components\\Pages\\EditSalle.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-08T20:09:23.653Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-08T20:09:23.653Z"
             },
             {
               "$type": "Document",
@@ -412,8 +395,7 @@
               "RelativeToolTip": "PR3-Blazor\\Components\\Pages\\Account\\Logout.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-08T20:09:36.264Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-08T20:09:36.264Z"
             },
             {
               "$type": "Document",
@@ -425,8 +407,7 @@
               "RelativeToolTip": "PR3-Blazor\\Components\\Layout\\MainLayout.razor",
               "ViewState": "AgIAAAUAAAAAAAAAAAAUwB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-08T18:25:50.578Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-08T18:25:50.578Z"
             },
             {
               "$type": "Document",
@@ -438,8 +419,7 @@
               "RelativeToolTip": "PR3-Blazor\\Components\\Layout\\NavMenu.razor",
               "ViewState": "AgIAACcAAAAAAAAAAAAgwDoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-08T18:05:59.265Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-08T18:05:59.265Z"
             },
             {
               "$type": "Document",
@@ -451,8 +431,7 @@
               "RelativeToolTip": "PR3-Blazor\\Components\\Models\\Etablissement.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-08T18:21:37.087Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-08T18:21:37.087Z"
             }
           ]
         }

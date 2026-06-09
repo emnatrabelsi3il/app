@@ -90,19 +90,71 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 5,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAACEAAAA2AAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "CommandePoste.cs",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Models\\CommandePoste.cs",
+              "RelativeDocumentMoniker": "Components\\Models\\CommandePoste.cs",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Models\\CommandePoste.cs",
+              "RelativeToolTip": "Components\\Models\\CommandePoste.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T00:56:44.595Z",
+              "WhenOpened": "2026-06-06T00:53:56.581Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PosteService.cs",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Services\\PosteService.cs",
+              "RelativeDocumentMoniker": "Components\\Services\\PosteService.cs",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Services\\PosteService.cs",
+              "RelativeToolTip": "Components\\Services\\PosteService.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwB4AAABwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-06T00:52:47.569Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Poste.cs",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Models\\Poste.cs",
+              "RelativeDocumentMoniker": "Components\\Models\\Poste.cs",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Models\\Poste.cs",
+              "RelativeToolTip": "Components\\Models\\Poste.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAA5wCIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-06T00:52:13.991Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "App.razor",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\App.razor",
+              "RelativeDocumentMoniker": "Components\\App.razor",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\App.razor",
+              "RelativeToolTip": "Components\\App.razor",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-06-05T19:45:21.263Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PostePage.razor",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Pages\\PostePage.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\PostePage.razor",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Pages\\PostePage.razor",
+              "RelativeToolTip": "Components\\Pages\\PostePage.razor",
+              "ViewState": "AgIAANEAAAAAAAAAAAAUwNoAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-25T13:20:54.215Z",
               "EditorCaption": ""
             },
             {
@@ -115,64 +167,7 @@
               "RelativeToolTip": "Components\\Services\\CommandeService.cs",
               "ViewState": "AgIAACYAAAAAAAAAAAAkwDYAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T00:55:45.466Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CommandePoste.cs",
-              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Models\\CommandePoste.cs",
-              "RelativeDocumentMoniker": "Components\\Models\\CommandePoste.cs",
-              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Models\\CommandePoste.cs",
-              "RelativeToolTip": "Components\\Models\\CommandePoste.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T00:53:56.581Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "PosteService.cs",
-              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Services\\PosteService.cs",
-              "RelativeDocumentMoniker": "Components\\Services\\PosteService.cs",
-              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Services\\PosteService.cs",
-              "RelativeToolTip": "Components\\Services\\PosteService.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwB4AAABwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T00:52:47.569Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Poste.cs",
-              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Models\\Poste.cs",
-              "RelativeDocumentMoniker": "Components\\Models\\Poste.cs",
-              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Models\\Poste.cs",
-              "RelativeToolTip": "Components\\Models\\Poste.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAA5wCIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-06T00:52:13.991Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "App.razor",
-              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\App.razor",
-              "RelativeDocumentMoniker": "Components\\App.razor",
-              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\App.razor",
-              "RelativeToolTip": "Components\\App.razor",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAoAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-06-05T19:45:21.263Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-06T00:55:45.466Z"
             },
             {
               "$type": "Document",
@@ -188,16 +183,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PostePage.razor",
-              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Pages\\PostePage.razor",
-              "RelativeDocumentMoniker": "Components\\Pages\\PostePage.razor",
-              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Components\\Pages\\PostePage.razor",
-              "RelativeToolTip": "Components\\Pages\\PostePage.razor",
-              "ViewState": "AgIAADgBAAAAAAAAAAAkwEcBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-25T13:20:54.215Z",
-              "EditorCaption": ""
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\Bureau\\projet\\projet\\PR3-Blazor\\PR3-Blazor-Mud\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACEAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-06T00:56:44.595Z"
             },
             {
               "$type": "Document",

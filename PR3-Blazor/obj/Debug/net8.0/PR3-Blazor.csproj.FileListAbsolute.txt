@@ -101,3 +101,4 @@ D:\Bureau\projet\projet\PR3-Blazor\PR3-Blazor\bin\Debug\net8.0\Microsoft.Extensi
 D:\Bureau\projet\projet\PR3-Blazor\PR3-Blazor\bin\Debug\net8.0\Microsoft.Extensions.Localization.dll
 D:\Bureau\projet\projet\PR3-Blazor\PR3-Blazor\bin\Debug\net8.0\Microsoft.Extensions.Localization.Abstractions.dll
 D:\Bureau\projet\projet\PR3-Blazor\PR3-Blazor\bin\Debug\net8.0\MudBlazor.dll
+D:\Bureau\projet\projet\PR3-Blazor\PR3-Blazor\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

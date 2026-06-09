@@ -39,9 +39,66 @@
                     Actualiser tous les postes
                 </MudButton>
             }
+            <MudGrid Class="mb-4">
+
+    <MudItem xs="12" sm="6" md="3">
+        <MudPaper Class="pa-4 rounded-lg" Elevation="3">
+            <MudText Typo="Typo.subtitle2" Color="Color.Secondary">
+                Total postes
+            </MudText>
+            <MudText Typo="Typo.h4" Class="fw-bold">
+                @TotalPostes
+            </MudText>
+        </MudPaper>
+    </MudItem>
+
+    <MudItem xs="12" sm="6" md="3">
+        <MudPaper Class="pa-4 rounded-lg" Elevation="3">
+            <MudText Typo="Typo.subtitle2" Color="Color.Success">
+                Postes connectés
+            </MudText>
+            <MudText Typo="Typo.h4" Class="fw-bold">
+                @PostesConnectes
+            </MudText>
+        </MudPaper>
+    </MudItem>
+
+    <MudItem xs="12" sm="6" md="3">
+        <MudPaper Class="pa-4 rounded-lg" Elevation="3">
+            <MudText Typo="Typo.subtitle2" Color="Color.Error">
+                Postes déconnectés
+            </MudText>
+            <MudText Typo="Typo.h4" Class="fw-bold">
+                @PostesDeconnectes
+            </MudText>
+        </MudPaper>
+    </MudItem>
+
+    <MudItem xs="12" sm="6" md="3">
+        <MudPaper Class="pa-4 rounded-lg" Elevation="3">
+            <MudText Typo="Typo.subtitle2" Color="Color.Warning">
+                Jamais remontés
+            </MudText>
+            <MudText Typo="Typo.h4" Class="fw-bold">
+                @PostesJamaisRemontes
+            </MudText>
+        </MudPaper>
+    </MudItem>
+
+</MudGrid>
+
+<MudPaper Class="pa-4 mb-4 rounded-lg" Elevation="2">
+    <MudText Typo="Typo.subtitle2" Color="Color.Secondary">
+        Dernière remontée détectée
+    </MudText>
+
+    <MudText Typo="Typo.h6">
+        @DerniereRemonteeTexte
+    </MudText>
+</MudPaper>
             <MudTable Items="posteList" Hover="true" Striped="true" Dense="false">
                 <HeaderContent>
-              <HeaderContent>
+              
     <MudTh>ID</MudTh>
     <MudTh>Numéro</MudTh>
     <MudTh>Adresse MAC</MudTh>
@@ -55,7 +112,7 @@
     <MudTh>Disque</MudTh>
     <MudTh>Dernière remontée</MudTh>
     <MudTh>Actions</MudTh>
-</HeaderContent>
+
                 </HeaderContent>
 
                 <RowTemplate>
@@ -150,7 +207,116 @@
         }
     </MudPaper>
 </MudContainer>
+<MudPaper Class="pa-4 mt-6" Elevation="1">
+    <MudText Typo="Typo.h5" GutterBottom="true">
+        Historique des opérations administrateur
+    </MudText>
 
+    <MudText Typo="Typo.body2" Class="mb-4">
+        Cette section permet de suivre les commandes envoyées aux postes et leur état d’exécution.
+    </MudText>
+    <MudButton Color="Color.Primary"
+               Variant="Variant.Outlined"
+               Class="mb-4"
+               StartIcon="@Icons.Material.Filled.Refresh"
+               OnClick="FetchCommandeList">
+        Recharger l'historique
+    </MudButton>
+    @if (commandeList == null)
+    {
+        <MudProgressCircular Indeterminate="true" Color="Color.Primary" />
+        <MudText Class="mt-2">Chargement de l'historique...</MudText>
+    }
+    else if (!commandeList.Any())
+    {
+        <MudAlert Severity="Severity.Info" Variant="Variant.Outlined">
+            Aucune commande n'a encore été envoyée.
+        </MudAlert>
+    }
+    else
+    {
+        <MudTable Items="@commandeList"
+                  Hover="true"
+                  Striped="true"
+                  Dense="true"
+                  HorizontalScrollbar="true"
+                  Breakpoint="Breakpoint.None"
+                  Class="commandes-table">
+
+            <HeaderContent>
+                <MudTh>ID</MudTh>
+                <MudTh>Poste ID</MudTh>
+                <MudTh>MAC</MudTh>
+                <MudTh>Type</MudTh>
+                <MudTh>Portée</MudTh>
+                <MudTh>Statut</MudTh>
+                <MudTh>Date création</MudTh>
+                <MudTh>Date exécution</MudTh>
+                <MudTh>Résultat</MudTh>
+            </HeaderContent>
+
+            <RowTemplate>
+                <MudTd DataLabel="ID">@context.Id</MudTd>
+
+                <MudTd DataLabel="Poste ID">
+                    @(context.PosteId?.ToString() ?? "-")
+                </MudTd>
+
+                <MudTd DataLabel="MAC">@context.MacAdress</MudTd>
+
+                <MudTd DataLabel="Type">@context.TypeCommande</MudTd>
+
+                <MudTd DataLabel="Portée">
+                    @if (context.Portee == "Global")
+                    {
+                        <MudChip T="string" Color="Color.Info" Size="Size.Small" Variant="Variant.Filled">
+                            Global
+                        </MudChip>
+                    }
+                    else
+                    {
+                        <MudChip T="string" Color="Color.Secondary" Size="Size.Small" Variant="Variant.Filled">
+                            Poste
+                        </MudChip>
+                    }
+                </MudTd>
+
+                <MudTd DataLabel="Statut">
+                    @if (context.Statut == "Done")
+                    {
+                        <MudChip T="string" Color="Color.Success" Size="Size.Small" Variant="Variant.Filled">
+                            Terminé
+                        </MudChip>
+                    }
+                    else if (context.Statut == "Pending")
+                    {
+                        <MudChip T="string" Color="Color.Warning" Size="Size.Small" Variant="Variant.Filled">
+                            En attente
+                        </MudChip>
+                    }
+                    else
+                    {
+                        <MudChip T="string" Color="Color.Error" Size="Size.Small" Variant="Variant.Filled">
+                            Échec
+                        </MudChip>
+                    }
+                </MudTd>
+
+                <MudTd DataLabel="Date création">
+                    @context.DateCreation.ToString("dd/MM/yyyy HH:mm:ss")
+                </MudTd>
+
+                <MudTd DataLabel="Date exécution">
+                    @(context.DateExecution?.ToString("dd/MM/yyyy HH:mm:ss") ?? "-")
+                </MudTd>
+
+                <MudTd DataLabel="Résultat">
+                    @(string.IsNullOrWhiteSpace(context.Resultat) ? "-" : context.Resultat)
+                </MudTd>
+            </RowTemplate>
+        </MudTable>
+    }
+</MudPaper>
 <MudDialog @bind-Visible="IsOpen">
     <DialogContent>
         <MudText Typo="Typo.h6" Class="mb-4">Modifier un poste</MudText>
@@ -190,7 +356,7 @@
     private string? CurrentRole;
     private bool IsAdmin => CurrentRole == "admin";
     private bool CanEdit => CurrentRole == "admin" || CurrentRole == "user" || CurrentRole == "etudiant";
-
+    List<CommandePoste>? commandeList;
     
     List<Poste>? posteList;
     List<Salle>? salleList;
@@ -198,13 +364,24 @@
 
     public bool IsOpen { get; set; }
 
-  
+    private async Task FetchCommandeList()
+    {
+        try
+        {
+            commandeList = await CommandeService.GetCommandes();
+        }
+        catch (Exception ex)
+        {
+            Snackbar.Add("Erreur lors du chargement de l'historique : " + ex.Message, Severity.Error);
+        }
+    }
     protected override async Task OnInitializedAsync()
     {
         var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
         CurrentRole = authState.User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value;
 
         await FetchPosteList();
+        await FetchCommandeList();
     }
     private async Task FetchPosteList()
     {
@@ -256,6 +433,7 @@
         {
             await CommandeService.RefreshOnePoste(posteId);
             Snackbar.Add("Commande envoyée au poste sélectionné.", Severity.Success);
+            await FetchCommandeList();
         }
         catch (Exception ex)
         {
@@ -275,6 +453,7 @@
         {
             await CommandeService.RefreshAllPostes();
             Snackbar.Add("Commande globale envoyée à tous les postes.", Severity.Success);
+            await FetchCommandeList();
         }
         catch (Exception ex)
         {
@@ -312,7 +491,23 @@
             Snackbar.Add(ex.Message, Severity.Error);
         }
     }
+    private int TotalPostes => posteList?.Count ?? 0;
 
+    private int PostesConnectes => posteList?.Count(p => IsOnline(p)) ?? 0;
+
+    private int PostesDeconnectes => posteList?.Count(p => !IsOnline(p)) ?? 0;
+
+    private int PostesJamaisRemontes => posteList?.Count(p => !p.LastSeen.HasValue) ?? 0;
+
+    private DateTime? DerniereRemontee =>
+        posteList?
+            .Where(p => p.LastSeen.HasValue)
+            .Max(p => p.LastSeen);
+
+    private string DerniereRemonteeTexte =>
+        DerniereRemontee.HasValue
+            ? DerniereRemontee.Value.ToString("dd/MM/yyyy HH:mm:ss")
+            : "Aucune remontée détectée";
     private async Task DeletePoste(int posteId)
     {
         if (!IsAdmin)
